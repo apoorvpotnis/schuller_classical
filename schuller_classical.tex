@@ -4,11 +4,12 @@
 \PassOptionsToPackage{math-style=ISO, bold-style=ISO, sans-style=italic, nabla=upright, partial=upright, warnings-off={mathtools-colon,mathtools-overbracket}}{unicode-math}
 \usepackage{mathtools}
 \usepackage{microtype}
+\usepackage[newcmbb]{fontsetup}
+% \setmonofont{NewCMMono10-Regular.otf}[ItalicFont=NewCMMono10-Italic.otf, BoldFont=NewCMMono10-Bold.otf, BoldItalicFont=NewCMMono10-BoldOblique.otf]
 \usepackage{imakeidx}
 \makeindex[intoc]
 \usepackage{setspace}
 \usepackage[style=british]{csquotes}
-\usepackage[default, newcmbb]{fontsetup}
 \usepackage{amsthm}
 \theoremstyle{definition}
 \newtheorem{thm}{Theorem}
@@ -42,7 +43,6 @@
 
 \usepackage{embedall}
 \embedfile[desc = bibliography source file]{schuller_classical.bib}
-% \embedfile{schuller_classical.tex}
 
 \usepackage{hyperref}
 \hypersetup{citecolor=red, pdfencoding=auto, psdextra, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller's Lectures on Classical Mechanics}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Schuller's Lectures on Classical Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Classical Mechanics, Differential Geometry, Calculus of Variations, Mathematical Physics, Lecture Notes}}
@@ -67,6 +67,16 @@
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \newcommand{\der}{\operatorname{d\!}{}}
 
+\usepackage{tikz}
+\usetikzlibrary{datavisualization,datavisualization.polar,datavisualization.formats.functions}
+\usetikzlibrary{fpu}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows.meta,bending,positioning}
+
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+
 \title{Schuller's Lectures on Classical Mechanics}
 \author{Frederic Schuller\\Apoorv Potnis}
 \date{\today}
@@ -79,7 +89,9 @@
 	\chapter*{Preface}
 	\hypertarget{Preface}{}
 	\bookmark[dest=Preface]{Preface}
-	These are lecture notes by Apoorv Potnis of the lecture series `\selectlanguage{ngerman}Theoretische Physik 1: Mechanik\selectlanguage{english}' (Theoretical Physics 1: Mechanics), given by \textbf{Prof.\ Frederic Paul Schuller} in 2014 at the \selectlanguage{ngerman}Friedrich-Alexander-Universität Erlangen-Nürnberg\selectlanguage{english}. Prof.\ Schuller discusses classical mechanics in a mathematically rigorous fashion in this course. While the original lecture series is in German, these notes are in English and have been prepared using YouTube's automatic subtitle translation tool. The video lecture series is available at \url{https://www.youtube.com/watch?v=FNJOyxOp3Ik&list=PLPO5pgr_frzTeqa_thbltYjyw8F9ehw7v&index=} and at \url{https://www.fau.tv/clip/id/4301}.
+	These are lecture notes by Apoorv Potnis of the lecture series `\selectlanguage{ngerman}Theoretische Physik 1: Mechanik\selectlanguage{english}' (Theoretical Physics 1: Mechanics), given by \textbf{Prof.\ Frederic Paul Schuller} in 2014 at the \selectlanguage{ngerman}Friedrich-Alexander-Universität Erlangen-Nürnberg\selectlanguage{english}. Prof.\ Schuller discusses classical mechanics in a mathematically rigorous fashion in this course. While the original lecture series is in German, these notes are in English and have been prepared using YouTube's automatic subtitle translation tool. The video lecture series is available at \url{https://youtube.com/playlist?list=PLyIi3L2232Qo5t61tXfoL6vTW2akFQL-n&feature=shared} and at \url{https://www.fau.tv/course/id/272}.
+
+	The source code, updates and corrections to this document can be found on this GitHub repository: \url{https://github.com/apoorvpotnis/schuller_classical}. The source code is embedded in this PDF. Comments and corrections can be mailed at \href{mailto:apoorvpotnis@gmail.com}{\texttt{apoorvpotnis@gmail.com}}.
 	\clearpage
 
 	\hypertarget{Contents}{}
@@ -88,7 +100,97 @@
 
 	\chapter{A Bird's Eye View of Physics}
 
-	What is the goal of physics? According to Prof.\ Schuller, the only goal of physics is to predict the future, no more and no less. What is the goal of theoretical physics? Prof.\ Schuller remembers Wittgenstein to remark that the goal is to say all that can be said clearly. But in order to say things clearly, one needs the language of mathematics. Yet another test.
+	According to Prof.\ Schuller, the only goal of physics is to predict the future, nothing more and nothing less. Prof.\ Schuller then remembers Wittgenstein to remark that the goal of theoretical physics is to say all that can be said clearly. But in order to say things clearly, one needs the language of mathematics.
+
+% 	\begin{figure}[!h]
+% 	    \centering
+% 		\begin{tikzpicture}
+% 				\node[rectangle, draw] (rone) at (0,0) {Sets};
+% 				\node[rectangle, draw] (rtwo) at (0,0.7) {Manifolds};
+% 				\node[rectangle, draw] (rthree) at (0,1.4) {Affine Manifolds};
+% 				\node[rectangle, draw] (rfour) at (0,2.1) {Spacetime};
+% 				\node[rectangle, draw] (rfive) at (0,2.8) {Particles, Forces and Inertial frames};
+% 			\end{tikzpicture}
+% 	\end{figure}
+%
+% 	If we take an atlas of earth and join all the overlapping parts of the individual charts, then we get the globe. Thus, the spherical global structure of earth is encoded in the overlapping regions of the flat charts. We shall understand this when we learn about manifolds.
+%
+% 	\begin{figure}[!h]
+% 	    \centering
+% 		\begin{tikzpicture}
+% 		    \datavisualization[
+% 			scientific polar axes={0 to 2pi, clean},
+% 			all axes={grid},
+% 			angle axis={ticks={step=(pi/4),minor steps between steps=1}},
+% 			radius axis={ticks={minor steps between steps=1}},
+% 			]
+% 		\end{tikzpicture}
+% 	\end{figure}
+
+% 	\begin{table}[htbp]
+% 		\centering
+% 		\begin{tabular}{c|c}
+% 			\toprule
+% 			Value 1 \\
+% 			2 & Value 2 \\
+% 			3 & Value 3 \\
+% 			4 & Value 4 \\
+% 			5 & Value 5 \\
+% 			\bottomrule
+% 		\end{tabular}
+% 		\caption{A Simple Table with 5 Entries}
+% 		\label{tab:my_table}
+% 	\end{table}
+
+	\begin{figure}[!h]
+		\centering
+		\begin{subfigure}[b]{0.4\textwidth}
+			\centering
+			\begin{tikzpicture}[scale=0.6]
+					% Draw concentric circles
+					\foreach \r in {1,2,3,4}{
+						\draw[gray] (0,0) circle (\r);
+					}
+
+					% Draw radial lines
+					\foreach \theta in {0,30,...,330}{
+						\draw[gray] (0,0) -- (\theta:4);
+					}
+
+					% Draw axes
+					\draw[->] (-4,0) -- (4.5,0) node[right] {};
+					\draw[->] (0,-4) -- (0,4.5) node[above] {};
+
+					% Draw vectors
+					\draw[->, ultra thick, red] (3,0) -- (3,2);
+					\draw[->, ultra thick, blue] (0,1) -- (0,3);
+			\end{tikzpicture}
+		\end{subfigure}
+		\qquad
+		\begin{subfigure}[b]{0.4\textwidth}
+			\centering
+			\begin{tikzpicture}[scale=0.6]
+				% Draw concentric circles
+				\foreach \r in {1,2,3,4}{
+					\draw[gray] (0,0) circle (\r);
+				}
+
+				% Draw radial lines
+				\foreach \theta in {0,30,...,330}{
+					\draw[gray] (0,0) -- (\theta:4);
+				}
+
+				% Draw axes
+				\draw[->] (-4,0) -- (4.5,0) node[right] {};
+				\draw[->] (0,-4) -- (0,4.5) node[above] {};
+
+				% Draw vectors
+				\draw[->, ultra thick, red] (3,0) -- (3,2);
+				\draw[->, ultra thick, blue] (0,1) -- (0,3);
+			\end{tikzpicture}
+		\end{subfigure}
+	\end{figure}
+
 
 	\chapter{Topological Manifolds}
 
