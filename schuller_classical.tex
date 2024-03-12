@@ -36,6 +36,40 @@
 		year = {2023},
 		addendum = {Translated from Italian by Simon G.\ Choissi}
 	}
+
+	@book{Tao,
+		author = {Tao, Terence},
+		isbn = {978-93-80250-64-9},
+		title = {Analysis I},
+		publisher = {Hindustan Book Agency, New Delhi},
+		series = {Texts and Readings in Mathematics 37},
+		year = {2017},
+		edition = 3,
+	}
+
+	@book{Misner,
+		author = {Misner, Charles W. and Thorne, Kip S. and Wheeler, John Archibald},
+		isbn = {0-7167-0334-3},
+		publisher = {W.\ H.\ Freeman and Company, San Francisco},
+		title = {Gravitation},
+		year = {1973},
+	}
+
+	@unpublished{Schuller_geometric_notes,
+		author = {Schuller, Frederic and Rea, Simon and Dadhley, Richie},
+		institution = {Friedrich-Alexander-Universität Erlangen-Nürnberg, Institut für Theoretische Physik III},
+		title = {Lectures on the Geometric Anatomy of Theoretical Physics},
+		url = {https://drive.google.com/file/d/1nchF1fRGSY3R3rP1QmjUg7fe28tAS428/view},
+		year = {2017},
+		note = {Lecturer: Prof.\@ Frederic Paul Schuller}
+	}
+
+	@misc{Schuller_geometric_videos,
+		author = {Schuller, Frederic},
+		title = {Lectures on the Geometric Anatomy of Theoretical Physics},
+		url = {https://www.youtube.com/playlist?list=PLPH7f_7ZlzxTi6kS4vCmv4ZKm9u8g5yic},
+		year = {2016}
+	}
 \end{filecontents}
 
 \usepackage[sorting=none]{biblatex}
@@ -72,8 +106,10 @@
 \usetikzlibrary{fpu}
 \usetikzlibrary{calc}
 \usetikzlibrary{arrows.meta,bending,positioning}
+\usetikzlibrary{3d}
 
 \usepackage{booktabs}
+\usepackage{array}
 \usepackage{caption}
 \usepackage{subcaption}
 
@@ -91,7 +127,7 @@
 	\bookmark[dest=Preface]{Preface}
 	These are lecture notes by Apoorv Potnis of the lecture series `\selectlanguage{ngerman}Theoretische Physik 1: Mechanik\selectlanguage{english}' (Theoretical Physics 1: Mechanics), given by \textbf{Prof.\ Frederic Paul Schuller} in 2014 at the \selectlanguage{ngerman}Friedrich-Alexander-Universität Erlangen-Nürnberg\selectlanguage{english}. Prof.\ Schuller discusses classical mechanics in a mathematically rigorous fashion in this course. While the original lecture series is in German, these notes are in English and have been prepared using YouTube's automatic subtitle translation tool. The video lecture series is available at \url{https://youtube.com/playlist?list=PLyIi3L2232Qo5t61tXfoL6vTW2akFQL-n&feature=shared} and at \url{https://www.fau.tv/course/id/272}.
 
-	The source code, updates and corrections to this document can be found on this GitHub repository: \url{https://github.com/apoorvpotnis/schuller_classical}. The source code is embedded in this PDF. Comments and corrections can be mailed at \href{mailto:apoorvpotnis@gmail.com}{\texttt{apoorvpotnis@gmail.com}}.
+	The source code, updates and corrections to this document can be found on this GitHub repository: \url{https://github.com/apoorvpotnis/schuller_classical}. The source code is embedded in this \textsc{pdf}. Comments and corrections can be mailed at \href{mailto:apoorvpotnis@gmail.com}{\texttt{apoorvpotnis@gmail.com}}.
 	\clearpage
 
 	\hypertarget{Contents}{}
@@ -100,74 +136,69 @@
 
 	\chapter{A Bird's Eye View of Physics}
 
-	According to Prof.\ Schuller, the only goal of physics is to predict the future, nothing more and nothing less. Prof.\ Schuller then remembers Wittgenstein to remark that the goal of theoretical physics is to say all that can be said clearly. But in order to say things clearly, one needs the language of mathematics.
+	\section{Introduction}
 
-% 	\begin{figure}[!h]
-% 	    \centering
-% 		\begin{tikzpicture}
-% 				\node[rectangle, draw] (rone) at (0,0) {Sets};
-% 				\node[rectangle, draw] (rtwo) at (0,0.7) {Manifolds};
-% 				\node[rectangle, draw] (rthree) at (0,1.4) {Affine Manifolds};
-% 				\node[rectangle, draw] (rfour) at (0,2.1) {Spacetime};
-% 				\node[rectangle, draw] (rfive) at (0,2.8) {Particles, Forces and Inertial frames};
-% 			\end{tikzpicture}
-% 	\end{figure}
-%
-% 	If we take an atlas of earth and join all the overlapping parts of the individual charts, then we get the globe. Thus, the spherical global structure of earth is encoded in the overlapping regions of the flat charts. We shall understand this when we learn about manifolds.
-%
-% 	\begin{figure}[!h]
-% 	    \centering
-% 		\begin{tikzpicture}
-% 		    \datavisualization[
-% 			scientific polar axes={0 to 2pi, clean},
-% 			all axes={grid},
-% 			angle axis={ticks={step=(pi/4),minor steps between steps=1}},
-% 			radius axis={ticks={minor steps between steps=1}},
-% 			]
-% 		\end{tikzpicture}
-% 	\end{figure}
+	According to Prof.\ Schuller, the only goal of physics is to predict the future, nothing more and nothing less. He then invokes Wittgenstein to remark that the goal of theoretical physics is to say all that can be said clearly. But in order to say things clearly, one needs the language of mathematics. He then remembers Hilbert who said experimental physics and theoretical physics have nothing to do with each other. Roughly speaking, experimental physics and theoretical physics are Siamese twins, according to Prof.\ Schuller.
 
-% 	\begin{table}[htbp]
-% 		\centering
-% 		\begin{tabular}{c|c}
-% 			\toprule
-% 			Value 1 \\
-% 			2 & Value 2 \\
-% 			3 & Value 3 \\
-% 			4 & Value 4 \\
-% 			5 & Value 5 \\
-% 			\bottomrule
-% 		\end{tabular}
-% 		\caption{A Simple Table with 5 Entries}
-% 		\label{tab:my_table}
-% 	\end{table}
+	We all learn about Newton's laws in school, but we need to properly define the terms used in the laws, such as `mass', `absolute time', `absolute space', etc. We formulate Newton's laws in the following way:
+	\begin{enumerate}
+		\item In an \textit{inertial system}, a \textit{body} on which no \textit{force} acts \textit{moves uniformly} and \textit{linearly}.
+		\item In an inertial system, the \textit{deviation} of a body from a uniform linear motion is proportional to the force acting on it.
+		\item \textit{Interaction} between bodies takes place through equal and opposite forces.
+	\end{enumerate}
+	He then asks whether the second law contains the first law: can we take the force acting on a body to be zero and obtain the first law from the second? The answer is negative. The first law defines what we mean by `straight lines'. It defines `uniform' and `linear motion' for us. The motion of particles on which no force acts furnish a system of straight lines in space; they define the geometry of space. We  can hit a puck with a hockey stick on a flat frictionless surface of ice and the motion of the puck shall give us straight lines on the flat surface. If we imagine earth to be perfectly spherical and made of frictionless ice, then a small puck launched along the surface shall define `straight lines' on the surface of earth. Only an external observer, such as one sitting in the International Space Station shall observe the circular motion of the puck along the earth's surface. Thus, we were were in a spaceship in empty space, then we could launch some sand particles from our hand to define `straight lines' for us. But there's a problem, in the real world, contrary to the assumption in the first law, there are always other bodies which exert gravitational forces on each other. We shall get out of this trouble by not considering gravitation as a force! Thus, we can always assume the existence of particles (chargeless, spinless, etc.)
 
-	\begin{figure}[!h]
+	\section{Course structure}
+
+	\begin{center}
+		\begin{tabular}{|c|}
+		    \hline
+			Gravitation\\
+			\hline
+			Newton's laws\\
+			\hline
+			Particles, forces and inertial frames\\
+			\hline
+			Spacetime\\
+			\hline
+			Affine manifolds\\
+			\hline
+			Manifolds\\
+			\hline
+			Set theory\\
+			\hline
+		\end{tabular}
+	\end{center}
+
+	In order to properly state the physical laws and derive their consequences, we need to develop a fair amount of mathematical machinery, which shall occupy a significant duration of this course.
+
+	The naive idea of set theory that we have from school encounters problems when we try to work with infinite sets. We don't discuss axiomatic set theory in this course. The reader is requested to look at first three lectures of Prof.\ Schuller's \textit{Lectures on the Geometric Anatomy of Theoretical Physics} course for a discussion of the Zermelo--Fraenkel set theory with the axiom of choice (\textsc{zfc})~\cite{Schuller_geometric_videos}. The reader can also take a look at Terence Tao's \textit{Analysis I} for a lucid exposition of \textsc{zfc}~\cite{Tao}.
+
+	Suppose we have an atlas of the world with maps of different regions on different pages. We refer to these maps as charts. These charts are flat, but if we join the charts such that regions common to two charts overlap on each other, we unsurprisingly get the globe of the earth. The global, spherical structure of earth is encoded in the overlapping regions of the charts. This idea shall be used in the study of manifolds.
+
+	Consider the red vector in two-dimensional space, as shown in~\cref{fig:paralleltransporta}. We can parallelly transport it to get the blue vector. The orientation of the vector remains the same while the origin of the vector changes. But how do we define `parallelly' transporting a vector? We may claim that both the blue and red vectors are the `same' as their vector components are equal, and define parallel transport as something which keeps the vector components invariant. But if we switch to polar co-ordinates, as in~\cref{fig:paralleltransportb}, we intuitively/geometrically see that bot the red and blue vectors are the same, but their components in polar co-ordinates are not the same. The answer to this problem shall be revealed when we discuss affine manifolds.
+	\begin{figure}[htb]
 		\centering
-		\begin{subfigure}[b]{0.4\textwidth}
+		\begin{subfigure}[b]{0.41\textwidth}
 			\centering
 			\begin{tikzpicture}[scale=0.6]
-					% Draw concentric circles
-					\foreach \r in {1,2,3,4}{
-						\draw[gray] (0,0) circle (\r);
-					}
 
-					% Draw radial lines
-					\foreach \theta in {0,30,...,330}{
-						\draw[gray] (0,0) -- (\theta:4);
-					}
+				% Draw grid lines
+				\draw[step=1cm,gray] (-4,-4) grid (4,4);
 
-					% Draw axes
-					\draw[->] (-4,0) -- (4.5,0) node[right] {};
-					\draw[->] (0,-4) -- (0,4.5) node[above] {};
+				% Draw axes
+				\draw[->] (-4.2,0) -- (4.5,0) node[right] {};
+				\draw[->] (0,-4.2) -- (0,4.5) node[above] {};
 
-					% Draw vectors
-					\draw[->, ultra thick, red] (3,0) -- (3,2);
-					\draw[->, ultra thick, blue] (0,1) -- (0,3);
+				% Draw vectors
+				\draw[->, ultra thick, red] (3,0) -- (3,2);
+				\draw[->, ultra thick, blue] (0,1) -- (0,3);
 			\end{tikzpicture}
+			\caption{Cartesian co-ordinates}
+			\label{fig:paralleltransporta}
 		\end{subfigure}
 		\qquad
-		\begin{subfigure}[b]{0.4\textwidth}
+		\begin{subfigure}[b]{0.41\textwidth}
 			\centering
 			\begin{tikzpicture}[scale=0.6]
 				% Draw concentric circles
@@ -181,16 +212,40 @@
 				}
 
 				% Draw axes
-				\draw[->] (-4,0) -- (4.5,0) node[right] {};
-				\draw[->] (0,-4) -- (0,4.5) node[above] {};
+				\draw[->] (-4.2,0) -- (4.5,0) node[right] {};
+				\draw[->] (0,-4.2) -- (0,4.5) node[above] {};
 
 				% Draw vectors
 				\draw[->, ultra thick, red] (3,0) -- (3,2);
 				\draw[->, ultra thick, blue] (0,1) -- (0,3);
 			\end{tikzpicture}
+			\caption{Polar co-ordinates}
+			\label{fig:paralleltransportb}
 		\end{subfigure}
+		\captionof{figure}{Parallel transport of vectors}
+		\label{fig:paralleltransport}
+	\end{figure}
+	We need \(n^2(n+1)/2\) co-ordinates in an \(n\)-dimensional space in order to properly define parallel transport. For \(n = 4\), we need 40 components! Suppose we are in an empty universe, with no stars. How do we define rotation? How would we know that we are rotating or not? This was pondered by Newton as well, who said that  the surface of water in a rotating bucket shall appear parabolic. The affine structure on manifolds shall capture the idea needed to define rotation properly.
+
+	We shall discuss spacetime as well when we discuss relativity. It turns out that only certain trajectories are possible for massive particles, namely the trajectories which lie inside a \textit{light cone} (\cref{fig:lightcone}). The angle of the cone is determined by the speed of light. If we take the speed of light to be infinity, the cone becomes a flat plane. Prof.\ Schuller references \textit{Gravitation} by Misner, Thorne and Wheeler for the Newtonian spacetime formulation that he shall discuss~\cite{Misner}.
+
+	\begin{figure}[htb]
+	    \centering
+		\begin{tikzpicture}
+			\def\b{0.2} % semi-minor axis
+			\pgfmathsetmacro{\h}{(1 + sqrt(1 + 4*\b^2)) / 2}
+			\pgfmathsetmacro{\a}{sqrt(\h)}
+			\draw[gray] (-1, -1) -- (1,  1);
+			\draw[gray] (-1,  1) -- (1, -1);
+			\draw[gray] (0,  \h) ellipse [x radius = \a, y radius = \b];
+			\draw[gray] (0, -\h) ellipse [x radius = \a, y radius = \b];
+			\draw[smooth, thick] (-0.3, 1) .. controls (-0.2,0) and (0.2,-0) .. (0.3,-1);
+		\end{tikzpicture}
+		\caption{Light cone}
+		\label{fig:lightcone}
 	\end{figure}
 
+	After covering the above, we move on to the second part of the course. We shall first learn about some calculus of variations to head into a reformulation of Newtonian mechanics, known as Lagrangian mechanics. We shall see many applications of Lagrangian mechanics to physical problems. For example, we shall see that the \textit{configuration space} of the double pendulum to be a torus. After Lagrangian mechanics, we shall learn about yet another reformulation, namely Hamiltonian mechanics, where we shall explore the concept of a \textit{phase space}. We shall also take a look at symmetries, conserved quantities and its applications. If time permits, we shall take a look at some symplectic geometry as well, from which it is easy to find qualitative solutions to many problems. In the last lecture, we shall briefly discuss general relativity.
 
 	\chapter{Topological Manifolds}
 
