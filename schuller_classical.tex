@@ -5,19 +5,19 @@
 \usepackage{mathtools}
 \usepackage{microtype}
 \usepackage[newcmbb]{fontsetup}
-% \setmonofont{NewCMMono10-Regular.otf}[ItalicFont=NewCMMono10-Italic.otf, BoldFont=NewCMMono10-Bold.otf, BoldItalicFont=NewCMMono10-BoldOblique.otf]
-\usepackage{imakeidx}
-\makeindex[intoc]
-\usepackage{setspace}
+
 \usepackage[style=british]{csquotes}
+
 \usepackage{amsthm}
 \theoremstyle{definition}
 \newtheorem{thm}{Theorem}
 \newtheorem{defn}{Definition}
+\newtheorem{exmp}{Example}
+\newtheorem{remark}{Remark}
 
 \begin{filecontents}{schuller_classical.bib}
 	@book{Arnold,
-		author = {Arnold, Vladimir Igorevich},
+		author = {Arnold, Vladimir},
 		edition = 2,
 		isbn = {978-1-4419-3087-3},
 		publisher = {Springer Science+Business New York},
@@ -27,6 +27,16 @@
 		addendum = {Translated from Russian by K.\ Vogtmann and A.\ Weinstein.}
 	}
 
+	@book{Thirring,
+		author = {Thirring, Walter},
+		edition = 3,
+		isbn = {978-0-387-40615-2},
+		publisher = {Springer Science+Business New York},
+		title = {Classical Mathematical Physics},
+		year = {2003},
+		addendum = {Translated from German by Evans M.\ Harrell II.}
+	}
+
 	@book{Moretti,
 		author = {Moretti, Valter},
 		isbn = {978-3-031-27611-8},
@@ -34,7 +44,7 @@
 		series = {\selectlanguage{italian}La Matematica per il 3+2\selectlanguage{english}},
 		title = {Analytical Mechanics: Classical, Lagrangian and Hamiltonian Mechanics, Stability Theory, Special Relativity},
 		year = {2023},
-		addendum = {Translated from Italian by Simon G.\ Choissi}
+		addendum = {Translated from Italian by Simon G.\ Choissi.}
 	}
 
 	@book{Tao,
@@ -70,18 +80,61 @@
 		url = {https://www.youtube.com/playlist?list=PLPH7f_7ZlzxTi6kS4vCmv4ZKm9u8g5yic},
 		year = {2016}
 	}
+
+	@book{Stewart,
+		author = {Stewart, John},
+		title = {Advanced General Relativity},
+		year = {1993},
+		publisher = {Cambridge University Press, Cambridge},
+		isbn = {0-521-32319-3},
+		series = {Cambridge Monographs on Mathematical Physics}
+	}
+
+	@book{Isham,
+		author = {Isham, Chris J.},
+		title = {Modern Differential Geometry for Physicists},
+		edition = 2,
+		publisher = {World Scientific, Singapore},
+		isbn = {981-02-3555-0},
+		year = {2001},
+		series = {World Scientific Lecture Notes in Physics}
+	}
 \end{filecontents}
 
 \usepackage[sorting=none]{biblatex}
 \addbibresource{schuller_classical.bib}
+\usepackage{bibentry}
 
 \usepackage{embedall}
 \embedfile[desc = bibliography source file]{schuller_classical.bib}
+
+\usepackage{imakeidx}
+\makeindex[intoc]
 
 \usepackage{hyperref}
 \hypersetup{citecolor=red, pdfencoding=auto, psdextra, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller's Lectures on Classical Mechanics}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Schuller's Lectures on Classical Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Classical Mechanics, Differential Geometry, Calculus of Variations, Mathematical Physics, Lecture Notes}}
 \usepackage{cleveref, xurl}
 \usepackage[numbered]{bookmark}
+
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{tikz}
+\usetikzlibrary{datavisualization, datavisualization.polar,datavisualization.formats.functions, fpu, calc, arrows.meta, bending, positioning, 3d, quotes, angles, decorations.pathmorphing, backgrounds, fit, babel, hobby, decorations.markings}
+
+\tikzset{%
+	std line width/.style={
+		line width = 0.7pt,
+	},
+	hollow circle/.style={
+		draw, std line width, circle, inner sep=0pt, minimum size=3pt, outer sep=0pt
+	}
+}
+
+\DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\setaux#1}
+\def\setaux#1|{#1\;\delimsize\vert\;}
 
 \newcommand{\ltwo}{\mathup{L\kern-0.5pt^2}}
 \newcommand{\position}{\mathup{Q}}
@@ -90,7 +143,7 @@
 \newcommand{\rr}{\mathbb{R}}
 \newcommand{\cc}{\mathbb{C}}
 \newcommand{\nn}{\mathbb{N}_0}
-\newcommand{\dirac}{\symup{\delta}}
+\newcommand{\dirac}{\mathup{\delta}}
 \renewcommand*{\hbar}{\mathrm{^^^^0127}}
 \renewcommand{\i}{\mathrm{i}}
 \newcommand{\e}{\mathrm{e}}
@@ -100,18 +153,9 @@
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \newcommand{\der}{\operatorname{d\!}{}}
-
-\usepackage{tikz}
-\usetikzlibrary{datavisualization,datavisualization.polar,datavisualization.formats.functions}
-\usetikzlibrary{fpu}
-\usetikzlibrary{calc}
-\usetikzlibrary{arrows.meta,bending,positioning}
-\usetikzlibrary{3d}
-
-\usepackage{booktabs}
-\usepackage{array}
-\usepackage{caption}
-\usepackage{subcaption}
+\newcommand{\emm}{\mathcal{M}}
+\newcommand{\oo}{\mathcal{O}}
+\newcommand{\atlas}{\mathcal{A}}
 
 \title{Schuller's Lectures on Classical Mechanics}
 \author{Frederic Schuller\\Apoorv Potnis}
@@ -138,7 +182,7 @@
 
 	\section{Introduction}
 
-	According to Prof.\ Schuller, the only goal of physics is to predict the future, nothing more and nothing less. He then invokes Wittgenstein to remark that the goal of theoretical physics is to say all that can be said clearly. But in order to say things clearly, one needs the language of mathematics. He then remembers Hilbert who said experimental physics and theoretical physics have nothing to do with each other. Roughly speaking, experimental physics and theoretical physics are Siamese twins, according to Prof.\ Schuller.
+	According to Prof.\ Schuller, the only goal of physics is to predict the future, nothing more and nothing less. He then invokes Wittgenstein to remark that the goal of theoretical physics is to say all that can be said clearly. But in order to say things clearly, one needs the language of mathematics. He then remembers Hilbert, who said experimental physics and theoretical physics have nothing to do with each other. Roughly speaking, experimental physics and theoretical physics are Siamese twins, according to Prof.\ Schuller.
 
 	We all learn about Newton's laws in school, but we need to properly define the terms used in the laws, such as `mass', `absolute time', `absolute space', etc. We formulate Newton's laws in the following way:
 	\begin{enumerate}
@@ -146,7 +190,7 @@
 		\item In an inertial system, the \textit{deviation} of a body from a uniform linear motion is proportional to the force acting on it.
 		\item \textit{Interaction} between bodies takes place through equal and opposite forces.
 	\end{enumerate}
-	He then asks whether the second law contains the first law: can we take the force acting on a body to be zero and obtain the first law from the second? The answer is negative. The first law defines what we mean by `straight lines'. It defines `uniform' and `linear motion' for us. The motion of particles on which no force acts furnish a system of straight lines in space; they define the geometry of space. We  can hit a puck with a hockey stick on a flat frictionless surface of ice and the motion of the puck shall give us straight lines on the flat surface. If we imagine earth to be perfectly spherical and made of frictionless ice, then a small puck launched along the surface shall define `straight lines' on the surface of earth. Only an external observer, such as one sitting in the International Space Station shall observe the circular motion of the puck along the earth's surface. Thus, we were were in a spaceship in empty space, then we could launch some sand particles from our hand to define `straight lines' for us. But there's a problem, in the real world, contrary to the assumption in the first law, there are always other bodies which exert gravitational forces on each other. We shall get out of this trouble by not considering gravitation as a force! Thus, we can always assume the existence of particles (chargeless, spinless, etc.)
+	He then asks whether the second law contains the first law: can we take the force acting on a body to be zero and obtain the first law from the second? The answer is negative. The first law defines what we mean by `straight lines'. It defines `uniform' and `linear motion' for us. The motion of particles on which no force acts furnish a system of straight lines in space; they define the geometry of space. We  can hit a puck with a hockey stick on a flat frictionless surface of ice and the motion of the puck shall give us straight lines on the flat surface. If we imagine earth to be perfectly spherical and made of frictionless ice, then a small puck launched along the surface shall define `straight lines' on the surface of earth. Only an external observer, such as one sitting in the International Space Station shall observe the circular motion of the puck along the earth's surface. Thus, if were in a spaceship in empty space, then we could launch some sand particles from our hand to define `straight lines' for us. But there's a problem, in the real world, contrary to the assumption in the first law, there are always other bodies which exert gravitational forces on each other. We shall get out of this trouble by not considering gravitation as a force! Thus, we can always assume the existence of particles (chargeless, spinless, etc.)
 
 	\section{Course structure}
 
@@ -174,7 +218,7 @@
 
 	The naive idea of set theory that we have from school encounters problems when we try to work with infinite sets. We don't discuss axiomatic set theory in this course. The reader is requested to look at first three lectures of Prof.\ Schuller's \textit{Lectures on the Geometric Anatomy of Theoretical Physics} course for a discussion of the Zermelo--Fraenkel set theory with the axiom of choice (\textsc{zfc})~\cite{Schuller_geometric_videos}. The reader can also take a look at Terence Tao's \textit{Analysis I} for a lucid exposition of \textsc{zfc}~\cite{Tao}.
 
-	Suppose we have an atlas of the world with maps of different regions on different pages. We refer to these maps as charts. These charts are flat, but if we join the charts such that regions common to two charts overlap on each other, we unsurprisingly get the globe of the earth. The global, spherical structure of earth is encoded in the overlapping regions of the charts. This idea shall be used in the study of manifolds.
+	Suppose we have an atlas of the world with maps of different regions on different pages. We refer to these maps as charts. These charts are flat, but if we join the charts such that regions common to two charts overlap on each other, we unsurprisingly get the globe of earth. The global, spherical structure of earth is encoded in the overlapping regions of the charts. This idea shall be used in the study of manifolds.
 
 	Consider the red vector in two-dimensional space, as shown in~\cref{fig:paralleltransporta}. We can parallelly transport it to get the blue vector. The orientation of the vector remains the same while the origin of the vector changes. But how do we define `parallelly' transporting a vector? We may claim that both the blue and red vectors are the `same' as their vector components are equal, and define parallel transport as something which keeps the vector components invariant. But if we switch to polar co-ordinates, as in~\cref{fig:paralleltransportb}, we intuitively/geometrically see that bot the red and blue vectors are the same, but their components in polar co-ordinates are not the same. The answer to this problem shall be revealed when we discuss affine manifolds.
 	\begin{figure}[htb]
@@ -239,7 +283,7 @@
 			\draw[gray] (-1,  1) -- (1, -1);
 			\draw[gray] (0,  \h) ellipse [x radius = \a, y radius = \b];
 			\draw[gray] (0, -\h) ellipse [x radius = \a, y radius = \b];
-			\draw[smooth, thick] (-0.3, 1) .. controls (-0.2,0) and (0.2,-0) .. (0.3,-1);
+			\draw[smooth, std line width] (-0.3, 1) .. controls (-0.2,0) and (0.2,-0) .. (0.3,-1);
 		\end{tikzpicture}
 		\caption{Light cone}
 		\label{fig:lightcone}
@@ -249,11 +293,45 @@
 
 	\chapter{Topological Manifolds}
 
-	\chapter{Differentiable Manifolds}
+	References:
+	\begin{enumerate}
+		\item \fullcite{Stewart}.
+		\item \fullcite{Isham}.
+	\end{enumerate}
 
-	\chapter{Tangent Spaces}
+	\section{Mathematical structure of spacetime}
 
-	\chapter{Tensors and Tensor Fields}
+	Spacetime is a set with some mathematical structure. We shall see some physical motivations for defining the particular mathematical structures we need. In classical physics, we talk about trajectories of particles. We require them to be continuous, i.e.\ a particle cannot disappear and reappear somewhere else magically.\footnote{In reality though, as the world we live in is not classical, particles \textit{can} disappear and appear magically. One encounters this phenomenon when studying quantum field theory.} Thus, a trajectory like the one in~\cref{fig:conttraj} is acceptable while like the one in~\cref{fig:disconttraj} is not.
+	\begin{figure}[htb]
+		\centering
+		\begin{subfigure}[b]{0.4\textwidth}
+			\centering
+			\begin{tikzpicture}[xscale=2, decoration={markings, mark=at position 0.1 with {\arrow{>}}}]
+				\draw[std line width, postaction={decorate}] (0,0) to [out=30, in=180] (1, 1) to [out=0,in=180] (1.5,0.5) to [out=0, in=0] (1.6, 2) to [out=180, in=180] (1.7, 0) to [out=0, in=150] (2.5, 0.6);
+			\end{tikzpicture}
+			\caption{Acceptable continuous trajectory}
+			\label{fig:conttraj}
+		\end{subfigure}
+		\quad
+		\begin{subfigure}[b]{0.4\textwidth}
+			\centering
+			\begin{tikzpicture}[xscale=2, decoration={markings, mark=at position 0.5 with {\arrow{>}}}]
+				\draw[std line width, postaction={decorate}, -{Circle[open]}] (0,0) to [out=30, in=180] (1, 1) to [out=0,in=180] (1.5,0.5);
+				\draw[std line width, postaction={decorate}, {Circle[]}-] (1,2) to [out=45, in=180] (2, 0.5);
+			\end{tikzpicture}
+			\caption{Non-acceptable discontinuous trajectory}
+			\label{fig:disconttraj}
+		\end{subfigure}
+		\label{traj}
+	\end{figure}
+
+	We are familiar with the \(\epsilon–\delta\) definition of continuity, but one can formulate the notion of continuity with a much weaker structure. A \textit{topology} on a set is a very weak structure which allows to define continuity.
+
+	A curve in spacetime would normally depict the trajectory of a particle. We often wish to parametrize the trajectory of a particle by its time co-ordinate. This motivates us to define a curve \(\gamma\) mathematically as a continuous function from the set of real numbers to space, i.e.\ \(\gamma \colon \rr \rightarrow M\), where \(M\) denotes the space, in whatever way it is defined.
+
+	\begin{remark}
+		Note that two particles may have the same path in space, but different trajectories. For example, it may happen that a particle travels some amount of the path relatively fast, and the remaining amount relatively slowly, compared to an other particle on the same path.  The set \(\set{\gamma (t) | t \in \rr}\) would be same for both the paths.
+	\end{remark}
 
 	\nocite{*}
 	\printbibliography[heading=bibintoc]
