@@ -306,13 +306,15 @@
 		\centering
 		\begin{subfigure}[b]{0.4\textwidth}
 			\centering
-			\begin{tikzpicture}[xscale=2, decoration={markings, mark=at position 0.1 with {\arrow{>}}}]
-				\draw[std line width, postaction={decorate}] (0,0) to [out=30, in=180] (1, 1) to [out=0,in=180] (1.5,0.5) to [out=0, in=0] (1.6, 2) to [out=180, in=180] (1.7, 0) to [out=0, in=150] (2.5, 0.6);
+			\begin{tikzpicture}[yscale=1.3, decoration={markings, mark=at position 0.1 with {\arrow{>}}}, use Hobby shortcut]
+% 				\draw[std line width, postaction={decorate}] (0,0) to [out=30, in=180] (1, 1) to [out=0,in=180] (1.5,0.5) to [out=0, in=0] (1.6, 2) to [out=180, in=180] (1.7, 0) to [out=0, in=150] (2.5, 0.6);
+% 				\draw plot [std line width, postaction={decorate}, smooth] coordinates {(0,0) (1,1) (1,0)};
+				\draw [std line width, postaction={decorate}] (0,0) .. (1,1) .. (1.5,0.5) .. (1.7,0) .. (2.5,0.6) .. (1.8,1) .. (0.2,-0.5);
 			\end{tikzpicture}
 			\caption{Acceptable continuous trajectory}
 			\label{fig:conttraj}
 		\end{subfigure}
-		\quad
+		\qquad
 		\begin{subfigure}[b]{0.4\textwidth}
 			\centering
 			\begin{tikzpicture}[xscale=2, decoration={markings, mark=at position 0.5 with {\arrow{>}}}]
@@ -329,9 +331,33 @@
 
 	A curve in spacetime would normally depict the trajectory of a particle. We often wish to parametrize the trajectory of a particle by its time co-ordinate. This motivates us to define a curve \(\gamma\) mathematically as a continuous function from the set of real numbers to space, i.e.\ \(\gamma \colon \rr \rightarrow M\), where \(M\) denotes the space, in whatever way it is defined.
 
-	\begin{remark}
-		Note that two particles may have the same path in space, but different trajectories. For example, it may happen that a particle travels some amount of the path relatively fast, and the remaining amount relatively slowly, compared to an other particle on the same path.  The set \(\set{\gamma (t) | t \in \rr}\) would be same for both the paths.
-	\end{remark}
+	Note that two particles may have the same path in space, but different trajectories. For example, consider two particles which travel along the same path in space but their velocities and positions at different times are different. Let \(\gamma, \tilde\gamma \colon \rr \rightarrow \rr^2\) be two trajectories of two particles travelling in a plane. Then \(\set{\gamma(t) | t \in \rr} = \set{\tilde\gamma(\tilde t) | \tilde t \in \rr}\), but let \(\gamma(1/2) \neq \tilde\gamma(1/2)\). Refer to~\cref{fig:samepath}.
+
+	\begin{figure}[htb]
+	    \centering
+		\begin{subfigure}[h]{0.4\textwidth}
+			\centering
+			\begin{tikzpicture}[scale=0.9]
+			    \draw[std line width, dashed] (-1,-1) to [out=0, in=-90] (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1) to [out=90, in=180] (4,2);
+				\draw[std line width] (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1) pic[pos=0.2] {code={\filldraw[fill=black] circle [radius=0.6pt];}};
+			\end{tikzpicture}
+		\end{subfigure}
+		\caption{\(\gamma\)}
+		\label{fig:gamma}
+		\qquad
+		\begin{subfigure}[h]{0.4\textwidth}
+			\centering
+			\begin{tikzpicture}[scale=0.9]
+				\draw[std line width, dashed] (-1,-1) to [out=0, in=-90] (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1) to [out=90, in=180] (4,2);
+				\draw[std line width] (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1);
+			\end{tikzpicture}
+		\end{subfigure}
+		\caption{\(\tilde\gamma\)}
+		\label{fig:gammatilde}
+		\captionof{figure}{Two particles having same path but different trajectories.}
+		\label{fig:samepath}
+	\end{figure}
+
 
 	\nocite{*}
 	\printbibliography[heading=bibintoc]
