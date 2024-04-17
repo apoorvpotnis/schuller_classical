@@ -1,3 +1,5 @@
+% !TEX program = lualatex
+
 \documentclass[a4 paper, oneside, 12pt]{book}
 
 \usepackage[ngerman, italian, english]{babel}
@@ -324,6 +326,7 @@
 			\caption{Non-acceptable discontinuous trajectory}
 			\label{fig:disconttraj}
 		\end{subfigure}
+		\captionof{figure}{}
 		\label{traj}
 	\end{figure}
 
@@ -335,28 +338,40 @@
 
 	\begin{figure}[htb]
 	    \centering
-		\begin{subfigure}[h]{0.4\textwidth}
+		\begin{subfigure}[h]{0.6\textwidth}
 			\centering
-			\begin{tikzpicture}[scale=0.9]
-			    \draw[std line width, dashed] (-1,-1) to [out=0, in=-90] (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1) to [out=90, in=180] (4,2);
-				\draw[std line width] (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1) pic[pos=0.2] {code={\filldraw[fill=black] circle [radius=0.6pt];}};
+			\begin{tikzpicture}
+			    \draw[std line width, dashed] (-0.6,-0.6) to [out=0, in=-90] (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1) to [out=90, in=180] (3.5,1.5);
+				\draw[std line width, postaction={decorate,decoration={markings,
+						mark=at position 0.1 with {\fill[black] circle (1.5pt); \node[anchor = south east] {\(\gamma(0)\)};},
+						mark=at position 0.3 with {\fill[black] circle (1.5pt); \node[anchor = south west] {\(\gamma(1/2)\)};},
+						mark=at position 0.9 with {\fill[black] circle (1.5pt); \node[anchor = west] {\(\gamma(1)\)};}
+					}}]
+				(0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1);
 			\end{tikzpicture}
+			\caption{\(\gamma\)}
+			\label{fig:gamma}
 		\end{subfigure}
-		\caption{\(\gamma\)}
-		\label{fig:gamma}
 		\qquad
-		\begin{subfigure}[h]{0.4\textwidth}
+		\begin{subfigure}[h]{0.6\textwidth}
 			\centering
-			\begin{tikzpicture}[scale=0.9]
-				\draw[std line width, dashed] (-1,-1) to [out=0, in=-90] (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1) to [out=90, in=180] (4,2);
-				\draw[std line width] (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1);
+			\begin{tikzpicture}
+				\draw[std line width, dashed] (-0.6,-0.6) to [out=0, in=-90] (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1) to [out=90, in=180] (3.5,1.5);
+				\draw[std line width, postaction={decorate,decoration={markings,
+						mark=at position 0.1 with {\fill[black] circle (1.5pt); \node[anchor = south east] {\(\tilde\gamma(0)\)};},
+						mark=at position 0.7 with {\fill[black] circle (1.5pt); \node[anchor = north, yshift = -1mm] {\(\tilde\gamma(1/2)\)};},
+						mark=at position 0.9 with {\fill[black] circle (1.5pt); \node[anchor = west] {\(\tilde\gamma(1)\)};}
+					}}]
+				(0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1);
 			\end{tikzpicture}
+			\caption{\(\tilde\gamma\)}
+			\label{fig:gammatilde}
 		\end{subfigure}
-		\caption{\(\tilde\gamma\)}
-		\label{fig:gammatilde}
-		\captionof{figure}{Two particles having same path but different trajectories.}
+		\captionof{figure}{Two particles having same path but different trajectories. The particle moves slower during the first half of the first trajectory.}
 		\label{fig:samepath}
 	\end{figure}
+
+	Note that two particles may have the same path in space, but different trajectories. For example, consider two particles which travel along the same path in space but their velocities and positions at different times are different. Let \(\gamma, \tilde\gamma \colon \rr \rightarrow \rr^2\) be two trajectories of two particles travelling in a plane. Then \(\set{\gamma(t) | t \in \rr} = \set{\tilde\gamma(\tilde t) | \tilde t \in \rr}\), but let \(\gamma(1/2) \neq \tilde\gamma(1/2)\). Refer to~\cref{fig:samepath}.
 
 
 	\nocite{*}
