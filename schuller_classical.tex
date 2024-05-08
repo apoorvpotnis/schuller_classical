@@ -226,7 +226,8 @@
 	\begin{figure}[htb]
 	    \centering
 		\subcaptionbox{Cartesian co-ordinates \label{fig:paralleltransporta}}[0.45\textwidth]
-			{\begin{tikzpicture}[scale=0.6]
+		{
+				\begin{tikzpicture}[scale=0.6]
 
 				% Draw grid lines
 				\draw[step=1cm,gray] (-4,-4) grid (4,4);
@@ -238,10 +239,12 @@
 				% Draw vectors
 				\draw[->, ultra thick, red] (3,0) -- (3,2);
 				\draw[->, ultra thick, blue] (0,1) -- (0,3);
-			\end{tikzpicture}}
+			\end{tikzpicture}
+		}
 		\qquad
 		\subcaptionbox{Polar co-ordinates \label{fig:paralleltransportb}}[0.45\textwidth]
-			{\begin{tikzpicture}[scale=0.6]
+		{
+			\begin{tikzpicture}[scale=0.6]
 				% Draw concentric circles
 				\foreach \r in {1,2,3,4}{
 					\draw[gray] (0,0) circle (\r);
@@ -259,7 +262,8 @@
 				% Draw vectors
 				\draw[->, ultra thick, red] (3,0) -- (3,2);
 				\draw[->, ultra thick, blue] (0,1) -- (0,3);
-			\end{tikzpicture}}
+			\end{tikzpicture}
+		}
 		\caption{Parallel transport of vectors}
 		\label{fig:paralleltransport}
 	\end{figure}
@@ -296,31 +300,53 @@
 	\section{Mathematical structure of spacetime}
 
 	Spacetime is a set with some mathematical structure. We shall see some physical motivations for defining the particular mathematical structures we need. In classical physics, we talk about trajectories of particles. We require them to be continuous, i.e.\ a particle cannot disappear and reappear somewhere else magically.\footnote{In reality though, as the world we live in is not classical, particles \textit{can} disappear and appear magically. One encounters this phenomenon when studying quantum field theory.} Thus, a trajectory like the one in~\cref{fig:conttraj} is acceptable while like the one in~\cref{fig:disconttraj} is not.
+
 	\begin{figure}[htb]
-		\centering
-		\begin{subfigure}[b]{0.4\textwidth}
-			\centering
+	    \centering
+		\subcaptionbox{Acceptable continuous trajectory \label{fig:conttraj}}[0.4\textwidth]
+		{
 			\begin{tikzpicture}[yscale=1.3, decoration={markings, mark=at position 0.1 with {\arrow{>}}}, use Hobby shortcut]
-% 				\draw[std line width, postaction={decorate}] (0,0) to [out=30, in=180] (1, 1) to [out=0,in=180] (1.5,0.5) to [out=0, in=0] (1.6, 2) to [out=180, in=180] (1.7, 0) to [out=0, in=150] (2.5, 0.6);
-% 				\draw plot [std line width, postaction={decorate}, smooth] coordinates {(0,0) (1,1) (1,0)};
+				% 				\draw[std line width, postaction={decorate}] (0,0) to [out=30, in=180] (1, 1) to [out=0,in=180] (1.5,0.5) to [out=0, in=0] (1.6, 2) to [out=180, in=180] (1.7, 0) to [out=0, in=150] (2.5, 0.6);
+				% 				\draw plot [std line width, postaction={decorate}, smooth] coordinates {(0,0) (1,1) (1,0)};
 				\draw [std line width, postaction={decorate}] (0,0) .. (1,1) .. (1.5,0.5) .. (1.7,0) .. (2.5,0.6) .. (1.8,1) .. (0.2,-0.5);
 			\end{tikzpicture}
-			\caption{Acceptable continuous trajectory}
-			\label{fig:conttraj}
-		\end{subfigure}
+		}
 		\qquad
-		\begin{subfigure}[b]{0.4\textwidth}
-			\centering
+		\subcaptionbox{Non-acceptable discontinuous trajectory \label{fig:disconttraj}}[0.4\textwidth]
+		{
 			\begin{tikzpicture}[xscale=2, decoration={markings, mark=at position 0.5 with {\arrow{>}}}]
 				\draw[std line width, postaction={decorate}, -{Circle[open]}] (0,0) to [out=30, in=180] (1, 1) to [out=0,in=180] (1.5,0.5);
 				\draw[std line width, postaction={decorate}, {Circle[]}-] (1,2) to [out=45, in=180] (2, 0.5);
 			\end{tikzpicture}
-			\caption{Non-acceptable discontinuous trajectory}
-			\label{fig:disconttraj}
-		\end{subfigure}
-		\captionof{figure}{}
-		\label{traj}
+		}
+		\label{fig:traj}
 	\end{figure}
+
+% 	\begin{figure}[htb]
+% 		\centering
+% 		\begin{subfigure}[b]{0.4\textwidth}
+% 			\centering
+% 			\begin{tikzpicture}[yscale=1.3, decoration={markings, mark=at position 0.1 with {\arrow{>}}}, use Hobby shortcut]
+% % 				\draw[std line width, postaction={decorate}] (0,0) to [out=30, in=180] (1, 1) to [out=0,in=180] (1.5,0.5) to [out=0, in=0] (1.6, 2) to [out=180, in=180] (1.7, 0) to [out=0, in=150] (2.5, 0.6);
+% % 				\draw plot [std line width, postaction={decorate}, smooth] coordinates {(0,0) (1,1) (1,0)};
+% 				\draw [std line width, postaction={decorate}] (0,0) .. (1,1) .. (1.5,0.5) .. (1.7,0) .. (2.5,0.6) .. (1.8,1) .. (0.2,-0.5);
+% 			\end{tikzpicture}
+% 			\caption{Acceptable continuous trajectory}
+% 			\label{fig:conttraj}
+% 		\end{subfigure}
+% 		\qquad
+% 		\begin{subfigure}[b]{0.4\textwidth}
+% 			\centering
+% 			\begin{tikzpicture}[xscale=2, decoration={markings, mark=at position 0.5 with {\arrow{>}}}]
+% 				\draw[std line width, postaction={decorate}, -{Circle[open]}] (0,0) to [out=30, in=180] (1, 1) to [out=0,in=180] (1.5,0.5);
+% 				\draw[std line width, postaction={decorate}, {Circle[]}-] (1,2) to [out=45, in=180] (2, 0.5);
+% 			\end{tikzpicture}
+% 			\caption{Non-acceptable discontinuous trajectory}
+% 			\label{fig:disconttraj}
+% 		\end{subfigure}
+% 		\captionof{figure}{}
+% 		\label{traj}
+% 	\end{figure}
 
 	We are familiar with the \(\epsilon–\delta\) definition of continuity, but one can formulate the notion of continuity with a much weaker structure. A \textit{topology} on a set is a very weak structure which allows to define continuity.
 
@@ -330,10 +356,10 @@
 
 	\begin{figure}[htb]
 	    \centering
-		\begin{subfigure}[h]{0.6\textwidth}
-			\centering
+		\subcaptionbox{\(\gamma\) \label{fig:gamma}}[0.45\textwidth]
+		{
 			\begin{tikzpicture}
-			    \draw[std line width, dashed] (-0.6,-0.6) to [out=0, in=-90] (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1) to [out=90, in=180] (3.5,1.5);
+				\draw[std line width, dashed] (-0.6,-0.6) to [out=0, in=-90] (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1) to [out=90, in=180] (3.5,1.5);
 				\draw[std line width, postaction={decorate,decoration={markings,
 						mark=at position 0.1 with {\fill[black] circle (1.5pt); \node[anchor = south east] {\(\gamma(0)\)};},
 						mark=at position 0.3 with {\fill[black] circle (1.5pt); \node[anchor = south west] {\(\gamma(1/2)\)};},
@@ -341,12 +367,10 @@
 					}}]
 				(0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1);
 			\end{tikzpicture}
-			\caption{\(\gamma\)}
-			\label{fig:gamma}
-		\end{subfigure}
+		}
 		\qquad
-		\begin{subfigure}[h]{0.6\textwidth}
-			\centering
+		\subcaptionbox{\(\tilde\gamma\) \label{fig:gammatilde}}[0.45\textwidth]
+		{
 			\begin{tikzpicture}
 				\draw[std line width, dashed] (-0.6,-0.6) to [out=0, in=-90] (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1) to [out=90, in=180] (3.5,1.5);
 				\draw[std line width, postaction={decorate,decoration={markings,
@@ -356,14 +380,10 @@
 					}}]
 				(0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1);
 			\end{tikzpicture}
-			\caption{\(\tilde\gamma\)}
-			\label{fig:gammatilde}
-		\end{subfigure}
-		\captionof{figure}{Two particles having same path but different trajectories. The particle moves slower during the first half of the first trajectory.}
+		}
+		\caption{Two particles having same path but different trajectories. The particle moves slower during the first half of the first trajectory.}
 		\label{fig:samepath}
 	\end{figure}
-
-
 
 
 	\nocite{*}
