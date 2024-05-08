@@ -224,10 +224,9 @@
 
 	Consider the red vector in two-dimensional space, as shown in~\cref{fig:paralleltransporta}. We can parallelly transport it to get the blue vector. The orientation of the vector remains the same while the origin of the vector changes. But how do we define `parallelly' transporting a vector? We may claim that both the blue and red vectors are the `same' as their vector components are equal, and define parallel transport as something which keeps the vector components invariant. But if we switch to polar co-ordinates, as in~\cref{fig:paralleltransportb}, we intuitively/geometrically see that bot the red and blue vectors are the same, but their components in polar co-ordinates are not the same. The answer to this problem shall be revealed when we discuss affine manifolds.
 	\begin{figure}[htb]
-		\centering
-		\begin{subfigure}[b]{0.41\textwidth}
-			\centering
-			\begin{tikzpicture}[scale=0.6]
+	    \centering
+		\subcaptionbox{Cartesian co-ordinates \label{fig:paralleltransporta}}[0.45\textwidth]
+			{\begin{tikzpicture}[scale=0.6]
 
 				% Draw grid lines
 				\draw[step=1cm,gray] (-4,-4) grid (4,4);
@@ -239,14 +238,10 @@
 				% Draw vectors
 				\draw[->, ultra thick, red] (3,0) -- (3,2);
 				\draw[->, ultra thick, blue] (0,1) -- (0,3);
-			\end{tikzpicture}
-			\caption{Cartesian co-ordinates}
-			\label{fig:paralleltransporta}
-		\end{subfigure}
+			\end{tikzpicture}}
 		\qquad
-		\begin{subfigure}[b]{0.41\textwidth}
-			\centering
-			\begin{tikzpicture}[scale=0.6]
+		\subcaptionbox{Polar co-ordinates \label{fig:paralleltransportb}}[0.45\textwidth]
+			{\begin{tikzpicture}[scale=0.6]
 				% Draw concentric circles
 				\foreach \r in {1,2,3,4}{
 					\draw[gray] (0,0) circle (\r);
@@ -264,11 +259,8 @@
 				% Draw vectors
 				\draw[->, ultra thick, red] (3,0) -- (3,2);
 				\draw[->, ultra thick, blue] (0,1) -- (0,3);
-			\end{tikzpicture}
-			\caption{Polar co-ordinates}
-			\label{fig:paralleltransportb}
-		\end{subfigure}
-		\captionof{figure}{Parallel transport of vectors}
+			\end{tikzpicture}}
+		\caption{Parallel transport of vectors}
 		\label{fig:paralleltransport}
 	\end{figure}
 	We need \(n^2(n+1)/2\) co-ordinates in an \(n\)-dimensional space in order to properly define parallel transport. For \(n = 4\), we need 40 components! Suppose we are in an empty universe, with no stars. How do we define rotation? How would we know that we are rotating or not? This was pondered by Newton as well, who said that  the surface of water in a rotating bucket shall appear parabolic. The affine structure on manifolds shall capture the idea needed to define rotation properly.
@@ -370,6 +362,8 @@
 		\captionof{figure}{Two particles having same path but different trajectories. The particle moves slower during the first half of the first trajectory.}
 		\label{fig:samepath}
 	\end{figure}
+
+
 
 
 	\nocite{*}
