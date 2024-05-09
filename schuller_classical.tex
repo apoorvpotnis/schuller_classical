@@ -7,6 +7,16 @@
 \usepackage{mathtools}
 \usepackage{microtype}
 \usepackage[newcmbb]{fontsetup}
+\setmonofont[%
+ItalicFont=NewCMMono10-Italic.otf,%
+BoldFont=NewCMMono10-Bold.otf,%
+BoldItalicFont=NewCMMono10-BoldOblique.otf,%
+SlantedFont=NewCMMono10-Regular.otf,%
+SlantedFeatures={FakeSlant=0.25},
+BoldSlantedFont=NewCMMono10-Bold.otf,%
+BoldSlantedFeatures={FakeSlant=0.25},
+SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
+\setmathfont[range={\mathfrak,\mathbffrak}]{NewCMMath-Regular.otf}
 
 \usepackage[style=british]{csquotes}
 
@@ -73,14 +83,15 @@
 		title = {Lectures on the Geometric Anatomy of Theoretical Physics},
 		url = {https://drive.google.com/file/d/1nchF1fRGSY3R3rP1QmjUg7fe28tAS428/view},
 		year = {2017},
-		note = {Lecturer: Prof.\@ Frederic Paul Schuller}
+		note = {Lecture notes in \texttt{.pdf} format. Lecturer: Prof.\@ Frederic Paul Schuller}
 	}
 
 	@misc{Schuller_geometric_videos,
 		author = {Schuller, Frederic},
 		title = {Lectures on the Geometric Anatomy of Theoretical Physics},
 		url = {https://www.youtube.com/playlist?list=PLPH7f_7ZlzxTi6kS4vCmv4ZKm9u8g5yic},
-		year = {2016}
+		year = {2016},
+		note = {Video lectures on YouTube.}
 	}
 
 	@book{Stewart,
@@ -156,7 +167,7 @@
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \newcommand{\der}{\operatorname{d\!}{}}
 \newcommand{\emm}{\mathcal{M}}
-\newcommand{\oo}{\mathcal{O}}
+\newcommand{\oo}{\mathcal{O}\!}
 \newcommand{\atlas}{\mathcal{A}}
 
 \title{Schuller's Lectures on Classical Mechanics}
@@ -384,7 +395,6 @@
 		\caption{Two particles having same path but different trajectories. The particle moves slower during the first half of the first trajectory.}
 		\label{fig:samepath}
 	\end{figure}
-
 
 	\nocite{*}
 	\printbibliography[heading=bibintoc]
