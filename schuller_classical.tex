@@ -17,6 +17,8 @@ BoldSlantedFont=NewCMMono10-Bold.otf,%
 BoldSlantedFeatures={FakeSlant=0.25},
 SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 \setmathfont[range={\mathfrak,\mathbffrak}]{NewCMMath-Regular.otf}
+\DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
+\renewcommand{\mathcal}{\cmmathcal}
 
 \usepackage[style=british]{csquotes}
 
@@ -77,7 +79,7 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 		year = {1973},
 	}
 
-	@unpublished{Schuller_geometric_notes,
+	@misc{Schuller_geometric_notes,
 		author = {Schuller, Frederic and Rea, Simon and Dadhley, Richie},
 		institution = {Friedrich-Alexander-Universität Erlangen-Nürnberg, Institut für Theoretische Physik III},
 		title = {Lectures on the Geometric Anatomy of Theoretical Physics},
@@ -167,8 +169,10 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \newcommand{\der}{\operatorname{d\!}{}}
 \newcommand{\emm}{\mathcal{M}}
-\newcommand{\oo}{\mathcal{O}\!}
+\newcommand{\oo}{\mathcal{O}}
 \newcommand{\atlas}{\mathcal{A}}
+\newcommand{\powerset}{\mathcal{P}}
+\newcommand{\ball}{\mathrm{B}}
 
 \title{Schuller's Lectures on Classical Mechanics}
 \author{Frederic Schuller\\Apoorv Potnis}
@@ -302,7 +306,8 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 
 	\chapter{Topological Manifolds}
 
-	References:
+	\section{References}
+
 	\begin{enumerate}
 		\item \fullcite{Stewart}.
 		\item \fullcite{Isham}.
@@ -332,32 +337,6 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 		}
 		\label{fig:traj}
 	\end{figure}
-
-% 	\begin{figure}[htb]
-% 		\centering
-% 		\begin{subfigure}[b]{0.4\textwidth}
-% 			\centering
-% 			\begin{tikzpicture}[yscale=1.3, decoration={markings, mark=at position 0.1 with {\arrow{>}}}, use Hobby shortcut]
-% % 				\draw[std line width, postaction={decorate}] (0,0) to [out=30, in=180] (1, 1) to [out=0,in=180] (1.5,0.5) to [out=0, in=0] (1.6, 2) to [out=180, in=180] (1.7, 0) to [out=0, in=150] (2.5, 0.6);
-% % 				\draw plot [std line width, postaction={decorate}, smooth] coordinates {(0,0) (1,1) (1,0)};
-% 				\draw [std line width, postaction={decorate}] (0,0) .. (1,1) .. (1.5,0.5) .. (1.7,0) .. (2.5,0.6) .. (1.8,1) .. (0.2,-0.5);
-% 			\end{tikzpicture}
-% 			\caption{Acceptable continuous trajectory}
-% 			\label{fig:conttraj}
-% 		\end{subfigure}
-% 		\qquad
-% 		\begin{subfigure}[b]{0.4\textwidth}
-% 			\centering
-% 			\begin{tikzpicture}[xscale=2, decoration={markings, mark=at position 0.5 with {\arrow{>}}}]
-% 				\draw[std line width, postaction={decorate}, -{Circle[open]}] (0,0) to [out=30, in=180] (1, 1) to [out=0,in=180] (1.5,0.5);
-% 				\draw[std line width, postaction={decorate}, {Circle[]}-] (1,2) to [out=45, in=180] (2, 0.5);
-% 			\end{tikzpicture}
-% 			\caption{Non-acceptable discontinuous trajectory}
-% 			\label{fig:disconttraj}
-% 		\end{subfigure}
-% 		\captionof{figure}{}
-% 		\label{traj}
-% 	\end{figure}
 
 	We are familiar with the \(\epsilon–\delta\) definition of continuity, but one can formulate the notion of continuity with a much weaker structure. A \textit{topology} on a set is a very weak structure which allows to define continuity.
 
@@ -396,6 +375,29 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 		\label{fig:samepath}
 	\end{figure}
 
+	\section{Topological spaces}
+
+	\begin{defn}[Topological space]\index{Topological spaces}\index{Topology}\index{Open sets}
+		A topological space is a set \(M\) with a collection of subsets of \(M\), denoted by \(\oo\), which satisfy the following conditions.
+		\begin{enumerate}
+			\item \(\emptyset \in \oo\) and \(M \in \oo\).
+			\item If \(U, V \in \oo\), then \(U \cap V \in \oo\).
+			\item If \(U_\alpha \in \oo\) for all \(\alpha \in A\), where \(A\) is an indexing set, then \(\displaystyle \bigcup_{\alpha \in A} U_\alpha \in \oo\). \label{topthirdcondition}
+		\end{enumerate}
+		\(\oo\) is referred to as a topology on \(M\), while the tuple \((M, \oo)\) is referred to as a topological space. The elements of \(\oo\) are called as open sets.
+	\end{defn}
+	Note that there can in general be more than one topologies on a given set.
+	\begin{remark}
+		The indexing set \(A\) can be uncountable as well. If \(A\) is uncountable, then the third condition cannot be be fulfilled by simply requiring that if \(U,V \in \oo\), then \(U \cup V \in \oo\), as induction will work only for countably many objects.
+	\end{remark}
+	\begin{exmp}
+		Let \(M \coloneq \{1, 2, \xi\}\), where \(\xi\) is any mathematical object. Then \(\oo_1 \coloneq \{\emptyset, \{1, 2, \xi\}\}\) and \(\oo_2 \coloneq \{\emptyset, \{1\}, \{1, 2, \xi\}\}\) are valid topologies on \(M\) while \(\oo_3 \coloneq \{\emptyset, \{1\}, \{2\}, \{1, 2, \xi\}\}\) and \(\oo_4 \coloneq \{\emptyset\}\) are not.
+	\end{exmp}
+	For any set \(M\), \(\oo_{\mathrm{d}} \coloneq \powerset(M)\) is called the discrete\index{discrete} or the chaotic\index{chaotic} topology, where \(\powerset(M)\) denotes the power set of \(M\), i.e.\ the collection of all subsets of \(M\). \(\oo_{\mathrm{i}} \coloneq \{\emptyset, M\}\) is called the indiscrete topology.
+
+	Let \(M \coloneq \rr^d\). Then the standard topology \(\oo_\mathrm{s} \subset \powerset(\rr^d)\) on \(\rr^d\) is defined as follows. A set \(U \subseteq \rr^d\) belongs to \(\oo_{\mathrm{s}}\) iff for all \(a \in U\), there exists an \(r \in \rr^+\) such that \(\ball_r(a) \subseteq U\). Here \(\ball_r(a)\) is the open ball of radius \(r\) centered at \(a\), defined as \(\ball_r(a) \coloneq \{b \in \rr^d \mid \sum_{i=1}^d (a^i - b^i)^2 < r^2\}\), where \(a^i\) and \(b^i\) denote the \(i^\mathrm{th}\) components of \(a\) and \(b\) respectively. The fact that \(\ball_r(a)\) is called open refers to the strict inequality in the definition of \(\ball_r(a)\). We would have called it a closed ball if we had \(\leq\) instead of \(<\).
+
+	We thus retrieve the notion of an open interval of \(\rr\), that we studied in calculus courses. If we put the discrete topology on \(\rr\) instead of the standard one, we see that a set containing even a single real number becomes an open set, justifying the word discrete.
 	\nocite{*}
 	\printbibliography[heading=bibintoc]
 	\printindex
