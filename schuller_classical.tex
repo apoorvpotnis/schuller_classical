@@ -1,6 +1,7 @@
 % !TEX program = lualatex
 
-\documentclass[a4 paper, oneside, 12pt]{book}
+\documentclass[a4 paper, 12pt, oneside]{book}
+\usepackage{geometry}
 
 \usepackage[ngerman, italian, english]{babel}
 \PassOptionsToPackage{math-style=ISO, bold-style=ISO, sans-style=italic, nabla=upright, partial=upright, warnings-off={mathtools-colon,mathtools-overbracket}}{unicode-math}
@@ -16,9 +17,148 @@ SlantedFeatures={FakeSlant=0.25},
 BoldSlantedFont=NewCMMono10-Bold.otf,%
 BoldSlantedFeatures={FakeSlant=0.25},
 SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
+\setsansfont[%
+SizeFeatures={%
+	{Size= -8, Font=NewCMSans08-Regular.otf,%
+		ItalicFont=NewCMSans08-Oblique.otf,%
+		BoldFont=NewCMSans10-Bold.otf,%
+		BoldItalicFont=NewCMSans10-BoldOblique.otf,%
+		SmallCapsFeatures={Numbers=OldStyle},%
+	},
+	{Size= 8, Font=NewCMSans08-Regular.otf,%
+		ItalicFont=NewCMSans08-Oblique.otf,%
+		BoldFont=NewCMSans10-Bold.otf,%
+		BoldItalicFont=NewCMSans10-BoldOblique.otf,%
+		SmallCapsFeatures={Numbers=OldStyle},%
+	},
+	{Size= 9-, Font=NewCMSans10-Regular.otf,%
+		ItalicFont=NewCMSans10-Oblique.otf,%
+		BoldFont=NewCMSans10-Bold.otf,%
+		BoldItalicFont=NewCMSans10-BoldOblique.otf,%
+		SmallCapsFeatures={Numbers=OldStyle},%
+	}},
+ItalicFont=NewCMSans10-Oblique.otf,%
+BoldFont=NewCMSans10-Bold.otf,%
+BoldItalicFont=NewCMSans10-BoldOblique.otf,%
+SmallCapsFeatures={Numbers=OldStyle},%
+SlantedFont=NewCMSans10-Oblique.otf,%
+BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
+]{NewCMSans10-Regular.otf}
+%% math (upright) sans Greek
+\renewcommand*{\msansAlpha}{\char"E000}
+\renewcommand*{\msansBeta}{\char"E001}
+\renewcommand*{\msansGamma}{\char"E002}
+\renewcommand*{\msansDelta}{\char"E003}
+\renewcommand*{\msansEpsilon}{\char"E004}
+\renewcommand*{\msansZeta}{\char"E005}
+\renewcommand*{\msansEta}{\char"E006}
+\renewcommand*{\msansTheta}{\char"E007}
+\renewcommand*{\msansIota}{\char"E008}
+\renewcommand*{\msansKappa}{\char"E009}
+\renewcommand*{\msansLambda}{\char"E00A}
+\renewcommand*{\msansMu}{\char"E00B}
+\renewcommand*{\msansNu}{\char"E00C}
+\renewcommand*{\msansXi}{\char"E00D}
+\renewcommand*{\msansOmicron}{\char"E00E}
+\renewcommand*{\msansPi}{\char"E00F}
+\renewcommand*{\msansRho}{\char"E010}
+\renewcommand*{\msansSigma}{\char"E011}
+\renewcommand*{\msansTau}{\char"E012}
+\renewcommand*{\msansUpsilon}{\char"E013}
+\renewcommand*{\msansPhi}{\char"E014}
+\renewcommand*{\msansChi}{\char"E015}
+\renewcommand*{\msansPsi}{\char"E016}
+\renewcommand*{\msansOmega}{\char"E017}
+\renewcommand*{\msansalpha}{\char"E018}
+\renewcommand*{\msansbeta}{\char"E019}
+\renewcommand*{\msansgamma}{\char"E01A}
+\renewcommand*{\msansdelta}{\char"E01B}
+\renewcommand*{\msansepsilon}{\char"E01C}
+\renewcommand*{\msanszeta}{\char"E01D}
+\renewcommand*{\msanseta}{\char"E01E}
+\renewcommand*{\msanstheta}{\char"E01F}
+\renewcommand*{\msansiota}{\char"E020}
+\renewcommand*{\msanskappa}{\char"E021}
+\renewcommand*{\msanslambda}{\char"E022}
+\renewcommand*{\msansmu}{\char"E023}
+\renewcommand*{\msansnu}{\char"E024}
+\renewcommand*{\msansxi}{\char"E025}
+\renewcommand*{\msansomicron}{\char"E026}
+\renewcommand*{\msanspi}{\char"E027}
+\renewcommand*{\msansrho}{\char"E028}
+\renewcommand*{\msansvarsigma}{\char"E029}
+\renewcommand*{\msanssigma}{\char"E02A}
+\renewcommand*{\msanstau}{\char"E02B}
+\renewcommand*{\msansupsilon}{\char"E02C}
+\renewcommand*{\msansphi}{\char"E02D}
+\renewcommand*{\msanschi}{\char"E02E}
+\renewcommand*{\msanspsi}{\char"E02F}
+\renewcommand*{\msansomega}{\char"E030}
+\renewcommand*{\msansvarepsilon}{\char"E031}
+% math italic sans Greek
+\renewcommand*{\mitsansAlpha}{\char"E041}
+\renewcommand*{\mitsansBeta}{\char"E042}
+\renewcommand*{\mitsansGamma}{\char"E043}
+\renewcommand*{\mitsansDelta}{\char"E044}
+\renewcommand*{\mitsansEpsilon}{\char"E045}
+\renewcommand*{\mitsansZeta}{\char"E046}
+\renewcommand*{\mitsansEta}{\char"E047}
+\renewcommand*{\mitsansTheta}{\char"E048}
+\renewcommand*{\mitsansIota}{\char"E049}
+\renewcommand*{\mitsansKappa}{\char"E04A}
+\renewcommand*{\mitsansLambda}{\char"E04B}
+\renewcommand*{\mitsansMu}{\char"E04C}
+\renewcommand*{\mitsansNu}{\char"E04D}
+\renewcommand*{\mitsansXi}{\char"E04E}
+\renewcommand*{\mitsansOmicron}{\char"E04F}
+\renewcommand*{\mitsansPi}{\char"E050}
+\renewcommand*{\mitsansRho}{\char"E051}
+\renewcommand*{\mitsansSigma}{\char"E052}
+\renewcommand*{\mitsansTau}{\char"E053}
+\renewcommand*{\mitsansUpsilon}{\char"E054}
+\renewcommand*{\mitsansPhi}{\char"E055}
+\renewcommand*{\mitsansChi}{\char"E056}
+\renewcommand*{\mitsansPsi}{\char"E057}
+\renewcommand*{\mitsansOmega}{\char"E058}
+\renewcommand*{\mitsansalpha}{\char"E059}
+\renewcommand*{\mitsansbeta}{\char"E05A}
+\renewcommand*{\mitsansgamma}{\char"E05B}
+\renewcommand*{\mitsansdelta}{\char"E05C}
+\renewcommand*{\mitsansepsilon}{\char"E05D}
+\renewcommand*{\mitsanszeta}{\char"E05E}
+\renewcommand*{\mitsanseta}{\char"E05F}
+\renewcommand*{\mitsanstheta}{\char"E060}
+\renewcommand*{\mitsansiota}{\char"E061}
+\renewcommand*{\mitsanskappa}{\char"E062}
+\renewcommand*{\mitsanslambda}{\char"E063}
+\renewcommand*{\mitsansmu}{\char"E064}
+\renewcommand*{\mitsansnu}{\char"E065}
+\renewcommand*{\mitsansxi}{\char"E066}
+\renewcommand*{\mitsansomicron}{\char"E067}
+\renewcommand*{\mitsanspi}{\char"E068}
+\renewcommand*{\mitsansrho}{\char"E069}
+\renewcommand*{\mitsansvarsigma}{\char"E06A}
+\renewcommand*{\mitsanssigma}{\char"E06B}
+\renewcommand*{\mitsanstau}{\char"E06C}
+\renewcommand*{\mitsansupsilon}{\char"E06D}
+\renewcommand*{\mitsansphi}{\char"E06E}
+\renewcommand*{\mitsanschi}{\char"E06F}
+\renewcommand*{\mitsanspsi}{\char"E070}
+\renewcommand*{\mitsansomega}{\char"E071}
+\renewcommand*{\mitsansvarepsilon}{\char"E072}
 \setmathfont[range={\mathfrak,\mathbffrak}]{NewCMMath-Regular.otf}
 \DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
 \renewcommand{\mathcal}{\cmmathcal}
+\DeclareFontFamily{U}{mathc}{}
+\DeclareFontShape{U}{mathc}{m}{it}%
+{<->s*[1.03] mathc10}{}
+\DeclareMathAlphabet{\cmmathcal}{U}{mathc}{m}{it}
+\renewcommand{\mathcal}{\cmmathcal}
+\setmathfont[range=bfsfit/{greek}]{Latin Modern Math}
+\DeclareSymbolFont{sfletters}{OML}{cmbrm}{m}{it}
+\DeclareMathSymbol{\salpha}{\mathord}{sfletters}{"0B}
+\DeclareMathSymbol{\sbeta}{\mathord}{sfletters}{"0C}
+\DeclareMathSymbol{\sLambda}{\mathord}{sfletters}{'3}
 
 \usepackage[style=british]{csquotes}
 
@@ -81,7 +221,7 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 
 	@misc{Schuller_geometric_notes,
 		author = {Schuller, Frederic and Rea, Simon and Dadhley, Richie},
-		institution = {Friedrich-Alexander-Universität Erlangen-Nürnberg, Institut für Theoretische Physik III},
+		institution = {\selectlanguage{ngerman}Friedrich-Alexander-Universität Erlangen-Nürnberg, Institut für Theoretische Physik III\selectlanguage{english}},
 		title = {Lectures on the Geometric Anatomy of Theoretical Physics},
 		url = {https://drive.google.com/file/d/1nchF1fRGSY3R3rP1QmjUg7fe28tAS428/view},
 		year = {2017},
@@ -116,7 +256,7 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 	}
 \end{filecontents}
 
-\usepackage[sorting=none]{biblatex}
+\usepackage[sorting=none, hyperref, backref]{biblatex}
 \addbibresource{schuller_classical.bib}
 \usepackage{bibentry}
 
@@ -168,8 +308,8 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \newcommand{\der}{\operatorname{d\!}{}}
-\newcommand{\emm}{\mathcal{M}}
-\newcommand{\oo}{\mathcal{O}}
+\newcommand{\manifold}{\mathcal{M}}
+\newcommand{\topology}{\mathcal{O}}
 \newcommand{\atlas}{\mathcal{A}}
 \newcommand{\powerset}{\mathcal{P}}
 \newcommand{\ball}{\mathrm{B}}
@@ -378,24 +518,24 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 	\section{Topological spaces}
 
 	\begin{defn}[Topological space]\index{Topological spaces}\index{Topology}\index{Open sets}
-		A topological space is a set \(M\) with a collection of subsets of \(M\), denoted by \(\oo\), which satisfy the following conditions.
+		A topological space is a set \(M\) with a collection of subsets of \(M\), denoted by \(\topology\), which satisfy the following conditions.
 		\begin{enumerate}
-			\item \(\emptyset \in \oo\) and \(M \in \oo\).
-			\item If \(U, V \in \oo\), then \(U \cap V \in \oo\).
-			\item If \(U_\alpha \in \oo\) for all \(\alpha \in A\), where \(A\) is an indexing set, then \(\displaystyle \bigcup_{\alpha \in A} U_\alpha \in \oo\). \label{topthirdcondition}
+			\item \(\emptyset \in \topology\) and \(M \in \topology\).
+			\item If \(U, V \in \topology\), then \(U \cap V \in \topology\).
+			\item If \(U_\alpha \in \topology\) for all \(\alpha \in A\), where \(A\) is an indexing set, then \(\displaystyle \bigcup_{\alpha \in A} U_\alpha \in \topology\). \label{topthirdcondition}
 		\end{enumerate}
-		\(\oo\) is referred to as a topology on \(M\), while the tuple \((M, \oo)\) is referred to as a topological space. The elements of \(\oo\) are called as open sets.
+		\(\topology\) is referred to as a topology on \(M\), while the tuple \((M, \topology)\) is referred to as a topological space. The elements of \(\topology\) are called as open sets.
 	\end{defn}
 	Note that there can in general be more than one topologies on a given set.
 	\begin{remark}
-		The indexing set \(A\) can be uncountable as well. If \(A\) is uncountable, then the third condition cannot be be fulfilled by simply requiring that if \(U,V \in \oo\), then \(U \cup V \in \oo\), as induction will work only for countably many objects.
+		The indexing set \(A\) can be uncountable as well. If \(A\) is uncountable, then the third condition cannot be be fulfilled by simply requiring that if \(U,V \in \topology\), then \(U \cup V \in \topology\), as induction will work only for countably many objects.
 	\end{remark}
 	\begin{exmp}
-		Let \(M \coloneq \{1, 2, \xi\}\), where \(\xi\) is any mathematical object. Then \(\oo_1 \coloneq \{\emptyset, \{1, 2, \xi\}\}\) and \(\oo_2 \coloneq \{\emptyset, \{1\}, \{1, 2, \xi\}\}\) are valid topologies on \(M\) while \(\oo_3 \coloneq \{\emptyset, \{1\}, \{2\}, \{1, 2, \xi\}\}\) and \(\oo_4 \coloneq \{\emptyset\}\) are not.
+		Let \(M \coloneq \{1, 2, \xi\}\), where \(\xi\) is any mathematical object. Then \(\topology_1 \coloneq \{\emptyset, \{1, 2, \xi\}\}\) and \(\topology_2 \coloneq \{\emptyset, \{1\}, \{1, 2, \xi\}\}\) are valid topologies on \(M\) while \(\topology_3 \coloneq \{\emptyset, \{1\}, \{2\}, \{1, 2, \xi\}\}\) and \(\topology_4 \coloneq \{\emptyset\}\) are not.
 	\end{exmp}
-	For any set \(M\), \(\oo_{\mathrm{d}} \coloneq \powerset(M)\) is called the discrete\index{discrete} or the chaotic\index{chaotic} topology, where \(\powerset(M)\) denotes the power set of \(M\), i.e.\ the collection of all subsets of \(M\). \(\oo_{\mathrm{i}} \coloneq \{\emptyset, M\}\) is called the indiscrete topology.
+	For any set \(M\), \(\topology_{\mathrm{d}} \coloneq \powerset(M)\) is called the discrete\index{discrete} or the chaotic\index{chaotic} topology, where \(\powerset(M)\) denotes the power set of \(M\), i.e.\ the collection of all subsets of \(M\). \(\topology_{\mathrm{i}} \coloneq \{\emptyset, M\}\) is called the indiscrete topology.
 
-	Let \(M \coloneq \rr^d\). Then the standard topology \(\oo_\mathrm{s} \subset \powerset(\rr^d)\) on \(\rr^d\) is defined as follows. A set \(U \subseteq \rr^d\) belongs to \(\oo_{\mathrm{s}}\) iff for all \(a \in U\), there exists an \(r \in \rr^+\) such that \(\ball_r(a) \subseteq U\). Here \(\ball_r(a)\) is the open ball of radius \(r\) centered at \(a\), defined as \(\ball_r(a) \coloneq \{b \in \rr^d \mid \sum_{i=1}^d (a^i - b^i)^2 < r^2\}\), where \(a^i\) and \(b^i\) denote the \(i^\mathrm{th}\) components of \(a\) and \(b\) respectively. The fact that \(\ball_r(a)\) is called open refers to the strict inequality in the definition of \(\ball_r(a)\). We would have called it a closed ball if we had \(\leq\) instead of \(<\).
+	Let \(M \coloneq \rr^d\). Then the standard topology \(\topology_\mathrm{s} \subset \powerset(\rr^d)\) on \(\rr^d\) is defined as follows. A set \(U \subseteq \rr^d\) belongs to \(\topology_{\mathrm{s}}\) iff for all \(a \in U\), there exists an \(r \in \rr^+\) such that \(\ball_r(a) \subseteq U\). Here \(\ball_r(a)\) is the open ball of radius \(r\) centered at \(a\), defined as \(\ball_r(a) \coloneq \{b \in \rr^d \mid \sum_{i=1}^d (a^i - b^i)^2 < r^2\}\), where \(a^i\) and \(b^i\) denote the \(i^\mathrm{th}\) components of \(a\) and \(b\) respectively. The fact that \(\ball_r(a)\) is called open refers to the strict inequality in the definition of \(\ball_r(a)\). We would have called it a closed ball if we had \(\leq\) instead of \(<\).
 
 	We thus retrieve the notion of an open interval of \(\rr\), that we studied in calculus courses. If we put the discrete topology on \(\rr\) instead of the standard one, we see that a set containing even a single real number becomes an open set, justifying the word discrete.
 	\nocite{*}
