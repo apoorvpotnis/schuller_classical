@@ -186,7 +186,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 		edition = 3,
 		isbn = {978-0-387-40615-2},
 		publisher = {Springer Science+Business New York},
-		title = {Classical Mathematical Physics},
+		title = {Classical Mathematical Physics: Dynamical Systems and Field Theories},
 		year = {2003},
 		addendum = {Translated from German by Evans M.\ Harrell II.}
 	}
@@ -518,26 +518,21 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 	\section{Topological spaces}
 
 	\begin{defn}[Topological space]\index{Topological spaces}\index{Topology}\index{Open sets}
-		A topological space is a set \(M\) with a collection of subsets of \(M\), denoted by \(\topology\), which satisfy the following conditions.
+		A \textit{topological space} is a set \(M\) with a collection of subsets of \(M\), denoted by \(\topology\), which satisfy the following conditions.
 		\begin{enumerate}
 			\item \(\emptyset \in \topology\) and \(M \in \topology\).
 			\item If \(U, V \in \topology\), then \(U \cap V \in \topology\).
 			\item If \(U_\alpha \in \topology\) for all \(\alpha \in A\), where \(A\) is an indexing set, then \(\displaystyle \bigcup_{\alpha \in A} U_\alpha \in \topology\). \label{topthirdcondition}
 		\end{enumerate}
-		\(\topology\) is referred to as a topology on \(M\), while the tuple \((M, \topology)\) is referred to as a topological space. The elements of \(\topology\) are called as open sets.
+		\(\topology\) is referred to as a topology on \(M\), while the tuple \((M, \topology)\) is referred to as a topological space. The elements of \(\topology\) are called as \textit{open} sets.
 	\end{defn}
-	Note that there can in general be more than one topologies on a given set.
-	\begin{remark}
-		The indexing set \(A\) can be uncountable as well. If \(A\) is uncountable, then the third condition cannot be be fulfilled by simply requiring that if \(U,V \in \topology\), then \(U \cup V \in \topology\), as induction will work only for countably many objects.
-	\end{remark}
+	Note that there can in general be more than one topologies on a given set. The indexing set \(A\) can be uncountable as well. If \(A\) is uncountable, then the third condition cannot be be fulfilled by simply requiring that if \(U,V \in \topology\), then \(U \cup V \in \topology\), as induction will work only for countably many objects.
 	\begin{exmp}
 		Let \(M \coloneq \{1, 2, \xi\}\), where \(\xi\) is any mathematical object. Then \(\topology_1 \coloneq \{\emptyset, \{1, 2, \xi\}\}\) and \(\topology_2 \coloneq \{\emptyset, \{1\}, \{1, 2, \xi\}\}\) are valid topologies on \(M\) while \(\topology_3 \coloneq \{\emptyset, \{1\}, \{2\}, \{1, 2, \xi\}\}\) and \(\topology_4 \coloneq \{\emptyset\}\) are not.
 	\end{exmp}
-	For any set \(M\), \(\topology_{\mathrm{d}} \coloneq \powerset(M)\) is called the discrete\index{discrete} or the chaotic\index{chaotic} topology, where \(\powerset(M)\) denotes the power set of \(M\), i.e.\ the collection of all subsets of \(M\). \(\topology_{\mathrm{i}} \coloneq \{\emptyset, M\}\) is called the indiscrete topology.
+	For any set \(M\), \(\topology_{\mathrm{d}} \coloneq \powerset(M)\) is called the \textit{discrete}\index{Discrete topology} or the \textit{chaotic}\index{Chaotic topology} topology, where \(\powerset(M)\) denotes the power set of \(M\), i.e.\ the collection of all subsets of \(M\). \(\topology_{\mathrm{i}} \coloneq \{\emptyset, M\}\) is called the \textit{indiscrete}\index{Indiscrete topology} topology.
 
-	Let \(M \coloneq \rr^d\). Then the standard topology \(\topology_\mathrm{s} \subset \powerset(\rr^d)\) on \(\rr^d\) is defined as follows. A set \(U \subseteq \rr^d\) belongs to \(\topology_{\mathrm{s}}\) iff for all \(a \in U\), there exists an \(r \in \rr^+\) such that \(\ball_r(a) \subseteq U\). Here \(\ball_r(a)\) is the open ball of radius \(r\) centered at \(a\), defined as \(\ball_r(a) \coloneq \{b \in \rr^d \mid \sum_{i=1}^d (a^i - b^i)^2 < r^2\}\), where \(a^i\) and \(b^i\) denote the \(i^\mathrm{th}\) components of \(a\) and \(b\) respectively. The fact that \(\ball_r(a)\) is called open refers to the strict inequality in the definition of \(\ball_r(a)\). We would have called it a closed ball if we had \(\leq\) instead of \(<\).
-
-	We thus retrieve the notion of an open interval of \(\rr\), that we studied in calculus courses. If we put the discrete topology on \(\rr\) instead of the standard one, we see that a set containing even a single real number becomes an open set, justifying the word discrete.
+	Let \(M \coloneq \rr^d\). Then the \textit{standard}\index{Standard topology} topology \(\topology_\mathrm{s} \subset \powerset(\rr^d)\) on \(\rr^d\) is defined as follows. A set \(U \subseteq \rr^d\) belongs to \(\topology_{\mathrm{s}}\) iff for all \(a \in U\), there exists an \(r \in \rr_{\geq 0}\) such that \(\ball_r(a) \subseteq U\). Here \(\ball_r(a)\) is the open ball of radius \(r\) centered at \(a\), defined as \(\ball_r(a) \coloneq \left\{b \in \rr^d \mid \sum_{i=1}^d (a^i - b^i)^2 < r^2\right\}\), where \(a^i\) and \(b^i\) denote the \(i^\mathrm{th}\) components of \(a\) and \(b\) respectively. The fact that \(\ball_r(a)\) is called open refers to the strict inequality in the definition of \(\ball_r(a)\). We would have called it a closed ball if we had \(\leq\) instead of \(<\). We thus retrieve the notion of an open interval of \(\rr\), that we studied in calculus courses. If we put the discrete topology on \(\rr\) instead of the standard one, we see that a set containing even a single real number becomes an open set, justifying the word discrete.
 	\nocite{*}
 	\printbibliography[heading=bibintoc]
 	\printindex
