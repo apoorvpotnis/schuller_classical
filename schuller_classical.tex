@@ -1,50 +1,65 @@
 % !TEX program = lualatex
+% !TEX program = lualatex
+% !BIB program = biber
 
-\documentclass[a4 paper, 12pt, oneside]{book}
+% arara: lualatex: {shell: yes}
+% arara: biber
+% arara: makeindex
+% arara: lualatex: {shell: yes}
+% arara: lualatex: {shell: yes}
+
+\documentclass[a4 paper, 12pt]{book}
 \usepackage{geometry}
 
 \usepackage[ngerman, italian, english]{babel}
-\PassOptionsToPackage{math-style=ISO, bold-style=ISO, sans-style=italic, nabla=upright, partial=upright, warnings-off={mathtools-colon,mathtools-overbracket}}{unicode-math}
+\PassOptionsToPackage{
+    math-style=ISO, 
+    bold-style=ISO, 
+    sans-style=italic, 
+    nabla=upright, 
+    partial=upright, 
+    warnings-off={mathtools-colon, mathtools-overbracket}
+}{unicode-math}
 \usepackage{mathtools}
 \usepackage{microtype}
 \usepackage[newcmbb]{fontsetup}
-\setmonofont[%
-ItalicFont=NewCMMono10-Italic.otf,%
-BoldFont=NewCMMono10-Bold.otf,%
-BoldItalicFont=NewCMMono10-BoldOblique.otf,%
-SlantedFont=NewCMMono10-Regular.otf,%
-SlantedFeatures={FakeSlant=0.25},
-BoldSlantedFont=NewCMMono10-Bold.otf,%
-BoldSlantedFeatures={FakeSlant=0.25},
-SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
-\setsansfont[%
-SizeFeatures={%
-	{Size= -8, Font=NewCMSans08-Regular.otf,%
-		ItalicFont=NewCMSans08-Oblique.otf,%
-		BoldFont=NewCMSans10-Bold.otf,%
-		BoldItalicFont=NewCMSans10-BoldOblique.otf,%
-		SmallCapsFeatures={Numbers=OldStyle},%
-	},
-	{Size= 8, Font=NewCMSans08-Regular.otf,%
-		ItalicFont=NewCMSans08-Oblique.otf,%
-		BoldFont=NewCMSans10-Bold.otf,%
-		BoldItalicFont=NewCMSans10-BoldOblique.otf,%
-		SmallCapsFeatures={Numbers=OldStyle},%
-	},
-	{Size= 9-, Font=NewCMSans10-Regular.otf,%
-		ItalicFont=NewCMSans10-Oblique.otf,%
-		BoldFont=NewCMSans10-Bold.otf,%
-		BoldItalicFont=NewCMSans10-BoldOblique.otf,%
-		SmallCapsFeatures={Numbers=OldStyle},%
-	}},
-ItalicFont=NewCMSans10-Oblique.otf,%
-BoldFont=NewCMSans10-Bold.otf,%
-BoldItalicFont=NewCMSans10-BoldOblique.otf,%
-SmallCapsFeatures={Numbers=OldStyle},%
-SlantedFont=NewCMSans10-Oblique.otf,%
-BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
+\setmonofont[
+    ItalicFont=NewCMMono10-Italic.otf,
+    BoldFont=NewCMMono10-Bold.otf,
+    BoldItalicFont=NewCMMono10-BoldOblique.otf,
+    SlantedFont=NewCMMono10-Regular.otf,
+    SlantedFeatures={FakeSlant=0.25},
+    BoldSlantedFont=NewCMMono10-Bold.otf,
+    BoldSlantedFeatures={FakeSlant=0.25},
+    SmallCapsFeatures={Numbers=OldStyle}
+]{NewCMMono10-Regular.otf}
+\setsansfont[
+    SizeFeatures={
+        {Size= -8, Font=NewCMSans08-Regular.otf,
+            ItalicFont=NewCMSans08-Oblique.otf,
+            BoldFont=NewCMSans10-Bold.otf,
+            BoldItalicFont=NewCMSans10-BoldOblique.otf,
+            SmallCapsFeatures={Numbers=OldStyle},
+        },
+        {Size= 8, Font=NewCMSans08-Regular.otf,
+            ItalicFont=NewCMSans08-Oblique.otf,
+            BoldFont=NewCMSans10-Bold.otf,
+            BoldItalicFont=NewCMSans10-BoldOblique.otf,
+            SmallCapsFeatures={Numbers=OldStyle},
+        },
+        {Size= 9-, Font=NewCMSans10-Regular.otf,
+            ItalicFont=NewCMSans10-Oblique.otf,
+            BoldFont=NewCMSans10-Bold.otf,
+            BoldItalicFont=NewCMSans10-BoldOblique.otf,
+            SmallCapsFeatures={Numbers=OldStyle},
+        }},
+    ItalicFont=NewCMSans10-Oblique.otf,
+    BoldFont=NewCMSans10-Bold.otf,%
+    BoldItalicFont=NewCMSans10-BoldOblique.otf,
+    SmallCapsFeatures={Numbers=OldStyle},
+    SlantedFont=NewCMSans10-Oblique.otf,
+    BoldSlantedFont=NewCMSans10-BoldOblique.otf,
 ]{NewCMSans10-Regular.otf}
-%% math (upright) sans Greek
 \renewcommand*{\msansAlpha}{\char"E000}
 \renewcommand*{\msansBeta}{\char"E001}
 \renewcommand*{\msansGamma}{\char"E002}
@@ -95,7 +110,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 \renewcommand*{\msanspsi}{\char"E02F}
 \renewcommand*{\msansomega}{\char"E030}
 \renewcommand*{\msansvarepsilon}{\char"E031}
-% math italic sans Greek
+
 \renewcommand*{\mitsansAlpha}{\char"E041}
 \renewcommand*{\mitsansBeta}{\char"E042}
 \renewcommand*{\mitsansGamma}{\char"E043}
@@ -146,7 +161,14 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 \renewcommand*{\mitsanspsi}{\char"E070}
 \renewcommand*{\mitsansomega}{\char"E071}
 \renewcommand*{\mitsansvarepsilon}{\char"E072}
-\setmathfont[range={\mathfrak,\mathbffrak}]{NewCMMath-Regular.otf}
+
+\setmathfont{NewCMMath-Book.otf}[StylisticSet={1,3}, BoldFont = NewCMMath-Bold.otf]
+\makeatletter
+\g@addto@macro\bfseries{\boldmath}
+\makeatother
+
+\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}
+
 \DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
 \renewcommand{\mathcal}{\cmmathcal}
 \DeclareFontFamily{U}{mathc}{}
@@ -154,6 +176,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 {<->s*[1.03] mathc10}{}
 \DeclareMathAlphabet{\cmmathcal}{U}{mathc}{m}{it}
 \renewcommand{\mathcal}{\cmmathcal}
+\let\symcal\mathcal
 \setmathfont[range=bfsfit/{greek}]{Latin Modern Math}
 \DeclareSymbolFont{sfletters}{OML}{cmbrm}{m}{it}
 \DeclareMathSymbol{\salpha}{\mathord}{sfletters}{"0B}
@@ -169,91 +192,93 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 \newtheorem{exmp}{Example}
 \newtheorem{remark}{Remark}
 
-\begin{filecontents}{schuller_classical.bib}
-	@book{Arnold,
-		author = {Arnold, Vladimir},
-		edition = 2,
-		isbn = {978-1-4419-3087-3},
-		publisher = {Springer Science+Business New York},
-		series = {Graduate Texts in Mathematics 60},
-		title = {Mathematical Methods of Classical Mechanics},
-		year = {1989},
-		addendum = {Translated from Russian by K.\ Vogtmann and A.\ Weinstein.}
-	}
+\usepackage{silence}
+\WarningFilter{latex}{Writing or overwriting file}
+\begin{filecontents}[overwrite]{schuller_classical.bib}
+    @book{Arnold,
+        author = {Arnold, Vladimir},
+        edition = 2,
+        isbn = {978-1-4419-3087-3},
+        publisher = {Springer Science+Business New York},
+        series = {Graduate Texts in Mathematics 60},
+        title = {Mathematical Methods of Classical Mechanics},
+        year = {1989},
+        addendum = {Translated from Russian by K.\ Vogtmann and A.\ Weinstein.}
+    }
 
-	@book{Thirring,
-		author = {Thirring, Walter},
-		edition = 3,
-		isbn = {978-0-387-40615-2},
-		publisher = {Springer Science+Business New York},
-		title = {Classical Mathematical Physics: Dynamical Systems and Field Theories},
-		year = {2003},
-		addendum = {Translated from German by Evans M.\ Harrell II.}
-	}
+    @book{Thirring,
+        author = {Thirring, Walter},
+        edition = 3,
+        isbn = {978-0-387-40615-2},
+        publisher = {Springer Science+Business New York},
+        title = {Classical Mathematical Physics: Dynamical Systems and Field Theories},
+        year = {2003},
+        addendum = {Translated from German by Evans M.\ Harrell II.}
+    }
 
-	@book{Moretti,
-		author = {Moretti, Valter},
-		isbn = {978-3-031-27611-8},
-		publisher = {Springer Nature Switzerland AG},
-		series = {\selectlanguage{italian}La Matematica per il 3+2\selectlanguage{english}},
-		title = {Analytical Mechanics: Classical, Lagrangian and Hamiltonian Mechanics, Stability Theory, Special Relativity},
-		year = {2023},
-		addendum = {Translated from Italian by Simon G.\ Choissi.}
-	}
+    @book{Moretti,
+        author = {Moretti, Valter},
+        isbn = {978-3-031-27611-8},
+        publisher = {Springer Nature Switzerland AG},
+        series = {\selectlanguage{italian}La Matematica per il 3+2\selectlanguage{english}},
+        title = {Analytical Mechanics: Classical, Lagrangian and Hamiltonian Mechanics, Stability Theory, Special Relativity},
+        year = {2023},
+        addendum = {Translated from Italian by Simon G.\ Choissi.}
+    }
 
-	@book{Tao,
-		author = {Tao, Terence},
-		isbn = {978-93-80250-64-9},
-		title = {Analysis I},
-		publisher = {Hindustan Book Agency, New Delhi},
-		series = {Texts and Readings in Mathematics 37},
-		year = {2017},
-		edition = 3,
-	}
+    @book{Tao,
+        author = {Tao, Terence},
+        isbn = {978-93-80250-64-9},
+        title = {Analysis I},
+        publisher = {Hindustan Book Agency, New Delhi},
+        series = {Texts and Readings in Mathematics 37},
+        year = {2017},
+        edition = 3,
+    }
 
-	@book{Misner,
-		author = {Misner, Charles W. and Thorne, Kip S. and Wheeler, John Archibald},
-		isbn = {0-7167-0334-3},
-		publisher = {W.\ H.\ Freeman and Company, San Francisco},
-		title = {Gravitation},
-		year = {1973},
-	}
+    @book{Misner,
+        author = {Misner, Charles W. and Thorne, Kip S. and Wheeler, John Archibald},
+        isbn = {0-7167-0334-3},
+        publisher = {W.\ H.\ Freeman and Company, San Francisco},
+        title = {Gravitation},
+        year = {1973},
+    }
 
-	@misc{Schuller_geometric_notes,
-		author = {Schuller, Frederic and Rea, Simon and Dadhley, Richie},
-		institution = {\selectlanguage{ngerman}Friedrich-Alexander-Universität Erlangen-Nürnberg, Institut für Theoretische Physik III\selectlanguage{english}},
-		title = {Lectures on the Geometric Anatomy of Theoretical Physics},
-		url = {https://drive.google.com/file/d/1nchF1fRGSY3R3rP1QmjUg7fe28tAS428/view},
-		year = {2017},
-		note = {Lecture notes in \texttt{.pdf} format. Lecturer: Prof.\@ Frederic Paul Schuller}
-	}
+    @misc{Schuller_geometric_notes,
+        author = {Schuller, Frederic and Rea, Simon and Dadhley, Richie},
+        institution = {\selectlanguage{ngerman}Friedrich-Alexander-Universität Erlangen-Nürnberg, Institut für Theoretische Physik III\selectlanguage{english}},
+        title = {Lectures on the Geometric Anatomy of Theoretical Physics},
+        url = {https://drive.google.com/file/d/1nchF1fRGSY3R3rP1QmjUg7fe28tAS428/view},
+        year = {2017},
+        note = {Lecture notes in \texttt{.pdf} format. Lecturer: Prof.\@ Frederic Paul Schuller}
+    }
 
-	@misc{Schuller_geometric_videos,
-		author = {Schuller, Frederic},
-		title = {Lectures on the Geometric Anatomy of Theoretical Physics},
-		url = {https://www.youtube.com/playlist?list=PLPH7f_7ZlzxTi6kS4vCmv4ZKm9u8g5yic},
-		year = {2016},
-		note = {Video lectures on YouTube.}
-	}
+    @misc{Schuller_geometric_videos,
+        author = {Schuller, Frederic},
+        title = {Lectures on the Geometric Anatomy of Theoretical Physics},
+        url = {https://www.youtube.com/playlist?list=PLPH7f_7ZlzxTi6kS4vCmv4ZKm9u8g5yic},
+        year = {2016},
+        note = {Video lectures on YouTube.}
+    }
 
-	@book{Stewart,
-		author = {Stewart, John},
-		title = {Advanced General Relativity},
-		year = {1993},
-		publisher = {Cambridge University Press, Cambridge},
-		isbn = {0-521-32319-3},
-		series = {Cambridge Monographs on Mathematical Physics}
-	}
+    @book{Stewart,
+        author = {Stewart, John},
+        title = {Advanced General Relativity},
+        year = {1993},
+        publisher = {Cambridge University Press, Cambridge},
+        isbn = {0-521-32319-3},
+        series = {Cambridge Monographs on Mathematical Physics}
+    }
 
-	@book{Isham,
-		author = {Isham, Chris J.},
-		title = {Modern Differential Geometry for Physicists},
-		edition = 2,
-		publisher = {World Scientific, Singapore},
-		isbn = {981-02-3555-0},
-		year = {2001},
-		series = {World Scientific Lecture Notes in Physics}
-	}
+    @book{Isham,
+        author = {Isham, Chris J.},
+        title = {Modern Differential Geometry for Physicists},
+        edition = 2,
+        publisher = {World Scientific, Singapore},
+        isbn = {981-02-3555-0},
+        year = {2001},
+        series = {World Scientific Lecture Notes in Physics}
+    }
 \end{filecontents}
 
 \usepackage[sorting=none, hyperref, backref]{biblatex}
@@ -267,7 +292,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 \makeindex[intoc]
 
 \usepackage{hyperref}
-\hypersetup{citecolor=red, pdfencoding=auto, psdextra, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller's Lectures on Classical Mechanics}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Schuller's Lectures on Classical Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Classical Mechanics, Differential Geometry, Calculus of Variations, Mathematical Physics, Lecture Notes}}
+\hypersetup{citecolor=red, pdfencoding=auto, psdextra, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller's Lectures on Classical Mechanics}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Schuller's Lectures on Classical Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Classical Mechanics, Differential Geometry, Calculus of Variations, Hamiltonian Mechanics, Lagrangian Mechanics, Symplectic Geometry, General Relativity, Spacetime, Topological Manifolds, Principle of Stationary Action, Mathematical Physics, Classical Physics, Newtonian Mechanics, Lecture Notes}}
 \usepackage{cleveref, xurl}
 \usepackage[numbered]{bookmark}
 
@@ -280,260 +305,264 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 \usetikzlibrary{datavisualization, datavisualization.polar,datavisualization.formats.functions, fpu, calc, arrows.meta, bending, positioning, 3d, quotes, angles, decorations.pathmorphing, backgrounds, fit, babel, hobby, decorations.markings}
 
 \tikzset{%
-	std line width/.style={
-		line width = 0.7pt,
-	},
-	hollow circle/.style={
-		draw, std line width, circle, inner sep=0pt, minimum size=3pt, outer sep=0pt
-	}
+    std line width/.style={
+        line width = 0.7pt,
+    },
+    hollow circle/.style={
+        draw, std line width, circle, inner sep=0pt, minimum size=3pt, outer sep=0pt
+    }
 }
 
-\DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\setaux#1}
-\def\setaux#1|{#1\;\delimsize\vert\;}
+\newcommand{\ltwo}{\symrm{L\kern-0.5pt^2}}
+\newcommand{\position}{\symrm{Q}}
+\newcommand{\momentum}{\symrm{P}}
+\newcommand{\rthree}{\symbb{R}^3}
+\newcommand{\rr}{\symbb{R}}
+\newcommand{\cc}{\symbb{C}}
+\newcommand{\nn}{\symbb{N}_0}
+\newcommand{\dirac}{\symrm{\delta}}
+\renewcommand*{\hbar}{\symrm{^^^^0127}}
+\renewcommand{\i}{\symrm{i}}
+\newcommand{\e}{\symrm{e}}
+\newcommand{\cinfinity}{\symrm{C}^\infty}
+\newcommand{\domain}{\symcal{D}}
+\newcommand{\identity}{\symrm{id}}
+\newcommand{\der}{\operatorname{d\!}{}}
+\newcommand{\manifold}{\symcal{M}}
+\newcommand{\topology}{\symcal{O}}
+\newcommand{\atlas}{\symcal{A}}
+\newcommand{\powerset}{\symcal{P}}
+\newcommand{\ball}{\symrm{B}}
 
-\newcommand{\ltwo}{\mathup{L\kern-0.5pt^2}}
-\newcommand{\position}{\mathup{Q}}
-\newcommand{\momentum}{\mathup{P}}
-\newcommand{\rthree}{\mathbb{R}^3}
-\newcommand{\rr}{\mathbb{R}}
-\newcommand{\cc}{\mathbb{C}}
-\newcommand{\nn}{\mathbb{N}_0}
-\newcommand{\dirac}{\mathup{\delta}}
-\renewcommand*{\hbar}{\mathrm{^^^^0127}}
-\renewcommand{\i}{\mathrm{i}}
-\newcommand{\e}{\mathrm{e}}
-\newcommand{\cinfinity}{\mathrm{C}^\infty}
-\newcommand{\domain}{\mathcal{D}}
-\newcommand{\identity}{\mathrm{id}}
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
-\newcommand{\der}{\operatorname{d\!}{}}
-\newcommand{\manifold}{\mathcal{M}}
-\newcommand{\topology}{\mathcal{O}}
-\newcommand{\atlas}{\mathcal{A}}
-\newcommand{\powerset}{\mathcal{P}}
-\newcommand{\ball}{\mathrm{B}}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2}
+\DeclarePairedDelimiterX\setc[2]{\{}{\}}{\,#1 \;\delimsize\vert\; #2\,}
+\DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\setaux#1}
+\def\setaux#1|{#1\;\delimsize\vert\;}
 
 \title{Schuller's Lectures on Classical Mechanics}
 \author{Frederic Schuller\\Apoorv Potnis}
 \date{\today}
 
 \begin{document}
-	\hypertarget{TitlePage}{}
-	\bookmark[dest=TitlePage]{Title Page}
-	\maketitle
+    \hypertarget{TitlePage}{}
+    \bookmark[dest=TitlePage]{Title Page}
+    \maketitle
 
-	\chapter*{Preface}
-	\hypertarget{Preface}{}
-	\bookmark[dest=Preface]{Preface}
-	These are lecture notes by Apoorv Potnis of the lecture series `\selectlanguage{ngerman}Theoretische Physik 1: Mechanik\selectlanguage{english}' (Theoretical Physics 1: Mechanics), given by \textbf{Prof.\ Frederic Paul Schuller} in 2014 at the \selectlanguage{ngerman}Friedrich-Alexander-Universität Erlangen-Nürnberg\selectlanguage{english}. Prof.\ Schuller discusses classical mechanics in a mathematically rigorous fashion in this course. While the original lecture series is in German, these notes are in English and have been prepared using YouTube's automatic subtitle translation tool. The video lecture series is available at \url{https://youtube.com/playlist?list=PLyIi3L2232Qo5t61tXfoL6vTW2akFQL-n&feature=shared} and at \url{https://www.fau.tv/course/id/272}.
+    \chapter*{Preface}
+    \hypertarget{Preface}{}
+    \bookmark[dest=Preface]{Preface}
+    These are lecture notes by Apoorv Potnis of the lecture series `\selectlanguage{ngerman}Theoretische Physik 1: Mechanik\selectlanguage{english}' (Theoretical Physics 1: Mechanics), given by \textbf{Prof.\ Frederic Paul Schuller} in 2014 at the \selectlanguage{ngerman}Friedrich-Alexander-Universität Erlangen-Nürnberg\selectlanguage{english}. Prof.\ Schuller discusses classical mechanics in a mathematically rigorous fashion in this course. While the original lecture series is in German, these notes are in English and have been prepared using YouTube's automatic subtitle translation tool. The video lecture series is available at \url{https://youtube.com/playlist?list=PLyIi3L2232Qo5t61tXfoL6vTW2akFQL-n&feature=shared} and at \url{https://www.fau.tv/course/id/272}.
 
-	The source code, updates and corrections to this document can be found on this GitHub repository: \url{https://github.com/apoorvpotnis/schuller_classical}. The source code is embedded in this \textsc{pdf}. Comments and corrections can be mailed at \href{mailto:apoorvpotnis@gmail.com}{\texttt{apoorvpotnis@gmail.com}}.
-	\clearpage
+    The source code, updates and corrections to this document can be found on this GitHub repository: \url{https://github.com/apoorvpotnis/schuller_classical}. The source code is embedded in this \textsc{pdf}. Comments and corrections can be mailed at \href{mailto:apoorvpotnis@gmail.com}{\texttt{apoorvpotnis@gmail.com}}.
+    \clearpage
 
-	\hypertarget{Contents}{}
-	\bookmark[dest=Contents]{Contents}
-	\tableofcontents
+    \hypertarget{Contents}{}
+    \bookmark[dest=Contents]{Contents}
+    \tableofcontents
 
-	\chapter{A Bird's Eye View of Physics}
+    \chapter{A Bird's Eye View of Physics}
 
-	\section{Introduction}
+    \section{Introduction}
 
-	According to Prof.\ Schuller, the only goal of physics is to predict the future, nothing more and nothing less. He then invokes Wittgenstein to remark that the goal of theoretical physics is to say all that can be said clearly. But in order to say things clearly, one needs the language of mathematics. He then remembers Hilbert, who said experimental physics and theoretical physics have nothing to do with each other. Roughly speaking, experimental physics and theoretical physics are Siamese twins, according to Prof.\ Schuller.
+    According to Prof.\ Schuller, the only goal of physics is to predict the future, nothing more and nothing less. He then invokes Wittgenstein to remark that the goal of theoretical physics is to say all that can be said clearly. But in order to say things clearly, one needs the language of mathematics. He then remembers Hilbert, who said experimental physics and theoretical physics have nothing to do with each other. Roughly speaking, experimental physics and theoretical physics are Siamese twins, according to Prof.\ Schuller.
 
-	We all learn about Newton's laws in school, but we need to properly define the terms used in the laws, such as `mass', `absolute time', `absolute space', etc. We formulate Newton's laws in the following way:
-	\begin{enumerate}
-		\item In an \textit{inertial system}, a \textit{body} on which no \textit{force} acts \textit{moves uniformly} and \textit{linearly}.
-		\item In an inertial system, the \textit{deviation} of a body from a uniform linear motion is proportional to the force acting on it.
-		\item \textit{Interaction} between bodies takes place through equal and opposite forces.
-	\end{enumerate}
-	He then asks whether the second law contains the first law: can we take the force acting on a body to be zero and obtain the first law from the second? The answer is negative. The first law defines what we mean by `straight lines'. It defines `uniform' and `linear motion' for us. The motion of particles on which no force acts furnish a system of straight lines in space; they define the geometry of space. We  can hit a puck with a hockey stick on a flat frictionless surface of ice and the motion of the puck shall give us straight lines on the flat surface. If we imagine earth to be perfectly spherical and made of frictionless ice, then a small puck launched along the surface shall define `straight lines' on the surface of earth. Only an external observer, such as one sitting in the International Space Station shall observe the circular motion of the puck along the earth's surface. Thus, if were in a spaceship in empty space, then we could launch some sand particles from our hand to define `straight lines' for us. But there's a problem, in the real world, contrary to the assumption in the first law, there are always other bodies which exert gravitational forces on each other. We shall get out of this trouble by not considering gravitation as a force! Thus, we can always assume the existence of particles (chargeless, spinless, etc.)
+    We all learn about Newton's laws in school, but we need to properly define the terms used in the laws, such as `mass', `absolute time', `absolute space', etc. We formulate Newton's laws in the following way:
+    \begin{enumerate}
+        \item In an \textit{inertial system}, a \textit{body} on which no \textit{force} acts \textit{moves uniformly} and \textit{linearly}.
+        \item In an inertial system, the \textit{deviation} of a body from a uniform linear motion is proportional to the force acting on it.
+        \item \textit{Interaction} between bodies takes place through equal and opposite forces.
+    \end{enumerate}
+    He then asks whether the second law contains the first law: can we take the force acting on a body to be zero and obtain the first law from the second? The answer is negative. The first law defines what we mean by `straight lines'. It defines `uniform' and `linear motion' for us. The motion of particles on which no force acts furnish a system of straight lines in space; they define the geometry of space. We  can hit a puck with a hockey stick on a flat frictionless surface of ice and the motion of the puck shall give us straight lines on the flat surface. If we imagine earth to be perfectly spherical and made of frictionless ice, then a small puck launched along the surface shall define `straight lines' on the surface of earth. Only an external observer, such as one sitting in the International Space Station shall observe the circular motion of the puck along the earth's surface. Thus, if were in a spaceship in empty space, then we could launch some sand particles from our hand to define `straight lines' for us. But there's a problem, in the real world, contrary to the assumption in the first law, there are always other bodies which exert gravitational forces on each other. We shall get out of this trouble by not considering gravitation as a force! Thus, we can always assume the existence of particles (chargeless, spinless, etc.)
 
-	\section{Course structure}
+    \section{Course structure}
 
-	\begin{center}
-		\begin{tabular}{|c|}
-		    \hline
-			Gravitation\\
-			\hline
-			Newton's laws\\
-			\hline
-			Particles, forces and inertial frames\\
-			\hline
-			Spacetime\\
-			\hline
-			Affine manifolds\\
-			\hline
-			Manifolds\\
-			\hline
-			Set theory\\
-			\hline
-		\end{tabular}
-	\end{center}
+    \begin{center}
+        \begin{tabular}{|c|}
+            \hline
+            Gravitation\\
+            \hline
+            Newton's laws\\
+            \hline
+            Particles, forces and inertial frames\\
+            \hline
+            Spacetime\\
+            \hline
+            Affine manifolds\\
+            \hline
+            Manifolds\\
+            \hline
+            Set theory\\
+            \hline
+        \end{tabular}
+    \end{center}
 
-	In order to properly state the physical laws and derive their consequences, we need to develop a fair amount of mathematical machinery, which shall occupy a significant duration of this course.
+    In order to properly state the physical laws and derive their consequences, we need to develop a fair amount of mathematical machinery, which shall occupy a significant duration of this course.
 
-	The naive idea of set theory that we have from school encounters problems when we try to work with infinite sets. We don't discuss axiomatic set theory in this course. The reader is requested to look at first three lectures of Prof.\ Schuller's \textit{Lectures on the Geometric Anatomy of Theoretical Physics} course for a discussion of the Zermelo--Fraenkel set theory with the axiom of choice (\textsc{zfc})~\cite{Schuller_geometric_videos}. The reader can also take a look at Terence Tao's \textit{Analysis I} for a lucid exposition of \textsc{zfc}~\cite{Tao}.
+    The naive idea of set theory that we have from school encounters problems when we try to work with infinite sets. We don't discuss axiomatic set theory in this course. The reader is requested to look at first three lectures of Prof.\ Schuller's \textit{Lectures on the Geometric Anatomy of Theoretical Physics} course for a discussion of the Zermelo--Fraenkel set theory with the axiom of choice (\textsc{zfc})~\cite{Schuller_geometric_videos}. The reader can also take a look at Terence Tao's \textit{Analysis I} for a lucid exposition of \textsc{zfc}~\cite{Tao}.
 
-	Suppose we have an atlas of the world with maps of different regions on different pages. We refer to these maps as charts. These charts are flat, but if we join the charts such that regions common to two charts overlap on each other, we unsurprisingly get the globe of earth. The global, spherical structure of earth is encoded in the overlapping regions of the charts. This idea shall be used in the study of manifolds.
+    Suppose we have an atlas of the world with maps of different regions on different pages. We refer to these maps as charts. These charts are flat, but if we join the charts such that regions common to two charts overlap on each other, we unsurprisingly get the globe of earth. The global, spherical structure of earth is encoded in the overlapping regions of the charts. This idea shall be used in the study of manifolds.
 
-	Consider the red vector in two-dimensional space, as shown in~\cref{fig:paralleltransporta}. We can parallelly transport it to get the blue vector. The orientation of the vector remains the same while the origin of the vector changes. But how do we define `parallelly' transporting a vector? We may claim that both the blue and red vectors are the `same' as their vector components are equal, and define parallel transport as something which keeps the vector components invariant. But if we switch to polar co-ordinates, as in~\cref{fig:paralleltransportb}, we intuitively/geometrically see that bot the red and blue vectors are the same, but their components in polar co-ordinates are not the same. The answer to this problem shall be revealed when we discuss affine manifolds.
-	\begin{figure}[htb]
-	    \centering
-		\subcaptionbox{Cartesian co-ordinates \label{fig:paralleltransporta}}[0.45\textwidth]
-		{
-				\begin{tikzpicture}[scale=0.6]
+    Consider the red vector in two-dimensional space, as shown in~\cref{fig:paralleltransporta}. We can parallelly transport it to get the blue vector. The orientation of the vector remains the same while the origin of the vector changes. But how do we define `parallelly' transporting a vector? We may claim that both the blue and red vectors are the `same' as their vector components are equal, and define parallel transport as something which keeps the vector components invariant. But if we switch to polar co-ordinates, as in~\cref{fig:paralleltransportb}, we intuitively/geometrically see that bot the red and blue vectors are the same, but their components in polar co-ordinates are not the same. The answer to this problem shall be revealed when we discuss affine manifolds.
+    \begin{figure}[htb]
+        \centering
+        \subcaptionbox{Cartesian co-ordinates \label{fig:paralleltransporta}}[0.45\textwidth]
+        {
+                \begin{tikzpicture}[scale=0.6]
 
-				% Draw grid lines
-				\draw[step=1cm,gray] (-4,-4) grid (4,4);
+                % Draw grid lines
+                \draw[step=1cm,gray] (-4,-4) grid (4,4);
 
-				% Draw axes
-				\draw[->] (-4.2,0) -- (4.5,0) node[right] {};
-				\draw[->] (0,-4.2) -- (0,4.5) node[above] {};
+                % Draw axes
+                \draw[->] (-4.2,0) -- (4.5,0) node[right] {};
+                \draw[->] (0,-4.2) -- (0,4.5) node[above] {};
 
-				% Draw vectors
-				\draw[->, ultra thick, red] (3,0) -- (3,2);
-				\draw[->, ultra thick, blue] (0,1) -- (0,3);
-			\end{tikzpicture}
-		}
-		\qquad
-		\subcaptionbox{Polar co-ordinates \label{fig:paralleltransportb}}[0.45\textwidth]
-		{
-			\begin{tikzpicture}[scale=0.6]
-				% Draw concentric circles
-				\foreach \r in {1,2,3,4}{
-					\draw[gray] (0,0) circle (\r);
-				}
+                % Draw vectors
+                \draw[->, ultra thick, red] (3,0) -- (3,2);
+                \draw[->, ultra thick, blue] (0,1) -- (0,3);
+            \end{tikzpicture}
+        }
+        \qquad
+        \subcaptionbox{Polar co-ordinates \label{fig:paralleltransportb}}[0.45\textwidth]
+        {
+            \begin{tikzpicture}[scale=0.6]
+                % Draw concentric circles
+                \foreach \r in {1,2,3,4}{
+                    \draw[gray] (0,0) circle (\r);
+                }
 
-				% Draw radial lines
-				\foreach \theta in {0,30,...,330}{
-					\draw[gray] (0,0) -- (\theta:4);
-				}
+                % Draw radial lines
+                \foreach \theta in {0,30,...,330}{
+                    \draw[gray] (0,0) -- (\theta:4);
+                }
 
-				% Draw axes
-				\draw[->] (-4.2,0) -- (4.5,0) node[right] {};
-				\draw[->] (0,-4.2) -- (0,4.5) node[above] {};
+                % Draw axes
+                \draw[->] (-4.2,0) -- (4.5,0) node[right] {};
+                \draw[->] (0,-4.2) -- (0,4.5) node[above] {};
 
-				% Draw vectors
-				\draw[->, ultra thick, red] (3,0) -- (3,2);
-				\draw[->, ultra thick, blue] (0,1) -- (0,3);
-			\end{tikzpicture}
-		}
-		\caption{Parallel transport of vectors}
-		\label{fig:paralleltransport}
-	\end{figure}
-	We need \(n^2(n+1)/2\) co-ordinates in an \(n\)-dimensional space in order to properly define parallel transport. For \(n = 4\), we need 40 components! Suppose we are in an empty universe, with no stars. How do we define rotation? How would we know that we are rotating or not? This was pondered by Newton as well, who said that  the surface of water in a rotating bucket shall appear parabolic. The affine structure on manifolds shall capture the idea needed to define rotation properly.
+                % Draw vectors
+                \draw[->, ultra thick, red] (3,0) -- (3,2);
+                \draw[->, ultra thick, blue] (0,1) -- (0,3);
+            \end{tikzpicture}
+        }
+        \caption{Parallel transport of vectors}
+        \label{fig:paralleltransport}
+    \end{figure}
+    We need \(n^2(n+1)/2\) co-ordinates in an \(n\)-dimensional space in order to properly define parallel transport. For \(n = 4\), we need 40 components! Suppose we are in an empty universe, with no stars. How do we define rotation? How would we know that we are rotating or not? This was pondered by Newton as well, who said that  the surface of water in a rotating bucket shall appear parabolic. The affine structure on manifolds shall capture the idea needed to define rotation properly.
 
-	We shall discuss spacetime as well when we discuss relativity. It turns out that only certain trajectories are possible for massive particles, namely the trajectories which lie inside a \textit{light cone} (\cref{fig:lightcone}). The angle of the cone is determined by the speed of light. If we take the speed of light to be infinity, the cone becomes a flat plane. Prof.\ Schuller references \textit{Gravitation} by Misner, Thorne and Wheeler for the Newtonian spacetime formulation that he shall discuss~\cite{Misner}.
+    We shall discuss spacetime as well when we discuss relativity. It turns out that only certain trajectories are possible for massive particles, namely the trajectories which lie inside a \textit{light cone} (\cref{fig:lightcone}). The angle of the cone is determined by the speed of light. If we take the speed of light to be infinity, the cone becomes a flat plane. Prof.\ Schuller references \textit{Gravitation} by Misner, Thorne and Wheeler for the Newtonian spacetime formulation that he shall discuss~\cite{Misner}.
 
-	\begin{figure}[htb]
-	    \centering
-		\begin{tikzpicture}
-			\def\b{0.2} % semi-minor axis
-			\pgfmathsetmacro{\h}{(1 + sqrt(1 + 4*\b^2)) / 2}
-			\pgfmathsetmacro{\a}{sqrt(\h)}
-			\draw[gray] (-1, -1) -- (1,  1);
-			\draw[gray] (-1,  1) -- (1, -1);
-			\draw[gray] (0,  \h) ellipse [x radius = \a, y radius = \b];
-			\draw[gray] (0, -\h) ellipse [x radius = \a, y radius = \b];
-			\draw[smooth, std line width] (-0.3, 1) .. controls (-0.2,0) and (0.2,-0) .. (0.3,-1);
-		\end{tikzpicture}
-		\caption{Light cone}
-		\label{fig:lightcone}
-	\end{figure}
+    \begin{figure}[htb]
+        \centering
+        \begin{tikzpicture}
+            \def\b{0.2} % semi-minor axis
+            \pgfmathsetmacro{\h}{(1 + sqrt(1 + 4*\b^2)) / 2}
+            \pgfmathsetmacro{\a}{sqrt(\h)}
+            \draw[gray] (-1, -1) -- (1,  1);
+            \draw[gray] (-1,  1) -- (1, -1);
+            \draw[gray] (0,  \h) ellipse [x radius = \a, y radius = \b];
+            \draw[gray] (0, -\h) ellipse [x radius = \a, y radius = \b];
+            \draw[smooth, std line width] (-0.3, 1) .. controls (-0.2,0) and (0.2,-0) .. (0.3,-1);
+        \end{tikzpicture}
+        \caption{Light cone}
+        \label{fig:lightcone}
+    \end{figure}
 
-	After covering the above, we move on to the second part of the course. We shall first learn about some calculus of variations to head into a reformulation of Newtonian mechanics, known as Lagrangian mechanics. We shall see many applications of Lagrangian mechanics to physical problems. For example, we shall see that the \textit{configuration space} of the double pendulum to be a torus. After Lagrangian mechanics, we shall learn about yet another reformulation, namely Hamiltonian mechanics, where we shall explore the concept of a \textit{phase space}. We shall also take a look at symmetries, conserved quantities and its applications. If time permits, we shall take a look at some symplectic geometry as well, from which it is easy to find qualitative solutions to many problems. In the last lecture, we shall briefly discuss general relativity.
+    After covering the above, we move on to the second part of the course. We shall first learn about some calculus of variations to head into a reformulation of Newtonian mechanics, known as Lagrangian mechanics. We shall see many applications of Lagrangian mechanics to physical problems. For example, we shall see that the \textit{configuration space} of the double pendulum to be a torus. After Lagrangian mechanics, we shall learn about yet another reformulation, namely Hamiltonian mechanics, where we shall explore the concept of a \textit{phase space}. We shall also take a look at symmetries, conserved quantities and its applications. If time permits, we shall take a look at some symplectic geometry as well, from which it is easy to find qualitative solutions to many problems. In the last lecture, we shall briefly discuss general relativity.
 
-	\chapter{Topological Manifolds}
+    \chapter{Topological Manifolds}
 
-	\section{References}
+    \section{References}
 
-	\begin{enumerate}
-		\item \fullcite{Stewart}.
-		\item \fullcite{Isham}.
-	\end{enumerate}
+    \begin{enumerate}
+        \item \fullcite{Stewart}.
+        \item \fullcite{Isham}.
+    \end{enumerate}
 
-	\section{Mathematical structure of spacetime}
+    \section{Mathematical structure of spacetime}
 
-	Spacetime is a set with some mathematical structure. We shall see some physical motivations for defining the particular mathematical structures we need. In classical physics, we talk about trajectories of particles. We require them to be continuous, i.e.\ a particle cannot disappear and reappear somewhere else magically.\footnote{In reality though, as the world we live in is not classical, particles \textit{can} disappear and appear magically. One encounters this phenomenon when studying quantum field theory.} Thus, a trajectory like the one in~\cref{fig:conttraj} is acceptable while like the one in~\cref{fig:disconttraj} is not.
+    Spacetime is a set with some mathematical structure. We shall see some physical motivations for defining the particular mathematical structures we need. In classical physics, we talk about trajectories of particles. We require them to be continuous, i.e.\ a particle cannot disappear and reappear somewhere else magically.\footnote{In reality though, as the world we live in is not classical, particles \textit{can} disappear and appear magically. One encounters this phenomenon when studying quantum field theory.} Thus, a trajectory like the one in~\cref{fig:conttraj} is acceptable while like the one in~\cref{fig:disconttraj} is not.
 
-	\begin{figure}[htb]
-	    \centering
-		\subcaptionbox{Acceptable continuous trajectory \label{fig:conttraj}}[0.4\textwidth]
-		{
-			\begin{tikzpicture}[yscale=1.3, decoration={markings, mark=at position 0.1 with {\arrow{>}}}, use Hobby shortcut]
-				% 				\draw[std line width, postaction={decorate}] (0,0) to [out=30, in=180] (1, 1) to [out=0,in=180] (1.5,0.5) to [out=0, in=0] (1.6, 2) to [out=180, in=180] (1.7, 0) to [out=0, in=150] (2.5, 0.6);
-				% 				\draw plot [std line width, postaction={decorate}, smooth] coordinates {(0,0) (1,1) (1,0)};
-				\draw [std line width, postaction={decorate}] (0,0) .. (1,1) .. (1.5,0.5) .. (1.7,0) .. (2.5,0.6) .. (1.8,1) .. (0.2,-0.5);
-			\end{tikzpicture}
-		}
-		\qquad
-		\subcaptionbox{Non-acceptable discontinuous trajectory \label{fig:disconttraj}}[0.4\textwidth]
-		{
-			\begin{tikzpicture}[xscale=2, decoration={markings, mark=at position 0.5 with {\arrow{>}}}]
-				\draw[std line width, postaction={decorate}, -{Circle[open]}] (0,0) to [out=30, in=180] (1, 1) to [out=0,in=180] (1.5,0.5);
-				\draw[std line width, postaction={decorate}, {Circle[]}-] (1,2) to [out=45, in=180] (2, 0.5);
-			\end{tikzpicture}
-		}
-		\label{fig:traj}
-	\end{figure}
+    \begin{figure}[htb]
+        \centering
+        \subcaptionbox{Acceptable continuous trajectory \label{fig:conttraj}}[0.4\textwidth]
+        {
+            \begin{tikzpicture}[yscale=1.3, decoration={markings, mark=at position 0.1 with {\arrow{>}}}, use Hobby shortcut]
+                % 				\draw[std line width, postaction={decorate}] (0,0) to [out=30, in=180] (1, 1) to [out=0,in=180] (1.5,0.5) to [out=0, in=0] (1.6, 2) to [out=180, in=180] (1.7, 0) to [out=0, in=150] (2.5, 0.6);
+                % 				\draw plot [std line width, postaction={decorate}, smooth] coordinates {(0,0) (1,1) (1,0)};
+                \draw [std line width, postaction={decorate}] (0,0) .. (1,1) .. (1.5,0.5) .. (1.7,0) .. (2.5,0.6) .. (1.8,1) .. (0.2,-0.5);
+            \end{tikzpicture}
+        }
+        \qquad
+        \subcaptionbox{Non-acceptable discontinuous trajectory \label{fig:disconttraj}}[0.4\textwidth]
+        {
+            \begin{tikzpicture}[xscale=2, decoration={markings, mark=at position 0.5 with {\arrow{>}}}]
+                \draw[std line width, postaction={decorate}, -{Circle[open]}] (0,0) to [out=30, in=180] (1, 1) to [out=0,in=180] (1.5,0.5);
+                \draw[std line width, postaction={decorate}, {Circle[]}-] (1,2) to [out=45, in=180] (2, 0.5);
+            \end{tikzpicture}
+        }
+        \label{fig:traj}
+    \end{figure}
 
-	We are familiar with the \(\epsilon–\delta\) definition of continuity, but one can formulate the notion of continuity with a much weaker structure. A \textit{topology} on a set is a very weak structure which allows to define continuity.
+    We are familiar with the \(\epsilon\)\nobreakdash-\(\delta\) definition of continuity, but one can formulate the notion of continuity with a much weaker structure. A \textit{topology} on a set is a very weak structure which allows to define continuity.
 
-	A curve in spacetime would normally depict the trajectory of a particle. We often wish to parametrize the trajectory of a particle by its time co-ordinate. This motivates us to define a curve \(\gamma\) mathematically as a continuous function from the set of real numbers to space, i.e.\ \(\gamma \colon \rr \rightarrow M\), where \(M\) denotes the space, in whatever way it is defined.
+    A curve in spacetime would normally depict the trajectory of a particle. We often wish to parametrize the trajectory of a particle by its time co-ordinate. This motivates us to define a curve \(\gamma\) mathematically as a continuous function from the set of real numbers to space, i.e.\ \(\gamma \colon \rr \rightarrow M\), where \(M\) denotes the space, in whatever way it is defined.
 
-	Note that two particles may have the same path in space, but different trajectories. For example, consider two particles which travel along the same path in space but their velocities and positions at different times are different. Let \(\gamma, \tilde\gamma \colon \rr \rightarrow \rr^2\) be two trajectories of two particles travelling in a plane. We set \(M = \rr^2\) for now. Then \(\set{\gamma(t) | t \in \rr} = \set{\tilde\gamma(\tilde t) | \tilde t \in \rr}\), but let \(\gamma(1/2) \neq \tilde\gamma(1/2)\). Refer to~\cref{fig:samepath}.
+    Note that two particles may have the same path in space, but different trajectories. For example, consider two particles which travel along the same path in space but their velocities and positions at different times are different. Let \(\gamma, \tilde\gamma \colon \rr \rightarrow \rr^2\) be two trajectories of two particles travelling in a plane. We set \(M = \rr^2\) for now. Then \(\set{\gamma(t) | t \in \rr} = \set{\tilde\gamma(\tilde t) | \tilde t \in \rr}\), but let \(\gamma(1/2) \neq \tilde\gamma(1/2)\). Refer to~\cref{fig:samepath}.
 
-	\begin{figure}[htb]
-	    \centering
-		\subcaptionbox{\(\gamma\) \label{fig:gamma}}[0.45\textwidth]
-		{
-			\begin{tikzpicture}
-				\draw[std line width, dashed] (-0.6,-0.6) to [out=0, in=-90] (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1) to [out=90, in=180] (3.5,1.5);
-				\draw[std line width, postaction={decorate,decoration={markings,
-						mark=at position 0.1 with {\fill[black] circle (1.5pt); \node[anchor = south east] {\(\gamma(0)\)};},
-						mark=at position 0.3 with {\fill[black] circle (1.5pt); \node[anchor = south west] {\(\gamma(1/2)\)};},
-						mark=at position 0.9 with {\fill[black] circle (1.5pt); \node[anchor = west] {\(\gamma(1)\)};}
-					}}]
-				(0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1);
-			\end{tikzpicture}
-		}
-		\qquad
-		\subcaptionbox{\(\tilde\gamma\) \label{fig:gammatilde}}[0.45\textwidth]
-		{
-			\begin{tikzpicture}
-				\draw[std line width, dashed] (-0.6,-0.6) to [out=0, in=-90] (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1) to [out=90, in=180] (3.5,1.5);
-				\draw[std line width, postaction={decorate,decoration={markings,
-						mark=at position 0.1 with {\fill[black] circle (1.5pt); \node[anchor = south east] {\(\tilde\gamma(0)\)};},
-						mark=at position 0.7 with {\fill[black] circle (1.5pt); \node[anchor = north, yshift = -1mm] {\(\tilde\gamma(1/2)\)};},
-						mark=at position 0.9 with {\fill[black] circle (1.5pt); \node[anchor = west] {\(\tilde\gamma(1)\)};}
-					}}]
-				(0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1);
-			\end{tikzpicture}
-		}
-		\caption{Two particles having same path but different trajectories. The particle moves slower during the first half of the first trajectory.}
-		\label{fig:samepath}
-	\end{figure}
+    \begin{figure}[htb]
+        \centering
+        \subcaptionbox{\(\gamma\) \label{fig:gamma}}[0.45\textwidth]
+        {
+            \begin{tikzpicture}
+                \draw[std line width, dashed] (-0.6,-0.6) to [out=0, in=-90] (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1) to [out=90, in=180] (3.5,1.5);
+                \draw[std line width, postaction={decorate,decoration={markings,
+                        mark=at position 0.1 with {\fill[black] circle (1.5pt); \node[anchor = south east] {\(\gamma(0)\)};},
+                        mark=at position 0.3 with {\fill[black] circle (1.5pt); \node[anchor = south west] {\(\gamma(1/2)\)};},
+                        mark=at position 0.9 with {\fill[black] circle (1.5pt); \node[anchor = west] {\(\gamma(1)\)};}
+                    }}]
+                (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1);
+            \end{tikzpicture}
+        }
+        \qquad
+        \subcaptionbox{\(\tilde\gamma\) \label{fig:gammatilde}}[0.45\textwidth]
+        {
+            \begin{tikzpicture}
+                \draw[std line width, dashed] (-0.6,-0.6) to [out=0, in=-90] (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1) to [out=90, in=180] (3.5,1.5);
+                \draw[std line width, postaction={decorate,decoration={markings,
+                        mark=at position 0.1 with {\fill[black] circle (1.5pt); \node[anchor = south east] {\(\tilde\gamma(0)\)};},
+                        mark=at position 0.7 with {\fill[black] circle (1.5pt); \node[anchor = north, yshift = -1mm] {\(\tilde\gamma(1/2)\)};},
+                        mark=at position 0.9 with {\fill[black] circle (1.5pt); \node[anchor = west] {\(\tilde\gamma(1)\)};}
+                    }}]
+                (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1);
+            \end{tikzpicture}
+        }
+        \caption{Two particles having same path but different trajectories. The particle moves slower during the first half of the first trajectory.}
+        \label{fig:samepath}
+    \end{figure}
 
-	\section{Topological spaces}
+    \section{Topological spaces}
 
-	\begin{defn}[Topological space]\index{Topological spaces}\index{Topology}\index{Open sets}
-		A \textit{topological space} is a set \(M\) with a collection of subsets of \(M\), denoted by \(\topology\), which satisfy the following conditions.
-		\begin{enumerate}
-			\item \(\emptyset \in \topology\) and \(M \in \topology\).
-			\item If \(U, V \in \topology\), then \(U \cap V \in \topology\).
-			\item If \(U_\alpha \in \topology\) for all \(\alpha \in A\), where \(A\) is an indexing set, then \(\displaystyle \bigcup_{\alpha \in A} U_\alpha \in \topology\). \label{topthirdcondition}
-		\end{enumerate}
-		\(\topology\) is referred to as a topology on \(M\), while the tuple \((M, \topology)\) is referred to as a topological space. The elements of \(\topology\) are called as \textit{open} sets.
-	\end{defn}
-	Note that there can in general be more than one topologies on a given set. The indexing set \(A\) can be uncountable as well. If \(A\) is uncountable, then the third condition cannot be be fulfilled by simply requiring that if \(U,V \in \topology\), then \(U \cup V \in \topology\), as induction will work only for countably many objects.
-	\begin{exmp}
-		Let \(M \coloneq \{1, 2, \xi\}\), where \(\xi\) is any mathematical object. Then \(\topology_1 \coloneq \{\emptyset, \{1, 2, \xi\}\}\) and \(\topology_2 \coloneq \{\emptyset, \{1\}, \{1, 2, \xi\}\}\) are valid topologies on \(M\) while \(\topology_3 \coloneq \{\emptyset, \{1\}, \{2\}, \{1, 2, \xi\}\}\) and \(\topology_4 \coloneq \{\emptyset\}\) are not.
-	\end{exmp}
-	For any set \(M\), \(\topology_{\mathrm{d}} \coloneq \powerset(M)\) is called the \textit{discrete}\index{Discrete topology} or the \textit{chaotic}\index{Chaotic topology} topology, where \(\powerset(M)\) denotes the power set of \(M\), i.e.\ the collection of all subsets of \(M\). \(\topology_{\mathrm{i}} \coloneq \{\emptyset, M\}\) is called the \textit{indiscrete}\index{Indiscrete topology} topology.
+    \begin{defn}[Topological space]\index{Topological spaces}\index{Topology}\index{Open sets}
+        A \textit{topological space} is a set \(M\) with a collection of subsets of \(M\), denoted by \(\topology\), which satisfy the following conditions.
+        \begin{enumerate}
+            \item \(\emptyset \in \topology\) and \(M \in \topology\).
+            \item If \(U, V \in \topology\), then \(U \cap V \in \topology\).
+            \item If \(U_\alpha \in \topology\) for all \(\alpha \in A\), where \(A\) is an indexing set, then \(\displaystyle \bigcup_{\alpha \in A} U_\alpha \in \topology\). \label{topthirdcondition}
+        \end{enumerate}
+        \(\topology\) is referred to as a topology on \(M\), while the tuple \((M, \topology)\) is referred to as a topological space. The elements of \(\topology\) are called as \textit{open} sets.
+    \end{defn}
+    Note that there can in general be more than one topologies on a given set. The indexing set \(A\) can be uncountable as well. If \(A\) is uncountable, then the third condition cannot be be fulfilled by simply requiring that if \(U,V \in \topology\), then \(U \cup V \in \topology\), as induction will work only for countably many objects.
+    \begin{exmp}
+        Let \(M \coloneq \{1, 2, \xi\}\), where \(\xi\) is any mathematical object. Then \(\topology_1 \coloneq \{\emptyset, \{1, 2, \xi\}\}\) and \(\topology_2 \coloneq \{\emptyset, \{1\}, \{1, 2, \xi\}\}\) are valid topologies on \(M\) while \(\topology_3 \coloneq \{\emptyset, \{1\}, \{2\}, \{1, 2, \xi\}\}\) and \(\topology_4 \coloneq \{\emptyset\}\) are not.
+    \end{exmp}
+    For any set \(M\), \(\topology_{\symrm{d}} \coloneq \powerset(M)\) is called the \textit{discrete}\index{Discrete topology} or the \textit{chaotic}\index{Chaotic topology} topology, where \(\powerset(M)\) denotes the power set of \(M\), i.e.\ the collection of all subsets of \(M\). \(\topology_{\symrm{i}} \coloneq \{\emptyset, M\}\) is called the \textit{indiscrete}\index{Indiscrete topology} topology.
 
-	Let \(M \coloneq \rr^d\). Then the \textit{standard}\index{Standard topology} topology \(\topology_\mathrm{s} \subset \powerset(\rr^d)\) on \(\rr^d\) is defined as follows. A set \(U \subseteq \rr^d\) belongs to \(\topology_{\mathrm{s}}\) iff for all \(a \in U\), there exists an \(r \in \rr_{\geq 0}\) such that \(\ball_r(a) \subseteq U\). Here \(\ball_r(a)\) is the open ball of radius \(r\) centered at \(a\), defined as \(\ball_r(a) \coloneq \left\{b \in \rr^d \mid \sum_{i=1}^d (a^i - b^i)^2 < r^2\right\}\), where \(a^i\) and \(b^i\) denote the \(i^\mathrm{th}\) components of \(a\) and \(b\) respectively. The fact that \(\ball_r(a)\) is called open refers to the strict inequality in the definition of \(\ball_r(a)\). We would have called it a closed ball if we had \(\leq\) instead of \(<\). We thus retrieve the notion of an open interval of \(\rr\), that we studied in calculus courses. If we put the discrete topology on \(\rr\) instead of the standard one, we see that a set containing even a single real number becomes an open set, justifying the word discrete.
-	\nocite{*}
-	\printbibliography[heading=bibintoc]
-	\printindex
+    Let \(M \coloneq \rr^d\). Then the \textit{standard}\index{Standard topology} topology \(\topology_{\symrm{s}} \subset \powerset(\rr^d)\) on \(\rr^d\) is defined as follows. A set \(U \subseteq \rr^d\) belongs to \(\topology_{\symrm{s}}\) iff for all \(a \in U\), there exists an \(r \in \rr_{\geq 0}\) such that \(\ball_r(a) \subseteq U\). Here \(\ball_r(a)\) is the open ball of radius \(r\) centered at \(a\), defined as \(\ball_r(a) \coloneq \left\{b \in \rr^d \mid \sum_{i=1}^d (a^i - b^i)^2 < r^2\right\}\), where \(a^i\) and \(b^i\) denote the \(i^{\symrm{th}}\) components of \(a\) and \(b\) respectively. The fact that \(\ball_r(a)\) is called open refers to the strict inequality in the definition of \(\ball_r(a)\). We would have called it a closed ball if we had \(\leq\) instead of \(<\). We thus retrieve the notion of an open interval of \(\rr\), that we studied in calculus courses. If we put the discrete topology on \(\rr\) instead of the standard one, we see that a set containing even a single real number becomes an open set, justifying the word discrete.
+    \nocite{*}
+    \printbibliography[heading=bibintoc]
+    \printindex
 \end{document}
