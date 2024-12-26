@@ -1,5 +1,4 @@
 % !TEX program = lualatex
-% !TEX program = lualatex
 % !BIB program = biber
 
 % arara: lualatex: {shell: yes}
@@ -20,7 +19,7 @@
     partial=upright, 
     warnings-off={mathtools-colon, mathtools-overbracket}
 }{unicode-math}
-\usepackage{mathtools}
+\usepackage{mathtools, xparse}
 \usepackage{microtype}
 \usepackage[newcmbb]{fontsetup}
 \setmonofont[
@@ -162,21 +161,21 @@
 \renewcommand*{\mitsansomega}{\char"E071}
 \renewcommand*{\mitsansvarepsilon}{\char"E072}
 
-\setmathfont{NewCMMath-Book.otf}[StylisticSet={1,3}, BoldFont = NewCMMath-Bold.otf]
+\setmathfont{NewCMMath-Book.otf}[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf]
 \makeatletter
 \g@addto@macro\bfseries{\boldmath}
 \makeatother
 
 \setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}
 
-\DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
-\renewcommand{\mathcal}{\cmmathcal}
-\DeclareFontFamily{U}{mathc}{}
-\DeclareFontShape{U}{mathc}{m}{it}%
-{<->s*[1.03] mathc10}{}
-\DeclareMathAlphabet{\cmmathcal}{U}{mathc}{m}{it}
-\renewcommand{\mathcal}{\cmmathcal}
-\let\symcal\mathcal
+% \DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
+% \renewcommand{\mathcal}{\cmmathcal}
+% \DeclareFontFamily{U}{mathc}{}
+% \DeclareFontShape{U}{mathc}{m}{it}%
+% {<->s*[1.03] mathc10}{}
+% \DeclareMathAlphabet{\cmmathcal}{U}{mathc}{m}{it}
+% \renewcommand{\mathcal}{\cmmathcal}
+% \let\symcal\mathcal
 \setmathfont[range=bfsfit/{greek}]{Latin Modern Math}
 \DeclareSymbolFont{sfletters}{OML}{cmbrm}{m}{it}
 \DeclareMathSymbol{\salpha}{\mathord}{sfletters}{"0B}
@@ -339,9 +338,11 @@
 \DeclarePairedDelimiter\bra{\langle}{\rvert}
 \DeclarePairedDelimiter\ket{\lvert}{\rangle}
 \DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2}
-\DeclarePairedDelimiterX\setc[2]{\{}{\}}{\,#1 \;\delimsize\vert\; #2\,}
+
 \DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\setaux#1}
 \def\setaux#1|{#1\;\delimsize\vert\;}
+
+\usepackage{makecell}
 
 \title{Schuller's Lectures on Classical Mechanics}
 \author{Frederic Schuller\\Apoorv Potnis}
@@ -381,13 +382,14 @@
     \section{Course structure}
 
     \begin{center}
+        \renewcommand{\arraystretch}{1.3}
         \begin{tabular}{|c|}
             \hline
             Gravitation\\
             \hline
             Newton's laws\\
             \hline
-            Particles, forces and inertial frames\\
+            \rule{5pt}{0pt}Particles, forces and inertial frames\rule{5pt}{0pt}\\
             \hline
             Spacetime\\
             \hline
@@ -561,7 +563,11 @@
     \end{exmp}
     For any set \(M\), \(\topology_{\symrm{d}} \coloneq \powerset(M)\) is called the \textit{discrete}\index{Discrete topology} or the \textit{chaotic}\index{Chaotic topology} topology, where \(\powerset(M)\) denotes the power set of \(M\). The power set of \(M\) is defined as the collection of all subsets of \(M\). \(\topology_{\symrm{i}} \coloneq \{\emptyset, M\}\) is called the \textit{indiscrete}\index{Indiscrete topology} topology.
 
-    Let \(M \coloneq \rr^d\). Then the \textit{standard}\index{Standard topology} topology \(\topology_{\symrm{s}} \subset \powerset(\rr^d)\) on \(\rr^d\) is defined as follows. A set \(U \subseteq \rr^d\) belongs to \(\topology_{\symrm{s}}\) iff for all \(a \in U\), there exists an \(r \in \rr_{\geq 0}\) such that \(\ball_r(a) \subseteq U\). Here \(\ball_r(a)\) is the open ball of radius \(r\) centered at \(a\), defined as \[\ball_r(a) \coloneq \bigg\{b \in \rr^d \mid \sum_{i=1}^d (a^i - b^i)^2 < r^2\bigg\},\] where \(a^i\) and \(b^i\) denote the \(i^{\symrm{th}}\) components of \(a\) and \(b\) respectively. The fact that \(\ball_r(a)\) is called open refers to the strict inequality in the definition of \(\ball_r(a)\). We would have called it a closed ball if we had \(\leq\) instead of \(<\). We thus retrieve the notion of an open interval of \(\rr\), that we studied in calculus courses. If we put the discrete topology on \(\rr\) instead of the standard one, we see that a set containing even a single real number becomes an open set, justifying the word discrete.
+    Let \(M \coloneq \rr^d\). Then the \textit{standard}\index{Standard topology} topology \(\topology_{\symrm{s}} \subset \powerset(\rr^d)\) on \(\rr^d\) is defined as follows. A set \(U \subseteq \rr^d\) belongs to \(\topology_{\symrm{s}}\) iff for all \(a \in U\), there exists an \(r \in \rr_{\geq 0}\) such that \(\ball_r(a) \subseteq U\). Here \(\ball_r(a)\) is the open ball of radius \(r\) centered at \(a\), defined as 
+    \[
+        \ball_r(a) \coloneq \set[\bigg]{b \in \rr^d | \sum_{i=1}^d (a^i - b^i)^2 < r^2},
+    \] 
+    where \(a^i\) and \(b^i\) denote the \(i^{\symrm{th}}\) components of \(a\) and \(b\) respectively. The fact that \(\ball_r(a)\) is called open refers to the strict inequality in the definition of \(\ball_r(a)\). We would have called it a closed ball if we had \(\leq\) instead of \(<\). We thus retrieve the notion of an open interval of \(\rr\), that we studied in calculus courses. If we put the discrete topology on \(\rr\) instead of the standard one, we see that a set containing even a single real number becomes an open set, justifying the word discrete.
     \nocite{*}
     \printbibliography[heading=bibintoc]
     % \printindex
