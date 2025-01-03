@@ -8,7 +8,9 @@
 % arara: lualatex: {shell: yes}
 
 \documentclass[a4 paper, 12pt]{book}
-\usepackage[hmarginratio=3:2]{geometry}
+\usepackage[bindingoffset=8mm, hmarginratio=3:2]{geometry}
+% \documentclass[oneside]{book}
+% \usepackage[papersize={19.2cm,10.8cm}, left=1.5cm, right=1.5cm, bottom=2cm]{geometry}
 
 \usepackage[ngerman, italian, english]{babel}
 \PassOptionsToPackage{
@@ -254,7 +256,12 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 \AfterEndEnvironment{figure}{\normalfont\mathversion{serif}\let\symbb\originalsymbb\let\mathbb\originalmathbb}
 \AfterEndEnvironment{table}{\normalfont\mathversion{serif}\let\symbb\originalsymbb\let\mathbb\originalmathbb}
 
+% \usepackage[sansdefault]{fontsetup}
+
 \usepackage[style=british]{csquotes}
+% \DeclareSymbolFont{mathds}{U}{dsss}{m}{n}
+% \DeclareMathAlphabet{\mathds}{U}{dsss}{m}{n}
+% \let\symbb\mathds
 
 \usepackage{amsthm}
 \theoremstyle{definition}
