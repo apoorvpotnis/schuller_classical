@@ -21,7 +21,42 @@
 }{unicode-math}
 \usepackage{mathtools, xparse}
 \usepackage{microtype}
-\usepackage[newcmbb]{fontsetup}
+% \usepackage{sansmathfonts}
+% \usepackage[newcmbb]{fontsetup}
+\usepackage{unicode-math}
+\setmainfont[%
+SizeFeatures={%
+    {Size=-8, Font=NewCM08-Book.otf,
+        ItalicFont=NewCM08-BookItalic.otf,%
+        BoldFont=NewCM10-Bold.otf,%
+        BoldItalicFont=NewCM10-BoldItalic.otf,%
+        SlantedFont=NewCM08-Book.otf,%
+        BoldSlantedFont=NewCM10-Bold.otf,%
+        SmallCapsFeatures={Numbers=OldStyle}},
+    {Size=8, Font=NewCM08-Book.otf,
+        ItalicFont=NewCM08-BookItalic.otf,%
+        BoldFont=NewCM10-Bold.otf,%
+        BoldItalicFont=NewCM10-BoldItalic.otf,%
+        SlantedFont=NewCM08-Book.otf,%
+        BoldSlantedFont=NewCM10-Bold.otf,%
+        SmallCapsFeatures={Numbers=OldStyle}},
+    {Size= 9-, Font = NewCM10-Book.otf,
+        ItalicFont=NewCM10-BookItalic.otf,%
+        BoldFont=NewCM10-Bold.otf,%
+        BoldItalicFont=NewCM10-BoldItalic.otf,%
+        SlantedFont=NewCM10-Book.otf,%
+        BoldSlantedFont=NewCM10-Bold.otf,%
+        SmallCapsFeatures={Numbers=OldStyle}}%
+},%
+SmallCapsFeatures={Numbers=OldStyle},%
+BoldSlantedFont=NewCM10-Bold.otf,%
+SlantedFont=NewCM10-Book.otf,%
+BoldItalicFont=NewCM10-BoldItalic.otf,%
+BoldFont=NewCM10-Bold.otf,%
+ItalicFont=NewCM10-BookItalic.otf,%
+SlantedFeatures={FakeSlant=0.25},%
+BoldSlantedFeatures={FakeSlant=0.25},%
+]{NewCM10-Book.otf}
 \setmonofont[
     ItalicFont=NewCMMono10-Italic.otf,
     BoldFont=NewCMMono10-Bold.otf,
@@ -59,114 +94,116 @@
     SlantedFont=NewCMSans10-Oblique.otf,
     BoldSlantedFont=NewCMSans10-BoldOblique.otf,
 ]{NewCMSans10-Regular.otf}
-\renewcommand*{\msansAlpha}{\char"E000}
-\renewcommand*{\msansBeta}{\char"E001}
-\renewcommand*{\msansGamma}{\char"E002}
-\renewcommand*{\msansDelta}{\char"E003}
-\renewcommand*{\msansEpsilon}{\char"E004}
-\renewcommand*{\msansZeta}{\char"E005}
-\renewcommand*{\msansEta}{\char"E006}
-\renewcommand*{\msansTheta}{\char"E007}
-\renewcommand*{\msansIota}{\char"E008}
-\renewcommand*{\msansKappa}{\char"E009}
-\renewcommand*{\msansLambda}{\char"E00A}
-\renewcommand*{\msansMu}{\char"E00B}
-\renewcommand*{\msansNu}{\char"E00C}
-\renewcommand*{\msansXi}{\char"E00D}
-\renewcommand*{\msansOmicron}{\char"E00E}
-\renewcommand*{\msansPi}{\char"E00F}
-\renewcommand*{\msansRho}{\char"E010}
-\renewcommand*{\msansSigma}{\char"E011}
-\renewcommand*{\msansTau}{\char"E012}
-\renewcommand*{\msansUpsilon}{\char"E013}
-\renewcommand*{\msansPhi}{\char"E014}
-\renewcommand*{\msansChi}{\char"E015}
-\renewcommand*{\msansPsi}{\char"E016}
-\renewcommand*{\msansOmega}{\char"E017}
-\renewcommand*{\msansalpha}{\char"E018}
-\renewcommand*{\msansbeta}{\char"E019}
-\renewcommand*{\msansgamma}{\char"E01A}
-\renewcommand*{\msansdelta}{\char"E01B}
-\renewcommand*{\msansepsilon}{\char"E01C}
-\renewcommand*{\msanszeta}{\char"E01D}
-\renewcommand*{\msanseta}{\char"E01E}
-\renewcommand*{\msanstheta}{\char"E01F}
-\renewcommand*{\msansiota}{\char"E020}
-\renewcommand*{\msanskappa}{\char"E021}
-\renewcommand*{\msanslambda}{\char"E022}
-\renewcommand*{\msansmu}{\char"E023}
-\renewcommand*{\msansnu}{\char"E024}
-\renewcommand*{\msansxi}{\char"E025}
-\renewcommand*{\msansomicron}{\char"E026}
-\renewcommand*{\msanspi}{\char"E027}
-\renewcommand*{\msansrho}{\char"E028}
-\renewcommand*{\msansvarsigma}{\char"E029}
-\renewcommand*{\msanssigma}{\char"E02A}
-\renewcommand*{\msanstau}{\char"E02B}
-\renewcommand*{\msansupsilon}{\char"E02C}
-\renewcommand*{\msansphi}{\char"E02D}
-\renewcommand*{\msanschi}{\char"E02E}
-\renewcommand*{\msanspsi}{\char"E02F}
-\renewcommand*{\msansomega}{\char"E030}
-\renewcommand*{\msansvarepsilon}{\char"E031}
 
-\renewcommand*{\mitsansAlpha}{\char"E041}
-\renewcommand*{\mitsansBeta}{\char"E042}
-\renewcommand*{\mitsansGamma}{\char"E043}
-\renewcommand*{\mitsansDelta}{\char"E044}
-\renewcommand*{\mitsansEpsilon}{\char"E045}
-\renewcommand*{\mitsansZeta}{\char"E046}
-\renewcommand*{\mitsansEta}{\char"E047}
-\renewcommand*{\mitsansTheta}{\char"E048}
-\renewcommand*{\mitsansIota}{\char"E049}
-\renewcommand*{\mitsansKappa}{\char"E04A}
-\renewcommand*{\mitsansLambda}{\char"E04B}
-\renewcommand*{\mitsansMu}{\char"E04C}
-\renewcommand*{\mitsansNu}{\char"E04D}
-\renewcommand*{\mitsansXi}{\char"E04E}
-\renewcommand*{\mitsansOmicron}{\char"E04F}
-\renewcommand*{\mitsansPi}{\char"E050}
-\renewcommand*{\mitsansRho}{\char"E051}
-\renewcommand*{\mitsansSigma}{\char"E052}
-\renewcommand*{\mitsansTau}{\char"E053}
-\renewcommand*{\mitsansUpsilon}{\char"E054}
-\renewcommand*{\mitsansPhi}{\char"E055}
-\renewcommand*{\mitsansChi}{\char"E056}
-\renewcommand*{\mitsansPsi}{\char"E057}
-\renewcommand*{\mitsansOmega}{\char"E058}
-\renewcommand*{\mitsansalpha}{\char"E059}
-\renewcommand*{\mitsansbeta}{\char"E05A}
-\renewcommand*{\mitsansgamma}{\char"E05B}
-\renewcommand*{\mitsansdelta}{\char"E05C}
-\renewcommand*{\mitsansepsilon}{\char"E05D}
-\renewcommand*{\mitsanszeta}{\char"E05E}
-\renewcommand*{\mitsanseta}{\char"E05F}
-\renewcommand*{\mitsanstheta}{\char"E060}
-\renewcommand*{\mitsansiota}{\char"E061}
-\renewcommand*{\mitsanskappa}{\char"E062}
-\renewcommand*{\mitsanslambda}{\char"E063}
-\renewcommand*{\mitsansmu}{\char"E064}
-\renewcommand*{\mitsansnu}{\char"E065}
-\renewcommand*{\mitsansxi}{\char"E066}
-\renewcommand*{\mitsansomicron}{\char"E067}
-\renewcommand*{\mitsanspi}{\char"E068}
-\renewcommand*{\mitsansrho}{\char"E069}
-\renewcommand*{\mitsansvarsigma}{\char"E06A}
-\renewcommand*{\mitsanssigma}{\char"E06B}
-\renewcommand*{\mitsanstau}{\char"E06C}
-\renewcommand*{\mitsansupsilon}{\char"E06D}
-\renewcommand*{\mitsansphi}{\char"E06E}
-\renewcommand*{\mitsanschi}{\char"E06F}
-\renewcommand*{\mitsanspsi}{\char"E070}
-\renewcommand*{\mitsansomega}{\char"E071}
-\renewcommand*{\mitsansvarepsilon}{\char"E072}
+% \renewcommand*{\msansAlpha}{\char"E000}
+% \renewcommand*{\msansBeta}{\char"E001}
+% \renewcommand*{\msansGamma}{\char"E002}
+% \renewcommand*{\msansDelta}{\char"E003}
+% \renewcommand*{\msansEpsilon}{\char"E004}
+% \renewcommand*{\msansZeta}{\char"E005}
+% \renewcommand*{\msansEta}{\char"E006}
+% \renewcommand*{\msansTheta}{\char"E007}
+% \renewcommand*{\msansIota}{\char"E008}
+% \renewcommand*{\msansKappa}{\char"E009}
+% \renewcommand*{\msansLambda}{\char"E00A}
+% \renewcommand*{\msansMu}{\char"E00B}
+% \renewcommand*{\msansNu}{\char"E00C}
+% \renewcommand*{\msansXi}{\char"E00D}
+% \renewcommand*{\msansOmicron}{\char"E00E}
+% \renewcommand*{\msansPi}{\char"E00F}
+% \renewcommand*{\msansRho}{\char"E010}
+% \renewcommand*{\msansSigma}{\char"E011}
+% \renewcommand*{\msansTau}{\char"E012}
+% \renewcommand*{\msansUpsilon}{\char"E013}
+% \renewcommand*{\msansPhi}{\char"E014}
+% \renewcommand*{\msansChi}{\char"E015}
+% \renewcommand*{\msansPsi}{\char"E016}
+% \renewcommand*{\msansOmega}{\char"E017}
+% \renewcommand*{\msansalpha}{\char"E018}
+% \renewcommand*{\msansbeta}{\char"E019}
+% \renewcommand*{\msansgamma}{\char"E01A}
+% \renewcommand*{\msansdelta}{\char"E01B}
+% \renewcommand*{\msansepsilon}{\char"E01C}
+% \renewcommand*{\msanszeta}{\char"E01D}
+% \renewcommand*{\msanseta}{\char"E01E}
+% \renewcommand*{\msanstheta}{\char"E01F}
+% \renewcommand*{\msansiota}{\char"E020}
+% \renewcommand*{\msanskappa}{\char"E021}
+% \renewcommand*{\msanslambda}{\char"E022}
+% \renewcommand*{\msansmu}{\char"E023}
+% \renewcommand*{\msansnu}{\char"E024}
+% \renewcommand*{\msansxi}{\char"E025}
+% \renewcommand*{\msansomicron}{\char"E026}
+% \renewcommand*{\msanspi}{\char"E027}
+% \renewcommand*{\msansrho}{\char"E028}
+% \renewcommand*{\msansvarsigma}{\char"E029}
+% \renewcommand*{\msanssigma}{\char"E02A}
+% \renewcommand*{\msanstau}{\char"E02B}
+% \renewcommand*{\msansupsilon}{\char"E02C}
+% \renewcommand*{\msansphi}{\char"E02D}
+% \renewcommand*{\msanschi}{\char"E02E}
+% \renewcommand*{\msanspsi}{\char"E02F}
+% \renewcommand*{\msansomega}{\char"E030}
+% \renewcommand*{\msansvarepsilon}{\char"E031}
 
-\setmathfont{NewCMMath-Book.otf}[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf]
+% \renewcommand*{\mitsansAlpha}{\char"E041}
+% \renewcommand*{\mitsansBeta}{\char"E042}
+% \renewcommand*{\mitsansGamma}{\char"E043}
+% \renewcommand*{\mitsansDelta}{\char"E044}
+% \renewcommand*{\mitsansEpsilon}{\char"E045}
+% \renewcommand*{\mitsansZeta}{\char"E046}
+% \renewcommand*{\mitsansEta}{\char"E047}
+% \renewcommand*{\mitsansTheta}{\char"E048}
+% \renewcommand*{\mitsansIota}{\char"E049}
+% \renewcommand*{\mitsansKappa}{\char"E04A}
+% \renewcommand*{\mitsansLambda}{\char"E04B}
+% \renewcommand*{\mitsansMu}{\char"E04C}
+% \renewcommand*{\mitsansNu}{\char"E04D}
+% \renewcommand*{\mitsansXi}{\char"E04E}
+% \renewcommand*{\mitsansOmicron}{\char"E04F}
+% \renewcommand*{\mitsansPi}{\char"E050}
+% \renewcommand*{\mitsansRho}{\char"E051}
+% \renewcommand*{\mitsansSigma}{\char"E052}
+% \renewcommand*{\mitsansTau}{\char"E053}
+% \renewcommand*{\mitsansUpsilon}{\char"E054}
+% \renewcommand*{\mitsansPhi}{\char"E055}
+% \renewcommand*{\mitsansChi}{\char"E056}
+% \renewcommand*{\mitsansPsi}{\char"E057}
+% \renewcommand*{\mitsansOmega}{\char"E058}
+% \renewcommand*{\mitsansalpha}{\char"E059}
+% \renewcommand*{\mitsansbeta}{\char"E05A}
+% \renewcommand*{\mitsansgamma}{\char"E05B}
+% \renewcommand*{\mitsansdelta}{\char"E05C}
+% \renewcommand*{\mitsansepsilon}{\char"E05D}
+% \renewcommand*{\mitsanszeta}{\char"E05E}
+% \renewcommand*{\mitsanseta}{\char"E05F}
+% \renewcommand*{\mitsanstheta}{\char"E060}
+% \renewcommand*{\mitsansiota}{\char"E061}
+% \renewcommand*{\mitsanskappa}{\char"E062}
+% \renewcommand*{\mitsanslambda}{\char"E063}
+% \renewcommand*{\mitsansmu}{\char"E064}
+% \renewcommand*{\mitsansnu}{\char"E065}
+% \renewcommand*{\mitsansxi}{\char"E066}
+% \renewcommand*{\mitsansomicron}{\char"E067}
+% \renewcommand*{\mitsanspi}{\char"E068}
+% \renewcommand*{\mitsansrho}{\char"E069}
+% \renewcommand*{\mitsansvarsigma}{\char"E06A}
+% \renewcommand*{\mitsanssigma}{\char"E06B}
+% \renewcommand*{\mitsanstau}{\char"E06C}
+% \renewcommand*{\mitsansupsilon}{\char"E06D}
+% \renewcommand*{\mitsansphi}{\char"E06E}
+% \renewcommand*{\mitsanschi}{\char"E06F}
+% \renewcommand*{\mitsanspsi}{\char"E070}
+% \renewcommand*{\mitsansomega}{\char"E071}
+% \renewcommand*{\mitsansvarepsilon}{\char"E072}
+
+\setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Book.otf}
+\setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf, version=serif]{NewCMMath-Book.otf}
+% \setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}
 \makeatletter
 \g@addto@macro\bfseries{\boldmath}
 \makeatother
 
-\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}
 
 % \DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
 % \renewcommand{\mathcal}{\cmmathcal}
@@ -176,11 +213,46 @@
 % \DeclareMathAlphabet{\cmmathcal}{U}{mathc}{m}{it}
 % \renewcommand{\mathcal}{\cmmathcal}
 % \let\symcal\mathcal
-\setmathfont[range=bfsfit/{greek}]{Latin Modern Math}
-\DeclareSymbolFont{sfletters}{OML}{cmbrm}{m}{it}
-\DeclareMathSymbol{\salpha}{\mathord}{sfletters}{"0B}
-\DeclareMathSymbol{\sbeta}{\mathord}{sfletters}{"0C}
-\DeclareMathSymbol{\sLambda}{\mathord}{sfletters}{'3}
+% \setmathfont[range=bfsfit/{greek}]{Latin Modern Math}
+
+\setmathfont[version=sans]{NewCMSansMath-Regular.otf}
+\newfontfamily\sanstext[
+    SizeFeatures={
+        {Size= -8, Font=NewCMSans08-Regular.otf,
+            ItalicFont=NewCMSans08-Oblique.otf,
+            BoldFont=NewCMSans10-Bold.otf,
+            BoldItalicFont=NewCMSans10-BoldOblique.otf,
+            SmallCapsFeatures={Numbers=OldStyle},
+        },
+        {Size= 8, Font=NewCMSans08-Regular.otf,
+            ItalicFont=NewCMSans08-Oblique.otf,
+            BoldFont=NewCMSans10-Bold.otf,
+            BoldItalicFont=NewCMSans10-BoldOblique.otf,
+            SmallCapsFeatures={Numbers=OldStyle},
+        },
+        {Size= 9-, Font=NewCMSans10-Regular.otf,
+            ItalicFont=NewCMSans10-Oblique.otf,
+            BoldFont=NewCMSans10-Bold.otf,
+            BoldItalicFont=NewCMSans10-BoldOblique.otf,
+            SmallCapsFeatures={Numbers=OldStyle},
+        }},
+    ItalicFont=NewCMSans10-Oblique.otf,
+    BoldFont=NewCMSans10-Bold.otf,%
+    BoldItalicFont=NewCMSans10-BoldOblique.otf,
+    SmallCapsFeatures={Numbers=OldStyle},
+    SlantedFont=NewCMSans10-Oblique.otf,
+    BoldSlantedFont=NewCMSans10-BoldOblique.otf,
+]{NewCMSans10-Regular.otf}
+
+\DeclareSymbolFont{mathds}{U}{dsss}{m}{n}
+\DeclareMathAlphabet{\mathds}{U}{dsss}{m}{n}
+\let\originalsymbb\symbb
+\let\originalmathbb\mathbb
+
+\AtBeginEnvironment{figure}{\sanstext\mathversion{sans}\renewcommand{\symbb}{\mathds}\renewcommand{\mathbb}{\mathds}}
+\AtBeginEnvironment{table}{\sanstext\mathversion{sans}\renewcommand{\symbb}{\mathds}\renewcommand{\mathbb}{\mathds}} 
+\AfterEndEnvironment{figure}{\normalfont\mathversion{serif}\let\symbb\originalsymbb\let\mathbb\originalmathbb}
+\AfterEndEnvironment{table}{\normalfont\mathversion{serif}\let\symbb\originalsymbb\let\mathbb\originalmathbb}
 
 \usepackage[style=british]{csquotes}
 
@@ -299,17 +371,23 @@
 \usepackage{array}
 \usepackage{caption}
 \usepackage{subcaption}
+\captionsetup[figure]{font=sf, labelfont=sf, textfont=sf}
+% \subcaptionsetup[figure]{textfont=sf}
+% \captionsetup[table]{font=sf, labelfont=sf, textfont=sf}
+% \subcaptionsetup[table]{textfont=sf}
 
 \usepackage{tikz}
 \usetikzlibrary{datavisualization, datavisualization.polar,datavisualization.formats.functions, fpu, calc, arrows.meta, bending, positioning, 3d, quotes, angles, decorations.pathmorphing, backgrounds, fit, babel, hobby, decorations.markings}
 
-\tikzset{%
+\tikzset{
     std line width/.style={
-        line width = 0.7pt,
+        line width = 0.74pt,
     },
     hollow circle/.style={
         draw, std line width, circle, inner sep=0pt, minimum size=3pt, outer sep=0pt
     }
+    % every arrow/.style={-{Straight Barb}
+    % }
 }
 
 \newcommand{\ltwo}{\symrm{L\kern-0.5pt^2}}
@@ -331,7 +409,7 @@
 \newcommand{\topology}{\symcal{O}}
 \newcommand{\atlas}{\symcal{A}}
 \newcommand{\powerset}{\symcal{P}}
-\newcommand{\ball}{\symrm{B}}
+\newcommand{\ball}{B}
 
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
@@ -571,28 +649,29 @@
 
     \begin{figure}[htb]
         \centering
-        \subcaptionbox{\(U \in \topology_{\symrm{s}}\) is an open set of \(\rr^2\). The dashed line indicates that the points on the line are not contained in \(U\). For all \(a \in U\), we can always find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(U\). \label{fig:openset}}[0.48\textwidth]
+        \subcaptionbox{\(U \in \topology_{\symrm{s}}\) is an open set of \(\rr^2\). The dashed line indicates that the points on the line are not contained in \(U\). For all \(a \in U\), we can always find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(U\). \label{fig:openset}}[0.44\textwidth]
         {
             \begin{tikzpicture}[scale=0.7, use Hobby shortcut]
                 \draw[std line width, smooth, closed, dashed] (0,0) .. ++ (1,0) .. ++ (2,1) .. ++ (-3,3) .. ++ (-2, -1) -- cycle;
                 \node at (3.15,3.1) {\(U\)};
-               \draw[std line width, red, dashed] (1,1.5) circle[radius=0.8] node[above, yshift=15] {\(\ball_r (a)\)};
-               \fill (1,1.5) circle[radius=0.05] node[right] {\(a\)};
+               \draw[std line width, red, dashed] (1,1.5) circle[radius=0.7] node[above, yshift=15] {\(\ball_r (a)\)};
+               \fill (1,1.5) circle[radius=0.05] node[right, xshift=-3] {\(a\)};
             \end{tikzpicture}
         }
         \qquad
-        \subcaptionbox{\(V \ni \topology_{\symrm{s}}\) is a closed set of \(\rr^2\). The solid line used to depict \(V\) indicates that the points on the line belong to \(V\). For all \(a' \in \partial V\), we can never find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(V\). Here, \(\partial V\) denotes the boundary of \(V\). \label{fig:closed}}[0.48\textwidth]
+        \subcaptionbox{\(V \notin \topology_{\symrm{s}}\) is a closed set of \(\rr^2\). The solid line used to depict \(V\) indicates that the points on the line belong to \(V\). For all \(a' \in \partial V\), we can never find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(V\). Here, \(\partial V\) denotes the boundary of \(V\). \label{fig:closed}}[0.44\textwidth]
         {
             \begin{tikzpicture}[scale=0.7, use Hobby shortcut]
                 \draw[std line width, smooth, closed] (0,0) .. ++ (1,0) .. ++ (2,1) .. ++ (-3,3) .. ++ (-2, -1) -- cycle;
                 \node at (3.15,3.1) {\(V\)};
-               \draw[std line width, red, dashed] (3,1) circle[radius=0.8] node[above, yshift=12, xshift=-20] {\(\ball_r (a')\)};
-               \fill (3,1) circle[radius=0.05] node[right] {\(a'\)};
+               \draw[std line width, red, dashed] (3,1) circle[radius=0.7] node[above, yshift=12, xshift=-20] {\(\ball_r (a')\)};
+               \fill (3,1) circle[radius=0.05] node[right, yshift=-4, xshift=-5] {\(a'\)};
             \end{tikzpicture}
         }
+        \caption{Open and closed sets}
         \label{fig:closedandopen}
-    \end{figure}    
-    
+    \end{figure}
+
     \nocite{*}
     \printbibliography[heading=bibintoc]
     % \printindex
