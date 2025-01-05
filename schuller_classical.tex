@@ -458,19 +458,15 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 \usepackage{eso-pic}
 
 \begin{document}
+    \microtypesetup{deactivate}
     \pagenumbering{gobble}
     \newgeometry{left=0cm, right=0cm, top=0cm, bottom=0cm}
     \begin{titlepage}
         \vspace*{0pt}
         \hypertarget{TitlePage}{}
         \bookmark[dest=TitlePage]{Title Page}
+        
         \pagecolor{springerprogressinmathphysblue} 
-%       \AddToShipoutPictureBG{
-%           \AtPageLowerLeft{
-    %           \hspace*{1in}
-    %           \hspace{2cm}\color{blueone}\rule{2pt}{\paperheight}
-%           }
-%       }
         \begin{tikzpicture}[remember picture, overlay]
             \draw[blueone, line width=4pt] (1.5cm,-\paperheight) -- (1.5cm,\paperheight);
             \draw[blueone, line width=4pt] ([yshift=6cm]current page.west) -- ([yshift=6cm]current page.east);
@@ -478,17 +474,18 @@ BoldSlantedFeatures={FakeSlant=0.25},%
         \begin{textblock}{18}(3, 10)
             \noindent{\fontsize{60pt}{70pt}\selectfont
                 \textcolor{white}{
-                        \begin{minipage}{\linewidth}
-                            {\dinotcondmed Schuller's Lectures on\\
-                            Classical Mechanics}
-                        \end{minipage}
+                    \begin{minipage}{\linewidth}
+                        {\dinotcondmed Schuller's Lectures on\\
+                        Classical Mechanics}
+                    \end{minipage}
                 }
             }
         \end{textblock}
     \end{titlepage}
     \clearpage\restoregeometry
-    \pagecolor{white}
-            
+    \microtypesetup{activate}
+
+    \pagecolor{white}     
     \chapter*{Preface}
     \hypertarget{Preface}{}
     \bookmark[dest=Preface]{Preface}
@@ -708,7 +705,7 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 
     \begin{figure}[htb]
         \centering
-        \subcaptionbox{\(U \in \topology_{\symrm{s}}\) is an open set of \(\rr^2\). The dashed line indicates that the points on the line are not contained in \(U\). For all \(a \in U\), we can always find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(U\). \label{fig:openset}}[0.44\textwidth]
+        \subcaptionbox{\(U \in \topology_{\symrm{s}}\) is an open set of \(\rr^2\). The dashed line indicates that the points on the line are not contained in \(U\). For all \(a \in U\), we can always find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(U\). \label{fig:openset}}[0.49\textwidth]
         {
             \begin{tikzpicture}[scale=0.7, use Hobby shortcut]
                 \draw[std line width, smooth, closed, dashed] (0,0) .. ++ (1,0) .. ++ (2,1) .. ++ (-3,3) .. ++ (-2, -1) -- cycle;
@@ -718,7 +715,7 @@ BoldSlantedFeatures={FakeSlant=0.25},%
             \end{tikzpicture}
         }
         \qquad
-        \subcaptionbox{\(V \notin \topology_{\symrm{s}}\) is a closed set of \(\rr^2\). The solid line used to depict \(V\) indicates that the points on the line belong to \(V\). For all \(a' \in \partial V\), we can never find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(V\). Here, \(\partial V\) denotes the boundary of \(V\). \label{fig:closed}}[0.44\textwidth]
+        \subcaptionbox{\(V \notin \topology_{\symrm{s}}\) is a closed set of \(\rr^2\). The solid line used to depict \(V\) indicates that the points on the line belong to \(V\). For all \(a' \in \partial V\), we can never find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(V\). Here, \(\partial V\) denotes the boundary of \(V\). \label{fig:closed}}[0.49\textwidth]
         {
             \begin{tikzpicture}[scale=0.7, use Hobby shortcut]
                 \draw[std line width, smooth, closed] (0,0) .. ++ (1,0) .. ++ (2,1) .. ++ (-3,3) .. ++ (-2, -1) -- cycle;
