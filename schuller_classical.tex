@@ -568,7 +568,7 @@ BoldSlantedFeatures={FakeSlant=0.25},%
                 \draw[->, ultra thick, blue] (0,1) -- (0,3);
             \end{tikzpicture}
         }
-        \qquad
+        \hfill
         \subcaptionbox{Polar co-ordinates \label{fig:paralleltransportb}}[0.45\textwidth]
         {
             \begin{tikzpicture}[scale=0.6]
@@ -631,7 +631,7 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 
     \begin{figure}[htb]
         \centering
-        \subcaptionbox{Acceptable continuous trajectory \label{fig:conttraj}}[0.4\textwidth]
+        \subcaptionbox{Acceptable continuous trajectory \label{fig:conttraj}}[0.45\textwidth]
         {
             \begin{tikzpicture}[yscale=1.3, decoration={markings, mark=at position 0.1 with {\arrow{>}}}, use Hobby shortcut]
                 % 				\draw[std line width, postaction={decorate}] (0,0) to [out=30, in=180] (1, 1) to [out=0,in=180] (1.5,0.5) to [out=0, in=0] (1.6, 2) to [out=180, in=180] (1.7, 0) to [out=0, in=150] (2.5, 0.6);
@@ -639,8 +639,8 @@ BoldSlantedFeatures={FakeSlant=0.25},%
                 \draw [std line width, postaction={decorate}] (0,0) .. (1,1) .. (1.5,0.5) .. (1.7,0) .. (2.5,0.6) .. (1.8,1) .. (0.2,-0.5);
             \end{tikzpicture}
         }
-        \qquad
-        \subcaptionbox{Non-acceptable discontinuous trajectory \label{fig:disconttraj}}[0.4\textwidth]
+        \hfill
+        \subcaptionbox{Non-acceptable discontinuous trajectory \label{fig:disconttraj}}[0.45\textwidth]
         {
             \begin{tikzpicture}[xscale=2, decoration={markings, mark=at position 0.5 with {\arrow{>}}}]
                 \draw[std line width, postaction={decorate}, -{Circle[open]}] (0,0) to [out=30, in=180] (1, 1) to [out=0,in=180] (1.5,0.5);
@@ -670,7 +670,7 @@ BoldSlantedFeatures={FakeSlant=0.25},%
                 (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1);
             \end{tikzpicture}
         }
-        \qquad
+        \hfill
         \subcaptionbox{\(\tilde\gamma\) \label{fig:gammatilde}}[0.45\textwidth]
         {
             \begin{tikzpicture}
@@ -712,7 +712,7 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 
     \begin{figure}[htb]
         \centering
-        \subcaptionbox{\(U \in \topology_{\symrm{s}}\) is an open set of \(\rr^2\). The dashed line indicates that the points on the line are not contained in \(U\). For all \(a \in U\), we can always find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(U\). \label{fig:openset}}[0.49\textwidth]
+        \subcaptionbox{\(U \in \topology_{\symrm{s}}\) is an open set of \(\rr^2\). The dashed line indicates that the points on the line are not contained in \(U\). For all \(a \in U\), we can always find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(U\). \label{fig:openset}}[0.45\textwidth]
         {
             \begin{tikzpicture}[scale=0.7, use Hobby shortcut]
                 \draw[std line width, smooth, closed, dashed] (0,0) .. ++ (1,0) .. ++ (2,1) .. ++ (-3,3) .. ++ (-2, -1) -- cycle;
@@ -721,8 +721,8 @@ BoldSlantedFeatures={FakeSlant=0.25},%
                \fill (1,1.5) circle[radius=0.05] node[right, xshift=-3] {\(a\)};
             \end{tikzpicture}
         }
-        \qquad
-        \subcaptionbox{\(V \notin \topology_{\symrm{s}}\) is a closed set of \(\rr^2\). The solid line used to depict \(V\) indicates that the points on the line belong to \(V\). For all \(a' \in \partial V\), we can never find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(V\). Here, \(\partial V\) denotes the boundary of \(V\). \label{fig:closed}}[0.49\textwidth]
+        \hfill
+        \subcaptionbox{\(V \notin \topology_{\symrm{s}}\) is a closed set of \(\rr^2\). The solid line used to depict \(V\) indicates that the points on the line belong to \(V\). For all \(a' \in \partial V\), we can never find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(V\). Here, \(\partial V\) denotes the boundary of \(V\). \label{fig:closed}}[0.45\textwidth]
         {
             \begin{tikzpicture}[scale=0.7, use Hobby shortcut]
                 \draw[std line width, smooth, closed] (0,0) .. ++ (1,0) .. ++ (2,1) .. ++ (-3,3) .. ++ (-2, -1) -- cycle;
@@ -734,6 +734,28 @@ BoldSlantedFeatures={FakeSlant=0.25},%
         \caption{Open and closed sets}
         \label{fig:closedandopen}
     \end{figure}
+
+    Note that there can in general be more than one topologies on a given set. The indexing set \(A\) can be uncountable as well. If \(A\) is uncountable, then the third condition cannot be be fulfilled by simply requiring that if \(U,V \in \topology\), then \(U \cup V \in \topology\), as induction will work only for countably many objects.
+    \begin{exmp}
+        Let \(M \coloneq \{1, 2, \xi\}\), where \(\xi\) is any mathematical object. Then \[\topology_1 \coloneq \{\emptyset, \{1, 2, \xi\}\} \quad \text{ and } \quad \topology_2 \coloneq \{\emptyset, \{1\}, \{1, 2, \xi\}\}\] are valid topologies on \(M\) while \[\topology_3 \coloneq \{\emptyset, \{1\}, \{2\}, \{1, 2, \xi\}\} \quad \text{ and } \quad \topology_4 \coloneq \{\emptyset\}\] are not.
+    \end{exmp}
+    For any set \(M\), \(\topology_{\symrm{d}} \coloneq \powerset(M)\) is called the \textit{discrete}\index{Discrete topology} or the \textit{chaotic}\index{Chaotic topology} topology, where \(\powerset(M)\) denotes the power set of \(M\). The power set of \(M\) is defined as the collection of all subsets of \(M\). \(\topology_{\symrm{i}} \coloneq \{\emptyset, M\}\) is called the \textit{indiscrete}\index{Indiscrete topology} topology.
+
+    Let \(M \coloneq \rr^d\). Then the \textit{standard}\index{Standard topology} topology \(\topology_{\symrm{s}} \subset \powerset(\rr^d)\) on \(\rr^d\) is defined as follows. A set \(U \subseteq \rr^d\) belongs to \(\topology_{\symrm{s}}\) iff for all \(a \in U\), there exists an \(r \in \rr_{\geq 0}\) such that \(\ball_r(a) \subseteq U\). Here \(\ball_r(a)\) is the open ball of radius \(r\) centered at \(a\), defined as 
+    \[
+        \ball_r(a) \coloneq \set[\bigg]{b \in \rr^d | \sum_{i=1}^d (a^i - b^i)^2 < r^2},
+    \] 
+    where \(a^i\) and \(b^i\) denote the \(i^{\symrm{th}}\) components of \(a\) and \(b\) respectively. The fact that \(\ball_r(a)\) is called open refers to the strict inequality in the definition of \(\ball_r(a)\). We would have called it a closed ball if we had \(\leq\) instead of \(<\). We thus retrieve the notion of an open interval of \(\rr\), that we studied in calculus courses. If we put the discrete topology on \(\rr\) instead of the standard one, we see that a set containing even a single real number becomes an open set, justifying the word discrete.    Note that there can in general be more than one topologies on a given set. The indexing set \(A\) can be uncountable as well. If \(A\) is uncountable, then the third condition cannot be be fulfilled by simply requiring that if \(U,V \in \topology\), then \(U \cup V \in \topology\), as induction will work only for countably many objects.
+    \begin{exmp}
+        Let \(M \coloneq \{1, 2, \xi\}\), where \(\xi\) is any mathematical object. Then \[\topology_1 \coloneq \{\emptyset, \{1, 2, \xi\}\} \quad \text{ and } \quad \topology_2 \coloneq \{\emptyset, \{1\}, \{1, 2, \xi\}\}\] are valid topologies on \(M\) while \[\topology_3 \coloneq \{\emptyset, \{1\}, \{2\}, \{1, 2, \xi\}\} \quad \text{ and } \quad \topology_4 \coloneq \{\emptyset\}\] are not.
+    \end{exmp}
+    For any set \(M\), \(\topology_{\symrm{d}} \coloneq \powerset(M)\) is called the \textit{discrete}\index{Discrete topology} or the \textit{chaotic}\index{Chaotic topology} topology, where \(\powerset(M)\) denotes the power set of \(M\). The power set of \(M\) is defined as the collection of all subsets of \(M\). \(\topology_{\symrm{i}} \coloneq \{\emptyset, M\}\) is called the \textit{indiscrete}\index{Indiscrete topology} topology.
+
+    Let \(M \coloneq \rr^d\). Then the \textit{standard}\index{Standard topology} topology \(\topology_{\symrm{s}} \subset \powerset(\rr^d)\) on \(\rr^d\) is defined as follows. A set \(U \subseteq \rr^d\) belongs to \(\topology_{\symrm{s}}\) iff for all \(a \in U\), there exists an \(r \in \rr_{\geq 0}\) such that \(\ball_r(a) \subseteq U\). Here \(\ball_r(a)\) is the open ball of radius \(r\) centered at \(a\), defined as 
+    \[
+        \ball_r(a) \coloneq \set[\bigg]{b \in \rr^d | \sum_{i=1}^d (a^i - b^i)^2 < r^2},
+    \] 
+    where \(a^i\) and \(b^i\) denote the \(i^{\symrm{th}}\) components of \(a\) and \(b\) respectively. The fact that \(\ball_r(a)\) is called open refers to the strict inequality in the definition of \(\ball_r(a)\). We would have called it a closed ball if we had \(\leq\) instead of \(<\). We thus retrieve the notion of an open interval of \(\rr\), that we studied in calculus courses. If we put the discrete topology on \(\rr\) instead of the standard one, we see that a set containing even a single real number becomes an open set, justifying the word discrete.
 
     
     \nocite{*}
