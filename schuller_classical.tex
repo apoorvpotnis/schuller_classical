@@ -27,7 +27,7 @@
     warnings-off={mathtools-colon, mathtools-overbracket}
 }{unicode-math}
 \usepackage{mathtools, xparse}
-\usepackage{microtype}
+\usepackage[verbose=false]{microtype}
 % \usepackage{sansmathfonts}
 % \usepackage[newcmbb]{fontsetup}
 \usepackage{unicode-math}
@@ -472,7 +472,8 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 %           }
 %       }
         \begin{tikzpicture}[remember picture, overlay]
-            \draw[blueone, line width=5pt] (1.5cm,\paperheight) -- (1.5cm,-\paperheight);
+            \draw[blueone, line width=4pt] (1.5cm,-\paperheight) -- (1.5cm,\paperheight);
+            \draw[blueone, line width=4pt] ([yshift=6cm]current page.west) -- ([yshift=6cm]current page.east);
         \end{tikzpicture}
         \begin{textblock}{18}(3, 10)
             \noindent{\fontsize{60pt}{70pt}\selectfont
