@@ -463,8 +463,8 @@ BoldSlantedFeatures={FakeSlant=0.25},%
     \newgeometry{left=0cm, right=0cm, top=0cm, bottom=0cm}
     \begin{titlepage}
         \vspace*{0pt}
-        \hypertarget{TitlePage}{}
-        \bookmark[dest=TitlePage]{Title Page}
+        \hypertarget{CoverPage}{}
+        \bookmark[dest=CoverPage]{Cover Page}
         
         \pagecolor{springerprogressinmathphysblue} 
         \begin{tikzpicture}[remember picture, overlay]
@@ -483,9 +483,15 @@ BoldSlantedFeatures={FakeSlant=0.25},%
         \end{textblock}
     \end{titlepage}
     \clearpage\restoregeometry
+    \pagecolor{white}
     \microtypesetup{activate}
 
-    \pagecolor{white}     
+    
+    \hypertarget{TitlePage}{}
+    \bookmark[dest=TitlePage]{Title Page}
+    \maketitle
+    
+    \frontmatter
     \chapter*{Preface}
     \hypertarget{Preface}{}
     \bookmark[dest=Preface]{Preface}
@@ -498,6 +504,7 @@ BoldSlantedFeatures={FakeSlant=0.25},%
     \hypertarget{Contents}{}
     \bookmark[dest=Contents]{Contents}
     \tableofcontents
+    \mainmatter
 
     \chapter{A Bird's Eye View of Physics}
 
