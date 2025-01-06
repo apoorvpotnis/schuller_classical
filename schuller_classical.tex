@@ -391,7 +391,7 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 % \subcaptionsetup[table]{textfont=sf}
 
 \usepackage{tikz}
-\usetikzlibrary{datavisualization, datavisualization.polar,datavisualization.formats.functions, fpu, calc, arrows.meta, bending, positioning, 3d, quotes, angles, decorations.pathmorphing, backgrounds, fit, babel, hobby, decorations.markings}
+\usetikzlibrary{intersections, datavisualization, datavisualization.polar,datavisualization.formats.functions, fpu, calc, arrows.meta, bending, positioning, 3d, quotes, angles, decorations.pathmorphing, backgrounds, fit, babel, hobby, decorations.markings}
 
 \tikzset{
     std line width/.style={
@@ -443,6 +443,8 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 \definecolor{springerprogressinmathphysblue}{RGB}{0, 55, 103}
 \definecolor{springerred}{RGB}{220, 40, 32}
 \definecolor{blueone}{RGB}{9, 99, 147}
+\definecolor{bluetwo}{RGB}{0, 67, 114}
+\definecolor{bluethree}{RGB}{212, 218, 234}
 
 % \usepackage{showframe}
 
@@ -468,8 +470,16 @@ BoldSlantedFeatures={FakeSlant=0.25},%
         
         \pagecolor{springerprogressinmathphysblue} 
         \begin{tikzpicture}[remember picture, overlay]
-            \draw[blueone, line width=4pt] (1.5cm,-\paperheight) -- (1.5cm,\paperheight);
-            \draw[blueone, line width=4pt] ([yshift=6cm]current page.west) -- ([yshift=6cm]current page.east);
+            \draw[name path=vertical, blueone, line width=4pt] (1.5cm,-\paperheight) -- (1.5cm,\paperheight);
+            \draw[name path=horizontal, blueone, line width=4pt] ([yshift=6cm]current page.west) -- ([yshift=6cm]current page.east);
+            % \filldraw[fill=white, draw=white] ([yshift=6.14056cm, xshift=1.64056cm]current page.west) ++(0, 0) rectangle ++(5cm, 1cm);
+            \path[name intersections={of=vertical and horizontal, by=intersection}];
+            % \node[fill=red, circle, inner sep=1pt, xshift=2pt, yshift=2pt] at (intersection) {};
+            \coordinate (shifted_intersection) at ([shift={(2pt,2pt)}] intersection);
+            \coordinate (current_page_east_shifted) at ([yshift=15cm]current page.east);
+            \shade[left color=blueone, right color=bluethree, xshift=2pt, yshift=2pt] (shifted_intersection) rectangle ++(current_page_east_shifted);
+            % \coordinate (shifted_intersectiontwo) at ([shift={(2pt,2pt)}] intersection);
+            % \coordinate (current_page_west_shifted) at ([yshift=15cm]current page.west);
         \end{tikzpicture}
         \begin{textblock}{18}(3, 10)
             \noindent{\fontsize{60pt}{70pt}\selectfont
@@ -477,6 +487,16 @@ BoldSlantedFeatures={FakeSlant=0.25},%
                     \begin{minipage}{\linewidth}
                         {\dinotcondmed Schuller's Lectures on\\
                         Classical Mechanics}
+                    \end{minipage}
+                }
+            }
+        \end{textblock}
+        \begin{textblock}{18}(3.05, 5)
+            \noindent{\fontsize{25pt}{30pt}\selectfont
+                \textcolor{white}{
+                    \begin{minipage}{\linewidth}
+                        {\akkurat Frederic Schuller\\
+                        Apoorv Potnis}
                     \end{minipage}
                 }
             }
