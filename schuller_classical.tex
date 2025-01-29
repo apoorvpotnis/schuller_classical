@@ -1,20 +1,20 @@
 % !TEX program = lualatex
 % !BIB program = biber
 
-% arara: lualatex: {shell: yes}
-% arara: biber
-% arara: makeindex
-% arara: lualatex: {shell: yes}
-% arara: lualatex: {shell: yes}
+% arara: lualatex: {shell: yes} 
+% arara: biber 
+% arara: makeindex 
+% arara: lualatex: {shell: yes} 
+% arara: lualatex: {shell: yes} 
 
-\documentclass[a4 paper, 12pt]{book}
-\usepackage[bindingoffset=8mm, hmarginratio=3:2]{geometry}
-% \documentclass[oneside]{book}
+\documentclass[a4 paper, 12pt]{book} 
+\usepackage[bindingoffset=30mm, left=2cm, right=2cm]{geometry} 
+% \documentclass[oneside]{book} 
 % \usepackage[papersize={19.2cm,10.8cm}, left=1.5cm, right=1.5cm, bottom=2cm]{geometry}
 
-\usepackage[absolute,overlay]{textpos} % Load textpos with absolute positioning
-\setlength{\TPHorizModule}{1cm} % Set horizontal unit to 1 cm
-\setlength{\TPVertModule}{1cm}  % Set vertical unit to 1 cm
+\usepackage[absolute,overlay]{textpos} 
+\setlength{\TPHorizModule}{1cm} 
+\setlength{\TPVertModule}{1cm} 
 \usepackage{pdfpages}
 
 \usepackage[ngerman, italian, english]{babel}
@@ -208,7 +208,7 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 % \setmathfont[range={\symcal,\symbfcal, \symscr, \symbfscr}, FakeSlant=-0.3]{NewCMMath-Book.otf}
 % \setmathfontface{\itcal}{NewCMMath-Book.otf}[FakeSlant=-0.2]
 \setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf, version=serif]{NewCMMath-Book.otf}
-% \setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}
+\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}
 \makeatletter
 \g@addto@macro\bfseries{\boldmath}
 \makeatother
@@ -260,10 +260,16 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 
 \AtBeginEnvironment{figure}{\sanstext\mathversion{sans}\renewcommand{\symbb}{\mathds}\renewcommand{\mathbb}{\mathds}}
 \AtBeginEnvironment{table}{\sanstext\mathversion{sans}\renewcommand{\symbb}{\mathds}\renewcommand{\mathbb}{\mathds}} 
-\AfterEndEnvironment{figure}{\normalfont\mathversion{serif}\let\symbb\originalsymbb\let\mathbb\originalmathbb}
-\AfterEndEnvironment{table}{\normalfont\mathversion{serif}\let\symbb\originalsymbb\let\mathbb\originalmathbb}
+\AfterEndEnvironment{figure}{\normalfont\mathversion{serif}\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}\let\symbb\originalsymbb\let\mathbb\originalmathbb}
+\AfterEndEnvironment{table}{\normalfont\mathversion{serif}\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}\let\symbb\originalsymbb\let\mathbb\originalmathbb}
 
-% \usepackage[sansdefault]{fontsetup}
+% \usepackage[gfsneohellenic]{fontsetup}
+% \usepackage{concmath-otf}
+
+% \setmainfont{Cambria}
+% \setmathfont{Cambria Math}
+% \setmonofont{Consolas}
+% \setsansfont{Calibri}
 
 \usepackage[style=british]{csquotes}
 % \DeclareSymbolFont{mathds}{U}{dsss}{m}{n}
@@ -376,9 +382,7 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 \usepackage{imakeidx}
 \makeindex[intoc]
 
-\usepackage{hyperref}
-\hypersetup{citecolor=red, pdfencoding=auto, psdextra, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller's Lectures on Classical Mechanics}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Schuller's Lectures on Classical Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Classical Mechanics, Differential Geometry, Calculus of Variations, Hamiltonian Mechanics, Lagrangian Mechanics, Symplectic Geometry, General Relativity, Spacetime, Topological Manifolds, Principle of Stationary Action, Mathematical Physics, Classical Physics, Newtonian Mechanics, Lecture Notes}}
-\usepackage{cleveref, xurl}
+\usepackage{xurl}
 \usepackage[numbered]{bookmark}
 
 \usepackage{booktabs}
@@ -456,8 +460,32 @@ BoldSlantedFeatures={FakeSlant=0.25},%
     UprightFont = Akkurat-Regular.ttf,
     ItalicFont = Akkurat-Italic.ttf
 ]
+\newfontfamily\cmubrightsemibold{CMU Bright SemiBold}[
+    UprightFont = cmunbsr.otf,
+    ItalicFont = cmunbso.otf
+]
 
 \usepackage{eso-pic}
+\usepackage{ifluatex}
+
+\ifluatex
+%   \everymath=\expandafter{%
+%     \the\everymath%
+%     \Umathsubshiftdown\textstyle=2pt}
+%   \everydisplay=\expandafter{%
+%     \the\everydisplay%
+%     \Umathsubshiftdown\displaystyle=2pt}
+  \everymath=\expandafter{%
+    \the\everymath%
+    \Umathsupshiftup\textstyle=4pt}
+  \everydisplay=\expandafter{%
+    \the\everydisplay%
+    \Umathsupshiftup\displaystyle=4pt}
+\fi
+
+\usepackage{hyperref}
+\hypersetup{citecolor=red, pdfencoding=auto, psdextra, pageanchor=true, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller's Lectures on Classical Mechanics}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Schuller's Lectures on Classical Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Classical Mechanics, Differential Geometry, Calculus of Variations, Hamiltonian Mechanics, Lagrangian Mechanics, Symplectic Geometry, General Relativity, Spacetime, Topological Manifolds, Principle of Stationary Action, Mathematical Physics, Classical Physics, Newtonian Mechanics, Lecture Notes}}
+\usepackage{cleveref}
 
 \begin{document}
     \microtypesetup{deactivate}
@@ -472,6 +500,7 @@ BoldSlantedFeatures={FakeSlant=0.25},%
         \begin{tikzpicture}[remember picture, overlay]
             \draw[name path=vertical, blueone, line width=4pt] (1.5cm,-\paperheight) -- (1.5cm,\paperheight);
             \draw[name path=horizontal, blueone, line width=4pt] ([yshift=6cm]current page.west) -- ([yshift=6cm]current page.east);
+            \draw[name path=second horizontal, blueone, line width=4pt] ([yshift=-2cm]current page.west) -- ([yshift=-2cm, xshift=2.1cm]current page.west);
             % \filldraw[fill=white, draw=white] ([yshift=6.14056cm, xshift=1.64056cm]current page.west) ++(0, 0) rectangle ++(5cm, 1cm);
             \path[name intersections={of=vertical and horizontal, by=intersection}];
             % \node[fill=red, circle, inner sep=1pt, xshift=2pt, yshift=2pt] at (intersection) {};
@@ -506,24 +535,25 @@ BoldSlantedFeatures={FakeSlant=0.25},%
     \pagecolor{white}
     \microtypesetup{activate}
 
-    
+    \maketitle
     \hypertarget{TitlePage}{}
     \bookmark[dest=TitlePage]{Title Page}
-    \maketitle
     
     \frontmatter
+
     \chapter*{Preface}
     \hypertarget{Preface}{}
     \bookmark[dest=Preface]{Preface}
+
     These are lecture notes by Apoorv Potnis of the lecture series `\selectlanguage{ngerman}Theoretische Physik 1: Mechanik\selectlanguage{english}' (Theoretical Physics 1: Mechanics), given by \textbf{Prof.\ Frederic Paul Schuller} in 2014 at the \selectlanguage{ngerman}Friedrich-Alexander-Universität Erlangen-Nürnberg\selectlanguage{english}. Prof.\ Schuller discusses classical mechanics in a mathematically rigorous fashion in this course. While the original lecture series is in German, these notes are in English and have been prepared using YouTube's automatic subtitle translation tool. The video lecture series is available at \url{https://youtube.com/playlist?list=PLyIi3L2232Qo5t61tXfoL6vTW2akFQL-n&feature=shared} and at \url{https://www.fau.tv/course/id/272}.
 
     The source code, updates and corrections to this document can be found on this GitHub repository: \url{https://github.com/apoorvpotnis/schuller_classical}. The source code is embedded in this \textsc{pdf}. Comments and corrections can be mailed at \href{mailto:apoorvpotnis@gmail.com}{\texttt{apoorvpotnis@gmail.com}}.
     \clearpage
     
-
+    \tableofcontents
     \hypertarget{Contents}{}
     \bookmark[dest=Contents]{Contents}
-    \tableofcontents
+
     \mainmatter
 
     \chapter{A Bird's Eye View of Physics}
@@ -777,6 +807,19 @@ BoldSlantedFeatures={FakeSlant=0.25},%
     \] 
     where \(a^i\) and \(b^i\) denote the \(i^{\symrm{th}}\) components of \(a\) and \(b\) respectively. The fact that \(\ball_r(a)\) is called open refers to the strict inequality in the definition of \(\ball_r(a)\). We would have called it a closed ball if we had \(\leq\) instead of \(<\). We thus retrieve the notion of an open interval of \(\rr\), that we studied in calculus courses. If we put the discrete topology on \(\rr\) instead of the standard one, we see that a set containing even a single real number becomes an open set, justifying the word discrete.
 
+    \chapter{Differentiable Manifolds}
+
+    \chapter{Tangent Spaces}
+
+    \chapter{Tensors and Tensor Fields}
+    
+    \chapter{Connection Fields}
+
+    Newton's second law states that mass times acceleration of a body is equal to the force acting on it. The force acting on a body is a vector, and we have already seen in the previous lecture that the acceleration cannot be defined as \(\ddot q^a\) as it does not transform as a vector.
+
+    \section{Attempts at a definition \texorpdfstring{\(\symfrak{Aa}\)}{PDFstring}}
+
+    We try to define the directional derivative of a vector field. \(\symfrak{ABCsuo}\)
     
     \nocite{*}
     \printbibliography[heading=bibintoc]
