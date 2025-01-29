@@ -221,14 +221,19 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 % \makeatother
 
 
-% % \DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
-% % \renewcommand{\mathcal}{\cmmathcal}
-% % \DeclareFontFamily{U}{mathc}{}
-% % \DeclareFontShape{U}{mathc}{m}{it}%
-% % {<->s*[1.03] mathc10}{}
-% % \DeclareMathAlphabet{\cmmathcal}{U}{mathc}{m}{it}
-% % \renewcommand{\mathcal}{\cmmathcal}
-% % \let\symcal\mathcal
+\DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
+\renewcommand{\mathcal}{\cmmathcal}
+\DeclareFontFamily{U}{mathc}{}
+\DeclareFontShape{U}{mathc}{m}{it}%
+{<->s*[1.03] mathc10}{}
+\DeclareMathAlphabet{\cmmathcal}{U}{mathc}{m}{it}
+\renewcommand{\mathcal}{\cmmathcal}
+\let\symcal\mathcal
+
+\DeclareMathAlphabet\mymathbfcal{OMS}{cmsy}{b}{n}
+\let\mathbfcal\mymathbfcal
+\let\symbfcal\mymathbfcal
+
 % % \setmathfont[range=bfsfit/{greek}]{Latin Modern Math}
 
 % \setmathfont[version=sans]{NewCMSansMath-Regular.otf}
