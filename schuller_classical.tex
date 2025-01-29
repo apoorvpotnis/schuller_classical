@@ -29,78 +29,87 @@
 \usepackage{mathtools, xparse}
 \usepackage[verbose=false]{microtype}
 % \usepackage{sansmathfonts}
-\usepackage[newcmbb]{fontsetup}
-% \usepackage{unicode-math}
-% \setmainfont[%
-% SizeFeatures={%
-%     {Size=-8, Font=NewCM08-Book.otf,
-%         ItalicFont=NewCM08-BookItalic.otf,%
-%         BoldFont=NewCM10-Bold.otf,%
-%         BoldItalicFont=NewCM10-BoldItalic.otf,%
-%         SlantedFont=NewCM08-Book.otf,%
-%         BoldSlantedFont=NewCM10-Bold.otf,%
-%         SmallCapsFeatures={Numbers=OldStyle}},
-%     {Size=8, Font=NewCM08-Book.otf,
-%         ItalicFont=NewCM08-BookItalic.otf,%
-%         BoldFont=NewCM10-Bold.otf,%
-%         BoldItalicFont=NewCM10-BoldItalic.otf,%
-%         SlantedFont=NewCM08-Book.otf,%
-%         BoldSlantedFont=NewCM10-Bold.otf,%
-%         SmallCapsFeatures={Numbers=OldStyle}},
-%     {Size= 9-, Font = NewCM10-Book.otf,
-%         ItalicFont=NewCM10-BookItalic.otf,%
-%         BoldFont=NewCM10-Bold.otf,%
-%         BoldItalicFont=NewCM10-BoldItalic.otf,%
-%         SlantedFont=NewCM10-Book.otf,%
-%         BoldSlantedFont=NewCM10-Bold.otf,%
-%         SmallCapsFeatures={Numbers=OldStyle}}%
-% },%
-% SmallCapsFeatures={Numbers=OldStyle},%
-% BoldSlantedFont=NewCM10-Bold.otf,%
-% SlantedFont=NewCM10-Book.otf,%
-% BoldItalicFont=NewCM10-BoldItalic.otf,%
-% BoldFont=NewCM10-Bold.otf,%
-% ItalicFont=NewCM10-BookItalic.otf,%
-% SlantedFeatures={FakeSlant=0.25},%
-% BoldSlantedFeatures={FakeSlant=0.25},%
-% ]{NewCM10-Book.otf}
-% \setmonofont[
-%     ItalicFont=NewCMMono10-Italic.otf,
-%     BoldFont=NewCMMono10-Bold.otf,
-%     BoldItalicFont=NewCMMono10-BoldOblique.otf,
-%     SlantedFont=NewCMMono10-Regular.otf,
-%     SlantedFeatures={FakeSlant=0.25},
-%     BoldSlantedFont=NewCMMono10-Bold.otf,
-%     BoldSlantedFeatures={FakeSlant=0.25},
-%     SmallCapsFeatures={Numbers=OldStyle}
-% ]{NewCMMono10-Regular.otf}
-% \setsansfont[
-%     SizeFeatures={
-%         {Size= -8, Font=NewCMSans08-Regular.otf,
-%             ItalicFont=NewCMSans08-Oblique.otf,
-%             BoldFont=NewCMSans10-Bold.otf,
-%             BoldItalicFont=NewCMSans10-BoldOblique.otf,
-%             SmallCapsFeatures={Numbers=OldStyle},
-%         },
-%         {Size= 8, Font=NewCMSans08-Regular.otf,
-%             ItalicFont=NewCMSans08-Oblique.otf,
-%             BoldFont=NewCMSans10-Bold.otf,
-%             BoldItalicFont=NewCMSans10-BoldOblique.otf,
-%             SmallCapsFeatures={Numbers=OldStyle},
-%         },
-%         {Size= 9-, Font=NewCMSans10-Regular.otf,
-%             ItalicFont=NewCMSans10-Oblique.otf,
-%             BoldFont=NewCMSans10-Bold.otf,
-%             BoldItalicFont=NewCMSans10-BoldOblique.otf,
-%             SmallCapsFeatures={Numbers=OldStyle},
-%         }},
-%     ItalicFont=NewCMSans10-Oblique.otf,
-%     BoldFont=NewCMSans10-Bold.otf,%
-%     BoldItalicFont=NewCMSans10-BoldOblique.otf,
-%     SmallCapsFeatures={Numbers=OldStyle},
-%     SlantedFont=NewCMSans10-Oblique.otf,
-%     BoldSlantedFont=NewCMSans10-BoldOblique.otf,
-% ]{NewCMSans10-Regular.otf}
+% \usepackage[newcmbb]{fontsetup}
+
+\usepackage{unicode-math}
+\setmainfont[%
+SizeFeatures={%
+    {Size=-8, Font=NewCM08-Book.otf,
+        ItalicFont=NewCM08-BookItalic.otf,%
+        BoldFont=NewCM10-Bold.otf,%
+        BoldItalicFont=NewCM10-BoldItalic.otf,%
+        SlantedFont=NewCM08-Book.otf,%
+        BoldSlantedFont=NewCM10-Bold.otf,%
+        SmallCapsFeatures={Numbers=OldStyle}},
+    {Size=8, Font=NewCM08-Book.otf,
+        ItalicFont=NewCM08-BookItalic.otf,%
+        BoldFont=NewCM10-Bold.otf,%
+        BoldItalicFont=NewCM10-BoldItalic.otf,%
+        SlantedFont=NewCM08-Book.otf,%
+        BoldSlantedFont=NewCM10-Bold.otf,%
+        SmallCapsFeatures={Numbers=OldStyle}},
+    {Size= 9-, Font = NewCM10-Book.otf,
+        ItalicFont=NewCM10-BookItalic.otf,%
+        BoldFont=NewCM10-Bold.otf,%
+        BoldItalicFont=NewCM10-BoldItalic.otf,%
+        SlantedFont=NewCM10-Book.otf,%
+        BoldSlantedFont=NewCM10-Bold.otf,%
+        SmallCapsFeatures={Numbers=OldStyle}}%
+},%
+SmallCapsFeatures={Numbers=OldStyle},%
+BoldSlantedFont=NewCM10-Bold.otf,%
+SlantedFont=NewCM10-Book.otf,%
+BoldItalicFont=NewCM10-BoldItalic.otf,%
+BoldFont=NewCM10-Bold.otf,%
+ItalicFont=NewCM10-BookItalic.otf,%
+SlantedFeatures={FakeSlant=0.25},%
+BoldSlantedFeatures={FakeSlant=0.25},%
+]{NewCM10-Book.otf}
+
+\setmonofont[
+    ItalicFont=NewCMMono10-Italic.otf,
+    BoldFont=NewCMMono10-Bold.otf,
+    BoldItalicFont=NewCMMono10-BoldOblique.otf,
+    SlantedFont=NewCMMono10-Regular.otf,
+    SlantedFeatures={FakeSlant=0.25},
+    BoldSlantedFont=NewCMMono10-Bold.otf,
+    BoldSlantedFeatures={FakeSlant=0.25},
+    SmallCapsFeatures={Numbers=OldStyle}
+]{NewCMMono10-Regular.otf}
+
+\setsansfont[
+    SizeFeatures={
+        {Size= -8, Font=NewCMSans08-Regular.otf,
+            ItalicFont=NewCMSans08-Oblique.otf,
+            BoldFont=NewCMSans10-Bold.otf,
+            BoldItalicFont=NewCMSans10-BoldOblique.otf,
+            SmallCapsFeatures={Numbers=OldStyle},
+        },
+        {Size= 8, Font=NewCMSans08-Regular.otf,
+            ItalicFont=NewCMSans08-Oblique.otf,
+            BoldFont=NewCMSans10-Bold.otf,
+            BoldItalicFont=NewCMSans10-BoldOblique.otf,
+            SmallCapsFeatures={Numbers=OldStyle},
+        },
+        {Size= 9-, Font=NewCMSans10-Regular.otf,
+            ItalicFont=NewCMSans10-Oblique.otf,
+            BoldFont=NewCMSans10-Bold.otf,
+            BoldItalicFont=NewCMSans10-BoldOblique.otf,
+            SmallCapsFeatures={Numbers=OldStyle},
+        }},
+    ItalicFont=NewCMSans10-Oblique.otf,
+    BoldFont=NewCMSans10-Bold.otf,%
+    BoldItalicFont=NewCMSans10-BoldOblique.otf,
+    SmallCapsFeatures={Numbers=OldStyle},
+    SlantedFont=NewCMSans10-Oblique.otf,
+    BoldSlantedFont=NewCMSans10-BoldOblique.otf,
+]{NewCMSans10-Regular.otf}
+
+\setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Book.otf}
+\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}
+\makeatletter
+\g@addto@macro\bfseries{\boldmath}
+\makeatother
 
 % % \renewcommand*{\msansAlpha}{\char"E000}
 % % \renewcommand*{\msansBeta}{\char"E001}
