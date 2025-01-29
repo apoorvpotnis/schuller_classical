@@ -12,8 +12,6 @@
 % \documentclass[oneside]{book} 
 % \usepackage[papersize={19.2cm,10.8cm}, left=1.5cm, right=1.5cm, bottom=2cm]{geometry}
 
-\usepackage{gitver}
-
 \usepackage[absolute,overlay]{textpos} 
 \setlength{\TPHorizModule}{1cm} 
 \setlength{\TPVertModule}{1cm} 
@@ -207,8 +205,6 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 % \renewcommand*{\mitsansvarepsilon}{\char"E072}
 
 \setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Book.otf}
-% \setmathfont[range={\symcal,\symbfcal, \symscr, \symbfscr}, FakeSlant=-0.3]{NewCMMath-Book.otf}
-% \setmathfontface{\itcal}{NewCMMath-Book.otf}[FakeSlant=-0.2]
 \setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf, version=serif]{NewCMMath-Book.otf}
 \setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}
 \makeatletter
@@ -489,6 +485,9 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 \hypersetup{citecolor=red, pdfencoding=auto, psdextra, pageanchor=true, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller's Lectures on Classical Mechanics}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Schuller's Lectures on Classical Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Classical Mechanics, Differential Geometry, Calculus of Variations, Hamiltonian Mechanics, Lagrangian Mechanics, Symplectic Geometry, General Relativity, Spacetime, Topological Manifolds, Principle of Stationary Action, Mathematical Physics, Classical Physics, Newtonian Mechanics, Lecture Notes}}
 \usepackage{cleveref}
 
+\AtBeginDocument{%
+    \addtocontents{toc}{\protect\setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Book.otf}\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}}}
+
 \begin{document}
     \microtypesetup{deactivate}
     \pagenumbering{gobble}
@@ -550,8 +549,6 @@ BoldSlantedFeatures={FakeSlant=0.25},%
     These are lecture notes by Apoorv Potnis of the lecture series `\selectlanguage{ngerman}Theoretische Physik 1: Mechanik\selectlanguage{english}' (Theoretical Physics 1: Mechanics), given by \textbf{Prof.\ Frederic Paul Schuller} in 2014 at the \selectlanguage{ngerman}Friedrich-Alexander-Universität Erlangen-Nürnberg\selectlanguage{english}. Prof.\ Schuller discusses classical mechanics in a mathematically rigorous fashion in this course. While the original lecture series is in German, these notes are in English and have been prepared using YouTube's automatic subtitle translation tool. The video lecture series is available at \url{https://youtube.com/playlist?list=PLyIi3L2232Qo5t61tXfoL6vTW2akFQL-n&feature=shared} and at \url{https://www.fau.tv/course/id/272}.
 
     The source code, updates and corrections to this document can be found on this GitHub repository: \url{https://github.com/apoorvpotnis/schuller_classical}. The source code is embedded in this \textsc{pdf}. Comments and corrections can be mailed at \href{mailto:apoorvpotnis@gmail.com}{\texttt{apoorvpotnis@gmail.com}}.
-
-    This \textsc{pdf} corresponds to the Git commit \texttt{\gitVer}.
     \clearpage
     
     \tableofcontents
@@ -817,7 +814,7 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 
     \chapter{Tensors and Tensor Fields}
     
-    \chapter{Connection Fields}
+    \chapter{Connection Fields \texorpdfstring{\(\symfrak{Aa}\)}{PDFstring}}
 
     Newton's second law states that mass times acceleration of a body is equal to the force acting on it. The force acting on a body is a vector, and we have already seen in the previous lecture that the acceleration cannot be defined as \(\ddot q^a\) as it does not transform as a vector.
 
