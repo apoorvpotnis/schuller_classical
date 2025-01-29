@@ -105,11 +105,11 @@ BoldSlantedFeatures={FakeSlant=0.25},%
     BoldSlantedFont=NewCMSans10-BoldOblique.otf,
 ]{NewCMSans10-Regular.otf}
 
-\setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Book.otf}
-\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}
-\makeatletter
-\g@addto@macro\bfseries{\boldmath}
-\makeatother
+% \setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Book.otf}
+% \setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}
+% \makeatletter
+% \g@addto@macro\bfseries{\boldmath}
+% \makeatother
 
 % % \renewcommand*{\msansAlpha}{\char"E000}
 % % \renewcommand*{\msansBeta}{\char"E001}
@@ -213,67 +213,67 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 % % \renewcommand*{\mitsansomega}{\char"E071}
 % % \renewcommand*{\mitsansvarepsilon}{\char"E072}
 
-% \setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Book.otf}
-% \setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf, version=serif]{NewCMMath-Book.otf}
-% \setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}
-% \makeatletter
-% \g@addto@macro\bfseries{\boldmath}
-% \makeatother
+\setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Book.otf}
+\setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf, version=serif]{NewCMMath-Book.otf}
+\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}
+\makeatletter
+\g@addto@macro\bfseries{\boldmath}
+\makeatother
 
 
-\DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
-\renewcommand{\mathcal}{\cmmathcal}
-\DeclareFontFamily{U}{mathc}{}
-\DeclareFontShape{U}{mathc}{m}{it}%
-{<->s*[1.03] mathc10}{}
-\DeclareMathAlphabet{\cmmathcal}{U}{mathc}{m}{it}
-\renewcommand{\mathcal}{\cmmathcal}
-\let\symcal\mathcal
+% \DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
+% \renewcommand{\mathcal}{\cmmathcal}
+% \DeclareFontFamily{U}{mathc}{}
+% \DeclareFontShape{U}{mathc}{m}{it}%
+% {<->s*[1.03] mathc10}{}
+% \DeclareMathAlphabet{\cmmathcal}{U}{mathc}{m}{it}
+% \renewcommand{\mathcal}{\cmmathcal}
+% \let\symcal\mathcal
 
-\DeclareMathAlphabet\mymathbfcal{OMS}{cmsy}{b}{n}
-\let\mathbfcal\mymathbfcal
-\let\symbfcal\mymathbfcal
+% \DeclareMathAlphabet\mymathbfcal{OMS}{cmsy}{b}{n}
+% \let\mathbfcal\mymathbfcal
+% \let\symbfcal\mymathbfcal
 
 % % \setmathfont[range=bfsfit/{greek}]{Latin Modern Math}
 
-% \setmathfont[version=sans]{NewCMSansMath-Regular.otf}
-% \newfontfamily\sanstext[
-%     SizeFeatures={
-%         {Size= -8, Font=NewCMSans08-Regular.otf,
-%             ItalicFont=NewCMSans08-Oblique.otf,
-%             BoldFont=NewCMSans10-Bold.otf,
-%             BoldItalicFont=NewCMSans10-BoldOblique.otf,
-%             SmallCapsFeatures={Numbers=OldStyle},
-%         },
-%         {Size= 8, Font=NewCMSans08-Regular.otf,
-%             ItalicFont=NewCMSans08-Oblique.otf,
-%             BoldFont=NewCMSans10-Bold.otf,
-%             BoldItalicFont=NewCMSans10-BoldOblique.otf,
-%             SmallCapsFeatures={Numbers=OldStyle},
-%         },
-%         {Size= 9-, Font=NewCMSans10-Regular.otf,
-%             ItalicFont=NewCMSans10-Oblique.otf,
-%             BoldFont=NewCMSans10-Bold.otf,
-%             BoldItalicFont=NewCMSans10-BoldOblique.otf,
-%             SmallCapsFeatures={Numbers=OldStyle},
-%         }},
-%     ItalicFont=NewCMSans10-Oblique.otf,
-%     BoldFont=NewCMSans10-Bold.otf,%
-%     BoldItalicFont=NewCMSans10-BoldOblique.otf,
-%     SmallCapsFeatures={Numbers=OldStyle},
-%     SlantedFont=NewCMSans10-Oblique.otf,
-%     BoldSlantedFont=NewCMSans10-BoldOblique.otf,
-% ]{NewCMSans10-Regular.otf}
+\setmathfont[version=sans]{NewCMSansMath-Regular.otf}
+\newfontfamily\sanstext[
+    SizeFeatures={
+        {Size= -8, Font=NewCMSans08-Regular.otf,
+            ItalicFont=NewCMSans08-Oblique.otf,
+            BoldFont=NewCMSans10-Bold.otf,
+            BoldItalicFont=NewCMSans10-BoldOblique.otf,
+            SmallCapsFeatures={Numbers=OldStyle},
+        },
+        {Size= 8, Font=NewCMSans08-Regular.otf,
+            ItalicFont=NewCMSans08-Oblique.otf,
+            BoldFont=NewCMSans10-Bold.otf,
+            BoldItalicFont=NewCMSans10-BoldOblique.otf,
+            SmallCapsFeatures={Numbers=OldStyle},
+        },
+        {Size= 9-, Font=NewCMSans10-Regular.otf,
+            ItalicFont=NewCMSans10-Oblique.otf,
+            BoldFont=NewCMSans10-Bold.otf,
+            BoldItalicFont=NewCMSans10-BoldOblique.otf,
+            SmallCapsFeatures={Numbers=OldStyle},
+        }},
+    ItalicFont=NewCMSans10-Oblique.otf,
+    BoldFont=NewCMSans10-Bold.otf,%
+    BoldItalicFont=NewCMSans10-BoldOblique.otf,
+    SmallCapsFeatures={Numbers=OldStyle},
+    SlantedFont=NewCMSans10-Oblique.otf,
+    BoldSlantedFont=NewCMSans10-BoldOblique.otf,
+]{NewCMSans10-Regular.otf}
 
-% \DeclareSymbolFont{mathds}{U}{dsss}{m}{n}
-% \DeclareMathAlphabet{\mathds}{U}{dsss}{m}{n}
-% \let\originalsymbb\symbb
-% \let\originalmathbb\mathbb
+\DeclareSymbolFont{mathds}{U}{dsss}{m}{n}
+\DeclareMathAlphabet{\mathds}{U}{dsss}{m}{n}
+\let\originalsymbb\symbb
+\let\originalmathbb\mathbb
 
-% \AtBeginEnvironment{figure}{\sanstext\mathversion{sans}\renewcommand{\symbb}{\mathds}\renewcommand{\mathbb}{\mathds}}
-% \AtBeginEnvironment{table}{\sanstext\mathversion{sans}\renewcommand{\symbb}{\mathds}\renewcommand{\mathbb}{\mathds}} 
-% \AfterEndEnvironment{figure}{\normalfont\mathversion{serif}\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}\let\symbb\originalsymbb\let\mathbb\originalmathbb}
-% \AfterEndEnvironment{table}{\normalfont\mathversion{serif}\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}\let\symbb\originalsymbb\let\mathbb\originalmathbb}
+\AtBeginEnvironment{figure}{\sanstext\mathversion{sans}\renewcommand{\symbb}{\mathds}\renewcommand{\mathbb}{\mathds}}
+\AtBeginEnvironment{table}{\sanstext\mathversion{sans}\renewcommand{\symbb}{\mathds}\renewcommand{\mathbb}{\mathds}} 
+\AfterEndEnvironment{figure}{\normalfont\mathversion{serif}\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}\let\symbb\originalsymbb\let\mathbb\originalmathbb}
+\AfterEndEnvironment{table}{\normalfont\mathversion{serif}\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}\let\symbb\originalsymbb\let\mathbb\originalmathbb}
 
 % \usepackage[gfsneohellenic]{fontsetup}
 % \usepackage{concmath-otf}
@@ -401,7 +401,7 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 \usepackage{array}
 \usepackage{caption}
 \usepackage{subcaption}
-% \captionsetup[figure]{font=sf, labelfont=sf, textfont=sf}
+\captionsetup[figure]{font=sf, labelfont=sf, textfont=sf}
 % \subcaptionsetup[figure]{textfont=sf}
 % \captionsetup[table]{font=sf, labelfont=sf, textfont=sf}
 % \subcaptionsetup[table]{textfont=sf}
@@ -411,7 +411,7 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 
 \tikzset{
     std line width/.style={
-        line width = 0.65pt,
+        line width = 0.74pt,
     },
     hollow circle/.style={
         draw, std line width, circle, inner sep=0pt, minimum size=3pt, outer sep=0pt
@@ -833,9 +833,11 @@ BoldSlantedFeatures={FakeSlant=0.25},%
 
     Newton's second law states that mass times acceleration of a body is equal to the force acting on it. The force acting on a body is a vector, and we have already seen in the previous lecture that the acceleration cannot be defined as \(\ddot q^a\) as it does not transform as a vector.
 
-    \section{Attempts at a definition \texorpdfstring{\(\symfrak{Aa}\)}{PDFstring}}
+    \section{The Hilbert space \texorpdfstring{\(\symfrak{Aa}\symcal{H}\)}{PDFstring}}
 
-    We try to define the directional derivative of a vector field. \(\symfrak{ABCsuo}\)
+    \section{Attempts at a definition}
+
+    We try to define the directional derivative of a vector field. 
     
     \nocite{*}
     \printbibliography[heading=bibintoc]
