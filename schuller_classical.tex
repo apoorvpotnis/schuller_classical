@@ -64,7 +64,7 @@
     BoldSlantedFeatures={FakeSlant=0.25},
 ]{NewCM10-Book.otf}
 
-\setmonofont[%
+\setmonofont[
     ItalicFont=NewCMMono10-Italic.otf,
     BoldFont=NewCMMono10-Bold.otf,
     BoldItalicFont=NewCMMono10-BoldOblique.otf,
@@ -105,12 +105,12 @@
 
 \setmathfont[
     StylisticSet={3},
-    BoldFont = NewCMMath-Bold.otf
+    BoldFont = NewCMMath-Bold.otf,
 ]{NewCMMath-Book.otf}
 \setmathfont[
     StylisticSet={3}, 
     BoldFont = NewCMMath-Bold.otf, 
-    version=serif
+    version=serif,
 ]{NewCMMath-Book.otf}
 \setmathfont[
     range={\symfrak,\symbffrak}, 
@@ -316,20 +316,20 @@
 \usepackage{eso-pic}
 \usepackage{ifluatex}
 
-\ifluatex
+% \ifluatex
 %   \everymath=\expandafter{%
 %     \the\everymath%
 %     \Umathsubshiftdown\textstyle=2pt}
 %   \everydisplay=\expandafter{%
 %     \the\everydisplay%
 %     \Umathsubshiftdown\displaystyle=2pt}
-  \everymath=\expandafter{%
-    \the\everymath%
-    \Umathsupshiftup\textstyle=4pt}
-  \everydisplay=\expandafter{%
-    \the\everydisplay%
-    \Umathsupshiftup\displaystyle=4pt}
-\fi
+%   \everymath=\expandafter{%
+%     \the\everymath%
+%     \Umathsupshiftup\textstyle=4.13pt}
+%   \everydisplay=\expandafter{%
+%     \the\everydisplay%
+%     \Umathsupshiftup\displaystyle=4.13pt}
+% \fi
 
 \usepackage{hyperref}
 \hypersetup{citecolor=red, pdfencoding=auto, psdextra, pageanchor=true, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller's Lectures on Classical Mechanics}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Schuller's Lectures on Classical Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Classical Mechanics, Differential Geometry, Calculus of Variations, Hamiltonian Mechanics, Lagrangian Mechanics, Symplectic Geometry, General Relativity, Spacetime, Topological Manifolds, Principle of Stationary Action, Mathematical Physics, Classical Physics, Newtonian Mechanics, Lecture Notes}}
