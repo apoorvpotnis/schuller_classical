@@ -557,7 +557,7 @@
 
     A curve in spacetime would normally depict the trajectory of a particle. We often wish to parametrize the trajectory of a particle by its time co-ordinate. This motivates us to define a curve \(\gamma\) mathematically as a continuous function from the set of real numbers to space, i.e.\ \(\gamma \colon \rr \rightarrow M\), where \(M\) denotes the physical space, in whatever way it is defined.
 
-    Note that two particles may have the same path in space, but different trajectories. For example, consider two particles which travel along the same path in space but their velocities and positions at different times are different. Let \(\alpha, \tilde\gamma \colon \rr \rightarrow \rr^2\) be two trajectories of two particles travelling in a plane. We set \(M = \rr^2\) for now. Then \(\set{\alpha(t) | t \in \rr} = \set{\tilde\gamma(\tilde t) | \tilde t \in \rr}\), but let \(\gamma(1/2) \neq \tilde\gamma(1/2)\). Refer to~\cref{fig:samepath}.
+    Note that two particles may have the same path in space, but different trajectories. For example, consider two particles which travel along the same path in space but their velocities and positions at different times are different. Let \(\gamma, \tilde\gamma \colon \rr \rightarrow \rr^2\) be two trajectories of two particles travelling in a plane. We set \(M = \rr^2\) for now. Then \(\set{\gamma(t) | t \in \rr} = \set{\tilde\gamma(\tilde t) | \tilde t \in \rr}\), but let \(\gamma(1/2) \neq \tilde\gamma(1/2)\). Refer to~\cref{fig:samepath}.
 
     \begin{figure}[htb]
         \centering
@@ -566,7 +566,7 @@
             \begin{tikzpicture}
                 \draw[std line width, dashed] (-0.6,-0.6) to [out=0, in=-90] (0,0) to [out=90, in=160] (1,0.5) to [out=-20, in=180] (2,0) to [out=0, in=-90] (3,1) to [out=90, in=180] (3.5,1.5);
                 \draw[std line width, postaction={decorate,decoration={markings,
-                        mark=at position 0.1 with {\fill[black] circle (1.5pt); \node[anchor = south east] {\(\alpha(0)\)};},
+                        mark=at position 0.1 with {\fill[black] circle (1.5pt); \node[anchor = south east] {\(\gamma(0)\)};},
                         mark=at position 0.3 with {\fill[black] circle (1.5pt); \node[anchor = south west] {\(\gamma(1/2)\)};},
                         mark=at position 0.9 with {\fill[black] circle (1.5pt); \node[anchor = west] {\(\gamma(1)\)};}
                     }}]
