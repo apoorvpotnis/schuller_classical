@@ -7,7 +7,7 @@
 % arara: lualatex: {shell: yes} 
 % arara: lualatex: {shell: yes} 
 
-\documentclass[a4 paper, 12pt]{book} 
+\documentclass[a4 paper, 11pt]{book} 
 \usepackage[bindingoffset=30mm, left=2cm, right=2cm]{geometry} 
 % \documentclass[oneside]{book} 
 % \usepackage[papersize={19.2cm,10.8cm}, left=1.5cm, right=1.5cm, bottom=2cm]{geometry}
@@ -29,6 +29,7 @@
 \usepackage{mathtools, xparse}
 \usepackage[verbose=false]{microtype}
 
+% \usepackage[newcmbb]{fontsetup}
 \usepackage{unicode-math}
 \setmainfont[
     SizeFeatures={
@@ -61,7 +62,7 @@
     BoldFont=NewCM10-Bold.otf,
     ItalicFont=NewCM10-BookItalic.otf,
     SlantedFeatures={FakeSlant=0.25},
-    BoldSlantedFeatures={FakeSlant=0.25},
+    BoldSlantedFeatures={FakeSlant=0.25}
 ]{NewCM10-Book.otf}
 
 \setmonofont[
@@ -105,30 +106,56 @@
 
 \setmathfont[
     StylisticSet={3},
-    BoldFont = NewCMMath-Bold.otf,
+    BoldFont = NewCMMath-Bold.otf
 ]{NewCMMath-Book.otf}
 \setmathfont[
     StylisticSet={3}, 
     BoldFont = NewCMMath-Bold.otf, 
-    version=serif,
+    version=serif
 ]{NewCMMath-Book.otf}
 \setmathfont[
     range={\symfrak,\symbffrak}, 
     BoldFont = NewCMMath-Bold.otf
 ]{NewCMMath-Regular.otf}
 
+% \newfontfamily\uncial[%
+%   SizeFeatures={%
+% {Size=-8, Font=NewCMUncial08-Book.otf,
+%       BoldFont=NewCMUncial10-Bold.otf,%
+%       SlantedFont=NewCMUncial08-Book.otf,%
+%       BoldSlantedFont=NewCMUncial10-Bold.otf,%
+%       },
+% {Size=8, Font=NewCMUncial08-Book.otf,
+%       BoldFont=NewCMUncial08-Bold.otf,%
+%       SlantedFont=NewCMUncial08-Book.otf,%
+%       BoldSlantedFont=NewCMUncial10-Bold.otf,%
+%       },
+% {Size= 9-, Font = NewCMUncial10-Book.otf,
+%       BoldFont=NewCMUncial10-Bold.otf,%
+%       SlantedFont=NewCMUncial10-Book.otf,%
+%       BoldSlantedFont=NewCMUncial10-Bold.otf,%
+%       }%
+%   },%
+%   BoldSlantedFont=NewCMUncial10-Bold.otf,%
+%   SlantedFont=NewCMUncial10-Book.otf,%
+%   BoldFont=NewCMUncial10-Bold.otf,%
+%   SlantedFeatures={FakeSlant=0.25},%
+%   BoldSlantedFeatures={FakeSlant=0.25},%
+%   ]{NewCMUncial10-Book.otf}
+% \newcommand{\textuncial}[1]{{\uncial #1}}
+
 \makeatletter
 \g@addto@macro\bfseries{\boldmath}
 \makeatother
 
-\DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
-\renewcommand{\mathcal}{\cmmathcal}
-\DeclareFontFamily{U}{mathc}{}
-\DeclareFontShape{U}{mathc}{m}{it}%
-{<->s*[1.03] mathc10}{}
-\DeclareMathAlphabet{\cmmathcal}{U}{mathc}{m}{it}
-\renewcommand{\mathcal}{\cmmathcal}
-\let\symcal\mathcal
+% \DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
+% \renewcommand{\mathcal}{\cmmathcal}
+% \DeclareFontFamily{U}{mathc}{}
+% \DeclareFontShape{U}{mathc}{m}{it}%
+% {<->s*[1.03] mathc10}{}
+% \DeclareMathAlphabet{\cmmathcal}{U}{mathc}{m}{it}
+% \renewcommand{\mathcal}{\cmmathcal}
+% \let\symcal\mathcal
 
 \usepackage[style=british]{csquotes}
 
@@ -258,6 +285,9 @@
     }
 }
 
+
+
+\newcommand{\pii}{\mathrm{п}}
 \newcommand{\ltwo}{\symrm{L\kern-0.5pt^2}}
 \newcommand{\position}{\symrm{Q}}
 \newcommand{\momentum}{\symrm{P}}
@@ -335,9 +365,9 @@
 \hypersetup{citecolor=red, pdfencoding=auto, psdextra, pageanchor=true, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller's Lectures on Classical Mechanics}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Schuller's Lectures on Classical Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Classical Mechanics, Differential Geometry, Calculus of Variations, Hamiltonian Mechanics, Lagrangian Mechanics, Symplectic Geometry, General Relativity, Spacetime, Topological Manifolds, Principle of Stationary Action, Mathematical Physics, Classical Physics, Newtonian Mechanics, Lecture Notes}}
 \usepackage{cleveref}
 
-\AtBeginDocument{%
-    \addtocontents{toc}{\protect\setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Book.otf}\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}}
-}
+% \AtBeginDocument{%
+%     \addtocontents{toc}{\protect\setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Book.otf}\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}}
+% }
 
 \begin{document}
     \microtypesetup{deactivate}
@@ -607,7 +637,7 @@
     \end{exmp}
     For any set \(M\), \(\topology_{\symrm{d}} \coloneq \powerset(M)\) is called the \textit{discrete}\index{Discrete topology} or the \textit{chaotic}\index{Chaotic topology} topology, where \(\powerset(M)\) denotes the power set of \(M\). The power set of \(M\) is defined as the collection of all subsets of \(M\). \(\topology_{\symrm{i}} \coloneq \{\emptyset, M\}\) is called the \textit{indiscrete}\index{Indiscrete topology} topology.
 
-    Let \(M \coloneq \rr^d\). Then the \textit{standard}\index{Standard topology} topology \(\topology_{\symrm{s}} \subset \powerset(\rr^d)\) on \(\rr^d\) is defined as follows. A set \(U \subseteq \rr^d\) belongs to \(\topology_{\symrm{s}}\) iff for all \(a \in U\), there exists an \(r \in \rr_{\geq 0}\) such that \(\ball_r(a) \subseteq U\). Here \(\ball_r(a)\) is the open ball of radius \(r\) centered at \(a\), defined as 
+    Let \(M \coloneq \rr^d\). Then the \textit{standard}\index{Standard topology} topology \(\topology_{\symrm{s}}(\rr^d) \subset \powerset(\rr^d)\) on \(\rr^d\) is defined as follows. A set \(U \subseteq \rr^d\) belongs to \(\topology_{\symrm{s}}(\rr^d)\) iff for all \(a \in U\), there exists an \(r \in \rr_{\geq 0}\) such that \(\ball_r(a) \subseteq U\). Here \(\ball_r(a)\) is the open ball of radius \(r\) centered at \(a\), defined as 
     \[
         \ball_r(a) \coloneq \set[\bigg]{b \in \rr^d | \sum_{i=1}^d (a^i - b^i)^2 < r^2},
     \] 
@@ -615,7 +645,7 @@
 
     \begin{figure}[htb]
         \centering
-        \subcaptionbox{\(U \in \topology_{\symrm{s}}\) is an open set of \(\rr^2\). The dashed line indicates that the points on the line are not contained in \(U\). For all \(a \in U\), we can always find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(U\). \label{fig:openset}}[0.45\textwidth]
+        \subcaptionbox{\(U \in \topology_{\symrm{s}}(\rr^2)\) is an open set of \(\rr^2\). The dashed line indicates that the points on the line are not contained in \(U\). For all \(a \in U\), we can always find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(U\). \label{fig:openset}}[0.45\textwidth]
         {
             \begin{tikzpicture}[scale=0.7, use Hobby shortcut]
                 \draw[std line width, smooth, closed, dashed] (0,0) .. ++ (1,0) .. ++ (2,1) .. ++ (-3,3) .. ++ (-2, -1) -- cycle;
@@ -625,7 +655,7 @@
             \end{tikzpicture}
         }
         \hfill
-        \subcaptionbox{\(V \notin \topology_{\symrm{s}}\) is a closed set of \(\rr^2\). The solid line used to depict \(V\) indicates that the points on the line belong to \(V\). For all \(a' \in \partial V\), we can never find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(V\). Here, \(\partial V\) denotes the boundary of \(V\).\label{fig:closed}}[0.45\textwidth]
+        \subcaptionbox{\(V \notin \topology_{\symrm{s}}(\rr^2)\) is a closed set of \(\rr^2\). The solid line used to depict \(V\) indicates that the points on the line belong to \(V\). For all \(a' \in \partial V\), we can never find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(V\). Here, \(\partial V\) denotes the boundary of \(V\).\label{fig:closed}}[0.45\textwidth]
         {
             \begin{tikzpicture}[scale=0.7, use Hobby shortcut]
                 \draw[std line width, smooth, closed] (0,0) .. ++ (1,0) .. ++ (2,1) .. ++ (-3,3) .. ++ (-2, -1) -- cycle;
@@ -637,28 +667,6 @@
         \caption{Open and closed sets}
         \label{fig:closedandopen}
     \end{figure}
-
-    Note that there can in general be more than one topologies on a given set. The indexing set \(A\) can be uncountable as well. If \(A\) is uncountable, then the third condition cannot be be fulfilled by simply requiring that if \(U,V \in \topology\), then \(U \cup V \in \topology\), as induction will work only for countably many objects.
-    \begin{exmp}
-        Let \(M \coloneq \{1, 2, \xi\}\), where \(\xi\) is any mathematical object. Then \[\topology_1 \coloneq \{\emptyset, \{1, 2, \xi\}\} \quad \text{ and } \quad \topology_2 \coloneq \{\emptyset, \{1\}, \{1, 2, \xi\}\}\] are valid topologies on \(M\) while \[\topology_3 \coloneq \{\emptyset, \{1\}, \{2\}, \{1, 2, \xi\}\} \quad \text{ and } \quad \topology_4 \coloneq \{\emptyset\}\] are not.
-    \end{exmp}
-    For any set \(M\), \(\topology_{\symrm{d}} \coloneq \powerset(M)\) is called the \textit{discrete}\index{Discrete topology} or the \textit{chaotic}\index{Chaotic topology} topology, where \(\powerset(M)\) denotes the power set of \(M\). The power set of \(M\) is defined as the collection of all subsets of \(M\). \(\topology_{\symrm{i}} \coloneq \{\emptyset, M\}\) is called the \textit{indiscrete}\index{Indiscrete topology} topology.
-
-    Let \(M \coloneq \rr^d\). Then the \textit{standard}\index{Standard topology} topology \(\topology_{\symrm{s}} \subset \powerset(\rr^d)\) on \(\rr^d\) is defined as follows. A set \(U \subseteq \rr^d\) belongs to \(\topology_{\symrm{s}}\) iff for all \(a \in U\), there exists an \(r \in \rr_{\geq 0}\) such that \(\ball_r(a) \subseteq U\). Here \(\ball_r(a)\) is the open ball of radius \(r\) centered at \(a\), defined as 
-    \[
-        \ball_r(a) \coloneq \set[\bigg]{b \in \rr^d | \sum_{i=1}^d (a^i - b^i)^2 < r^2},
-    \] 
-    where \(a^i\) and \(b^i\) denote the \(i^{\symrm{th}}\) components of \(a\) and \(b\) respectively. The fact that \(\ball_r(a)\) is called open refers to the strict inequality in the definition of \(\ball_r(a)\). We would have called it a closed ball if we had \(\leq\) instead of \(<\). We thus retrieve the notion of an open interval of \(\rr\), that we studied in calculus courses. If we put the discrete topology on \(\rr\) instead of the standard one, we see that a set containing even a single real number becomes an open set, justifying the word discrete.    Note that there can in general be more than one topologies on a given set. The indexing set \(A\) can be uncountable as well. If \(A\) is uncountable, then the third condition cannot be be fulfilled by simply requiring that if \(U,V \in \topology\), then \(U \cup V \in \topology\), as induction will work only for countably many objects.
-    \begin{exmp}
-        Let \(M \coloneq \{1, 2, \xi\}\), where \(\xi\) is any mathematical object. Then \[\topology_1 \coloneq \{\emptyset, \{1, 2, \xi\}\} \quad \text{ and } \quad \topology_2 \coloneq \{\emptyset, \{1\}, \{1, 2, \xi\}\}\] are valid topologies on \(M\) while \[\topology_3 \coloneq \{\emptyset, \{1\}, \{2\}, \{1, 2, \xi\}\} \quad \text{ and } \quad \topology_4 \coloneq \{\emptyset\}\] are not.
-    \end{exmp}
-    For any set \(M\), \(\topology_{\symrm{d}} \coloneq \powerset(M)\) is called the \textit{discrete}\index{Discrete topology} or the \textit{chaotic}\index{Chaotic topology} topology, where \(\powerset(M)\) denotes the power set of \(M\). The power set of \(M\) is defined as the collection of all subsets of \(M\). \(\topology_{\symrm{i}} \coloneq \{\emptyset, M\}\) is called the \textit{indiscrete}\index{Indiscrete topology} topology.
-
-    Let \(M \coloneq \rr^d\). Then the \textit{standard}\index{Standard topology} topology \(\topology_{\symrm{s}} \subset \powerset(\rr^d)\) on \(\rr^d\) is defined as follows. A set \(U \subseteq \rr^d\) belongs to \(\topology_{\symrm{s}}\) iff for all \(a \in U\), there exists an \(r \in \rr_{\geq 0}\) such that \(\ball_r(a) \subseteq U\). Here \(\ball_r(a)\) is the open ball of radius \(r\) centered at \(a\), defined as 
-    \[
-        \ball_r(a) \coloneq \set[\bigg]{b \in \rr^d | \sum_{i=1}^d (a^i - b^i)^2 < r^2},
-    \] 
-    where \(a^i\) and \(b^i\) denote the \(i^{\symrm{th}}\) components of \(a\) and \(b\) respectively. The fact that \(\ball_r(a)\) is called open refers to the strict inequality in the definition of \(\ball_r(a)\). We would have called it a closed ball if we had \(\leq\) instead of \(<\). We thus retrieve the notion of an open interval of \(\rr\), that we studied in calculus courses. If we put the discrete topology on \(\rr\) instead of the standard one, we see that a set containing even a single real number becomes an open set, justifying the word discrete.
 
     \chapter{Differentiable Manifolds}
 
@@ -672,7 +680,7 @@
 
     \section{Attempts at a definition}
 
-    We try to define the directional derivative of a vector field. 
+    We try to define the directional derivative of a vector field. \(\e^{\i \pii} + 1 = 0, 4\pii\epsilon, n\pii\)
 
         
     \nocite{*}
