@@ -107,17 +107,17 @@
 \setmathfont[
     StylisticSet={3},
     BoldFont = NewCMMath-Bold.otf
-]{NewCMMath-Book.otf}
+]{NewCMMath-Book_modified.otf}
 % \setmathfont[
 %     StylisticSet={3}, 
 %     BoldFont = NewCMMath-Bold.otf, 
 %     version=serif
-% ]{NewCMMath-Book.otf}
+% ]{NewCMMath-Book_modified.otf}
 \setmathfont[
     range={\symfrak,\symbffrak}, 
     BoldFont = NewCMMath-Bold.otf
 ]{NewCMMath-Regular.otf}
-\setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf, version=serif]{NewCMMath-Book.otf}
+\setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf, version=serif]{NewCMMath-Book_modified.otf}
 
 % \newfontfamily\uncial[%
 %   SizeFeatures={%
@@ -149,7 +149,7 @@
 \g@addto@macro\bfseries{\boldmath}
 \makeatother
 
-\setmathfont[version=sans]{NewCMSansMath-Regular.otf}
+\setmathfont[version=sans]{NewCMSansMath-Regular_modified.otf}
 \newfontfamily\sanstext[
     SizeFeatures={
         {Size= -8, Font=NewCMSans08-Regular.otf,
@@ -323,6 +323,8 @@
 
 \usepackage{embedall}
 \embedfile[desc = bibliography source file]{schuller_classical.bib}
+\embedfile[desc = modified font file]{NewCMSansMath-Regular_modified.otf}
+\embedfile[desc = modified font file]{NewCMMath-Book_modified.otf}
 
 \usepackage{imakeidx}
 \makeindex[intoc]
@@ -435,7 +437,7 @@
 % \pdfrender{TextRenderingMode=FillStroke,LineWidth=0.04}
 
 % \AtBeginDocument{%
-%     \addtocontents{toc}{\protect\setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Book.otf}\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}}
+%     \addtocontents{toc}{\protect\setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Book_modified.otf}\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}}
 % }
 
 \begin{document}
