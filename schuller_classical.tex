@@ -117,6 +117,7 @@
     range={\symfrak,\symbffrak}, 
     BoldFont = NewCMMath-Bold.otf
 ]{NewCMMath-Regular.otf}
+\setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf, version=serif]{NewCMMath-Book.otf}
 
 % \newfontfamily\uncial[%
 %   SizeFeatures={%
@@ -147,6 +148,67 @@
 \makeatletter
 \g@addto@macro\bfseries{\boldmath}
 \makeatother
+
+\setmathfont[version=sans]{NewCMSansMath-Regular.otf}
+\newfontfamily\sanstext[
+    SizeFeatures={
+        {Size= -8, Font=NewCMSans08-Regular.otf,
+            ItalicFont=NewCMSans08-Oblique.otf,
+            BoldFont=NewCMSans10-Bold.otf,
+            BoldItalicFont=NewCMSans10-BoldOblique.otf,
+            SmallCapsFeatures={Numbers=OldStyle},
+        },
+        {Size= 8, Font=NewCMSans08-Regular.otf,
+            ItalicFont=NewCMSans08-Oblique.otf,
+            BoldFont=NewCMSans10-Bold.otf,
+            BoldItalicFont=NewCMSans10-BoldOblique.otf,
+            SmallCapsFeatures={Numbers=OldStyle},
+        },
+        {Size= 9-, Font=NewCMSans10-Regular.otf,
+            ItalicFont=NewCMSans10-Oblique.otf,
+            BoldFont=NewCMSans10-Bold.otf,
+            BoldItalicFont=NewCMSans10-BoldOblique.otf,
+            SmallCapsFeatures={Numbers=OldStyle},
+        }},
+    ItalicFont=NewCMSans10-Oblique.otf,
+    BoldFont=NewCMSans10-Bold.otf,%
+    BoldItalicFont=NewCMSans10-BoldOblique.otf,
+    SmallCapsFeatures={Numbers=OldStyle},
+    SlantedFont=NewCMSans10-Oblique.otf,
+    BoldSlantedFont=NewCMSans10-BoldOblique.otf,
+]{NewCMSans10-Regular.otf}
+
+\DeclareSymbolFont{mathds}{U}{dsss}{m}{n}
+\DeclareMathAlphabet{\mathds}{U}{dsss}{m}{n}
+\let\originalsymbb\symbb
+\let\originalmathbb\mathbb
+
+\AtBeginEnvironment{figure}{
+    \sanstext\mathversion{sans}%
+    \renewcommand{\symbb}{\mathds}%
+    \renewcommand{\mathbb}{\mathds}%
+
+    % \renewcommand\alpha{\sansalpha}
+	% \renewcommand\beta{\sansbeta}
+	% \renewcommand\gamma{\sansgamma}
+}
+\AtBeginEnvironment{table}{%
+    \sanstext\mathversion{sans}%
+    \renewcommand{\symbb}{\mathds}%
+    \renewcommand{\mathbb}{\mathds}%
+} 
+\AfterEndEnvironment{figure}{
+    \normalfont\mathversion{serif}%
+    \setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}%
+    \let\symbb\originalsymbb\let\mathbb\originalmathbb%
+}
+\AfterEndEnvironment{table}{
+    \normalfont\mathversion{serif}\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}%
+    \let\symbb\originalsymbb\let\mathbb\originalmathbb%
+}
+
+
+
 
 % \DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
 % \renewcommand{\mathcal}{\cmmathcal}
@@ -272,13 +334,17 @@
 \usepackage{array}
 \usepackage{caption}
 \usepackage{subcaption}
+\captionsetup[figure]{font=sf, labelfont=sf, textfont=sf}
+\subcaptionsetup[figure]{textfont=sf}
+\captionsetup[table]{font=sf, labelfont=sf, textfont=sf}
+\subcaptionsetup[table]{textfont=sf}
 
 \usepackage{tikz}
 \usetikzlibrary{intersections, datavisualization, datavisualization.polar,datavisualization.formats.functions, fpu, calc, arrows.meta, bending, positioning, 3d, quotes, angles, decorations.pathmorphing, backgrounds, fit, babel, hobby, decorations.markings}
 
 \tikzset{
     std line width/.style={
-        line width = 0.65pt,
+        line width = 0.7pt,
     },
     hollow circle/.style={
         draw, std line width, circle, inner sep=0pt, minimum size=3pt, outer sep=0pt
@@ -287,7 +353,7 @@
 
 
 
-\newcommand{\pii}{\mathrm{п}}
+\newcommand{\pii}{\symup{\pi}}
 \newcommand{\ltwo}{\symrm{L\kern-0.5pt^2}}
 \newcommand{\position}{\symrm{Q}}
 \newcommand{\momentum}{\symrm{P}}
@@ -654,7 +720,7 @@
     \[
         \ball_r(a) \coloneq \set[\bigg]{b \in \rr^d | \sum_{i=1}^d (a^i - b^i)^2 < r^2},
     \] 
-    where \(a^i\) and \(b^i\) denote the \(i^{\symrm{th}}\) components of \(a\) and \(b\) respectively. The fact that \(\ball_r(a)\) is called open refers to the strict inequality in the definition of \(\ball_r(a)\). We would have called it a closed ball if we had \[\sum_{i=1}^d (a^i - b^i)^2 \leq r^2\] instead of \[\sum_{i=1}^d (a^i - b^i)^2 < r^2\] in the definition of \(\ball_r(a)\). We thus retrieve the notion of an open interval of \(\rr\), that we studied in calculus courses. If we put the discrete topology on \(\rr\) instead of the standard one, we see that a set containing even a single real number becomes an open set, justifying the word discrete.
+    where \(a^i\) and \(b^i\) denote the \(i^{\symrm{th}}\) components of \(a\) and \(b\) respectively. The fact that \(\ball_r(a)\) is called open refers to the strict inequality in the definition of \(\ball_r(a)\). We would have called it a closed ball if we had \[\sum_{i=1}^d (a^i - b^i)^2 \leq r^2\] instead of \[\sum_{i=1}^d (a^i - b^i)^2 < r^2\] in the definition of \(\ball_r(a)\). We thus retrieve the notion of an open interval of \(\rr\) when \(d = 1\), which we studied in calculus courses. If we put the discrete topology on \(\rr\) instead of the standard one, we see that a set containing even a single real number becomes an open set, justifying the word discrete.
 
     \begin{figure}[htb]
         \centering
@@ -694,7 +760,7 @@
 
     \section{Attempts at a definition}
 
-    We try to define the directional derivative of a vector field. \(\e^{\i \pii} + 1 = 0, 4\pii\epsilon, n\pii\)
+    % We try to define the directional derivative of a vector field. \(\e^{\i \pii} + 1 = 0, 4\pii\epsilon, n\pii\)
 
     \chapter{Lagangian and the action functional}
     
