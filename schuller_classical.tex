@@ -178,15 +178,15 @@
     BoldSlantedFont=NewCMSans10-BoldOblique.otf,
 ]{NewCMSans10-Regular.otf}
 
-\DeclareSymbolFont{mathds}{U}{dsss}{m}{n}
-\DeclareMathAlphabet{\mathds}{U}{dsss}{m}{n}
-\let\originalsymbb\symbb
-\let\originalmathbb\mathbb
+% \DeclareSymbolFont{mathds}{U}{dsss}{m}{n}
+% \DeclareMathAlphabet{\mathds}{U}{dsss}{m}{n}
+% \let\originalsymbb\symbb
+% \let\originalmathbb\mathbb
 
 \AtBeginEnvironment{figure}{
     \sanstext\mathversion{sans}%
-    \renewcommand{\symbb}{\mathds}%
-    \renewcommand{\mathbb}{\mathds}%
+    % \renewcommand{\symbb}{\mathds}%
+    % \renewcommand{\mathbb}{\mathds}%
 
     % \renewcommand\alpha{\sansalpha}
 	% \renewcommand\beta{\sansbeta}
@@ -194,17 +194,17 @@
 }
 \AtBeginEnvironment{table}{%
     \sanstext\mathversion{sans}%
-    \renewcommand{\symbb}{\mathds}%
-    \renewcommand{\mathbb}{\mathds}%
+    % \renewcommand{\symbb}{\mathds}%
+    % \renewcommand{\mathbb}{\mathds}%
 } 
 \AfterEndEnvironment{figure}{
     \normalfont\mathversion{serif}%
     \setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}%
-    \let\symbb\originalsymbb\let\mathbb\originalmathbb%
+    % \let\symbb\originalsymbb\let\mathbb\originalmathbb%
 }
 \AfterEndEnvironment{table}{
     \normalfont\mathversion{serif}\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}%
-    \let\symbb\originalsymbb\let\mathbb\originalmathbb%
+    % \let\symbb\originalsymbb\let\mathbb\originalmathbb%
 }
 
 
@@ -336,8 +336,8 @@
 \usepackage{subcaption}
 \captionsetup[figure]{font=sf, labelfont=sf, textfont=sf}
 \subcaptionsetup[figure]{textfont=sf}
-\captionsetup[table]{font=sf, labelfont=sf, textfont=sf}
-\subcaptionsetup[table]{textfont=sf}
+% \captionsetup[table]{font=sf, labelfont=sf, textfont=sf}
+% \subcaptionsetup[table]{textfont=sf}
 
 \usepackage{tikz}
 \usetikzlibrary{intersections, datavisualization, datavisualization.polar,datavisualization.formats.functions, fpu, calc, arrows.meta, bending, positioning, 3d, quotes, angles, decorations.pathmorphing, backgrounds, fit, babel, hobby, decorations.markings}
