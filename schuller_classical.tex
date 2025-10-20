@@ -104,109 +104,127 @@
     BoldSlantedFont=NewCMSans10-BoldOblique.otf,
 ]{NewCMSans10-Regular.otf}
 
+% \setmathfont[
+%     StylisticSet={3},
+%     BoldFont = NewCMMath-Bold.otf
+% ]{NewCMMath-Book_modified.otf}
+% % \setmathfont[
+% %     StylisticSet={3}, 
+% %     BoldFont = NewCMMath-Bold.otf, 
+% %     version=serif
+% % ]{NewCMMath-Book_modified.otf}
+% \setmathfont[
+%     range={\symfrak,\symbffrak}, 
+%     BoldFont = NewCMMath-Bold.otf
+% ]{NewCMMath-Regular.otf}
+% \setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf, version=serif]{NewCMMath-Book_modified.otf}
+
 \setmathfont[
     StylisticSet={3},
     BoldFont = NewCMMath-Bold.otf
-]{NewCMMath-Book_modified.otf}
-% \setmathfont[
-%     StylisticSet={3}, 
-%     BoldFont = NewCMMath-Bold.otf, 
-%     version=serif
-% ]{NewCMMath-Book_modified.otf}
+]{NewCMMath-Book.otf}
 \setmathfont[
     range={\symfrak,\symbffrak}, 
     BoldFont = NewCMMath-Bold.otf
 ]{NewCMMath-Regular.otf}
-\setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf, version=serif]{NewCMMath-Book_modified.otf}
 
-% \newfontfamily\uncial[%
-%   SizeFeatures={%
-% {Size=-8, Font=NewCMUncial08-Book.otf,
-%       BoldFont=NewCMUncial10-Bold.otf,%
-%       SlantedFont=NewCMUncial08-Book.otf,%
-%       BoldSlantedFont=NewCMUncial10-Bold.otf,%
-%       },
-% {Size=8, Font=NewCMUncial08-Book.otf,
-%       BoldFont=NewCMUncial08-Bold.otf,%
-%       SlantedFont=NewCMUncial08-Book.otf,%
-%       BoldSlantedFont=NewCMUncial10-Bold.otf,%
-%       },
-% {Size= 9-, Font = NewCMUncial10-Book.otf,
-%       BoldFont=NewCMUncial10-Bold.otf,%
-%       SlantedFont=NewCMUncial10-Book.otf,%
-%       BoldSlantedFont=NewCMUncial10-Bold.otf,%
-%       }%
-%   },%
-%   BoldSlantedFont=NewCMUncial10-Bold.otf,%
-%   SlantedFont=NewCMUncial10-Book.otf,%
-%   BoldFont=NewCMUncial10-Bold.otf,%
-%   SlantedFeatures={FakeSlant=0.25},%
-%   BoldSlantedFeatures={FakeSlant=0.25},%
-%   ]{NewCMUncial10-Book.otf}
-% \newcommand{\textuncial}[1]{{\uncial #1}}
+\everymath=\expandafter{%
+\the\everymath%
+\Umathsubshiftdown\textstyle=1.5pt\Umathsubshiftdrop\textstyle=0.5pt}
+\everydisplay=\expandafter{%
+\the\everydisplay%
+\Umathsubshiftdown\displaystyle=1.5pt\Umathsubshiftdrop\displaystyle=0.5pt}
 
-\makeatletter
-\g@addto@macro\bfseries{\boldmath}
-\makeatother
+\DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
+\renewcommand{\symcal}{\cmmathcal}
 
-\setmathfont[version=sans]{NewCMSansMath-Regular_modified.otf}
-\newfontfamily\sanstext[
-    SizeFeatures={
-        {Size= -8, Font=NewCMSans08-Regular.otf,
-            ItalicFont=NewCMSans08-Oblique.otf,
-            BoldFont=NewCMSans10-Bold.otf,
-            BoldItalicFont=NewCMSans10-BoldOblique.otf,
-            SmallCapsFeatures={Numbers=OldStyle},
-        },
-        {Size= 8, Font=NewCMSans08-Regular.otf,
-            ItalicFont=NewCMSans08-Oblique.otf,
-            BoldFont=NewCMSans10-Bold.otf,
-            BoldItalicFont=NewCMSans10-BoldOblique.otf,
-            SmallCapsFeatures={Numbers=OldStyle},
-        },
-        {Size= 9-, Font=NewCMSans10-Regular.otf,
-            ItalicFont=NewCMSans10-Oblique.otf,
-            BoldFont=NewCMSans10-Bold.otf,
-            BoldItalicFont=NewCMSans10-BoldOblique.otf,
-            SmallCapsFeatures={Numbers=OldStyle},
-        }},
-    ItalicFont=NewCMSans10-Oblique.otf,
-    BoldFont=NewCMSans10-Bold.otf,%
-    BoldItalicFont=NewCMSans10-BoldOblique.otf,
-    SmallCapsFeatures={Numbers=OldStyle},
-    SlantedFont=NewCMSans10-Oblique.otf,
-    BoldSlantedFont=NewCMSans10-BoldOblique.otf,
-]{NewCMSans10-Regular.otf}
+% % \newfontfamily\uncial[%
+% %   SizeFeatures={%
+% % {Size=-8, Font=NewCMUncial08-Book.otf,
+% %       BoldFont=NewCMUncial10-Bold.otf,%
+% %       SlantedFont=NewCMUncial08-Book.otf,%
+% %       BoldSlantedFont=NewCMUncial10-Bold.otf,%
+% %       },
+% % {Size=8, Font=NewCMUncial08-Book.otf,
+% %       BoldFont=NewCMUncial08-Bold.otf,%
+% %       SlantedFont=NewCMUncial08-Book.otf,%
+% %       BoldSlantedFont=NewCMUncial10-Bold.otf,%
+% %       },
+% % {Size= 9-, Font = NewCMUncial10-Book.otf,
+% %       BoldFont=NewCMUncial10-Bold.otf,%
+% %       SlantedFont=NewCMUncial10-Book.otf,%
+% %       BoldSlantedFont=NewCMUncial10-Bold.otf,%
+% %       }%
+% %   },%
+% %   BoldSlantedFont=NewCMUncial10-Bold.otf,%
+% %   SlantedFont=NewCMUncial10-Book.otf,%
+% %   BoldFont=NewCMUncial10-Bold.otf,%
+% %   SlantedFeatures={FakeSlant=0.25},%
+% %   BoldSlantedFeatures={FakeSlant=0.25},%
+% %   ]{NewCMUncial10-Book.otf}
+% % \newcommand{\textuncial}[1]{{\uncial #1}}
 
-% \DeclareSymbolFont{mathds}{U}{dsss}{m}{n}
-% \DeclareMathAlphabet{\mathds}{U}{dsss}{m}{n}
-% \let\originalsymbb\symbb
-% \let\originalmathbb\mathbb
+% \makeatletter
+% \g@addto@macro\bfseries{\boldmath}
+% \makeatother
 
-\AtBeginEnvironment{figure}{
-    \sanstext\mathversion{sans}%
-    % \renewcommand{\symbb}{\mathds}%
-    % \renewcommand{\mathbb}{\mathds}%
+% \setmathfont[version=sans]{NewCMSansMath-Regular_modified.otf}
+% \newfontfamily\sanstext[
+%     SizeFeatures={
+%         {Size= -8, Font=NewCMSans08-Regular.otf,
+%             ItalicFont=NewCMSans08-Oblique.otf,
+%             BoldFont=NewCMSans10-Bold.otf,
+%             BoldItalicFont=NewCMSans10-BoldOblique.otf,
+%             SmallCapsFeatures={Numbers=OldStyle},
+%         },
+%         {Size= 8, Font=NewCMSans08-Regular.otf,
+%             ItalicFont=NewCMSans08-Oblique.otf,
+%             BoldFont=NewCMSans10-Bold.otf,
+%             BoldItalicFont=NewCMSans10-BoldOblique.otf,
+%             SmallCapsFeatures={Numbers=OldStyle},
+%         },
+%         {Size= 9-, Font=NewCMSans10-Regular.otf,
+%             ItalicFont=NewCMSans10-Oblique.otf,
+%             BoldFont=NewCMSans10-Bold.otf,
+%             BoldItalicFont=NewCMSans10-BoldOblique.otf,
+%             SmallCapsFeatures={Numbers=OldStyle},
+%         }},
+%     ItalicFont=NewCMSans10-Oblique.otf,
+%     BoldFont=NewCMSans10-Bold.otf,%
+%     BoldItalicFont=NewCMSans10-BoldOblique.otf,
+%     SmallCapsFeatures={Numbers=OldStyle},
+%     SlantedFont=NewCMSans10-Oblique.otf,
+%     BoldSlantedFont=NewCMSans10-BoldOblique.otf,
+% ]{NewCMSans10-Regular.otf}
 
-    % \renewcommand\alpha{\sansalpha}
-	% \renewcommand\beta{\sansbeta}
-	% \renewcommand\gamma{\sansgamma}
-}
-\AtBeginEnvironment{table}{%
-    \sanstext\mathversion{sans}%
-    % \renewcommand{\symbb}{\mathds}%
-    % \renewcommand{\mathbb}{\mathds}%
-} 
-\AfterEndEnvironment{figure}{
-    \normalfont\mathversion{serif}%
-    \setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}%
-    % \let\symbb\originalsymbb\let\mathbb\originalmathbb%
-}
-\AfterEndEnvironment{table}{
-    \normalfont\mathversion{serif}\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}%
-    % \let\symbb\originalsymbb\let\mathbb\originalmathbb%
-}
+% % \DeclareSymbolFont{mathds}{U}{dsss}{m}{n}
+% % \DeclareMathAlphabet{\mathds}{U}{dsss}{m}{n}
+% % \let\originalsymbb\symbb
+% % \let\originalmathbb\mathbb
 
+% \AtBeginEnvironment{figure}{
+%     \sanstext\mathversion{sans}%
+%     % \renewcommand{\symbb}{\mathds}%
+%     % \renewcommand{\mathbb}{\mathds}%
+
+%     % \renewcommand\alpha{\sansalpha}
+% 	% \renewcommand\beta{\sansbeta}
+% 	% \renewcommand\gamma{\sansgamma}
+% }
+% \AtBeginEnvironment{table}{%
+%     \sanstext\mathversion{sans}%
+%     % \renewcommand{\symbb}{\mathds}%
+%     % \renewcommand{\mathbb}{\mathds}%
+% } 
+% \AfterEndEnvironment{figure}{
+%     \normalfont\mathversion{serif}%
+%     \setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}%
+%     % \let\symbb\originalsymbb\let\mathbb\originalmathbb%
+% }
+% \AfterEndEnvironment{table}{
+%     \normalfont\mathversion{serif}\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}%
+%     % \let\symbb\originalsymbb\let\mathbb\originalmathbb%
+% }
 
 
 
@@ -336,8 +354,8 @@
 \usepackage{array}
 \usepackage{caption}
 \usepackage{subcaption}
-\captionsetup[figure]{font=sf, labelfont=sf, textfont=sf}
-\subcaptionsetup[figure]{textfont=sf}
+% \captionsetup[figure]{font=sf, labelfont=sf, textfont=sf}
+% \subcaptionsetup[figure]{textfont=sf}
 % \captionsetup[table]{font=sf, labelfont=sf, textfont=sf}
 % \subcaptionsetup[table]{textfont=sf}
 
@@ -346,7 +364,7 @@
 
 \tikzset{
     std line width/.style={
-        line width = 0.7pt,
+        line width = 0.6pt,
     },
     hollow circle/.style={
         draw, std line width, circle, inner sep=0pt, minimum size=3pt, outer sep=0pt
@@ -359,10 +377,11 @@
 \newcommand{\ltwo}{\symrm{L\kern-0.5pt^2}}
 \newcommand{\position}{\symrm{Q}}
 \newcommand{\momentum}{\symrm{P}}
-\newcommand{\rthree}{\symbb{R}^3}
 \newcommand{\rr}{\symbb{R}}
 \newcommand{\cc}{\symbb{C}}
 \newcommand{\nn}{\symbb{N}_0}
+\newcommand{\rthree}{\rr\kern-0.5pt^3}
+\newcommand{\rtwo}{\rr\kern-0.5pt^2}
 \newcommand{\dirac}{\symrm{\delta}}
 \renewcommand*{\hbar}{\symrm{^^^^0127}}
 \renewcommand{\i}{\symrm{i}}
@@ -668,7 +687,7 @@
 
     A curve in spacetime would normally depict the trajectory of a particle. We often wish to parametrize the trajectory of a particle by its time co-ordinate. This motivates us to define a curve \(\gamma\) mathematically as a continuous function from the set of real numbers to space, i.e.\ \(\gamma \colon \rr \rightarrow M\), where \(M\) denotes the physical space, in whatever way it is defined.
 
-    Note that two particles may have the same path in space, but different trajectories. For example, consider two particles which travel along the same path in space but their velocities and positions at different times are different. Let \(\gamma, \tilde\gamma \colon \rr \rightarrow \rr^2\) be two trajectories of two particles travelling in a plane. We set \(M = \rr^2\) for now. Then \(\set{\gamma(t) | t \in \rr} = \set{\tilde\gamma(\tilde t) | \tilde t \in \rr}\), but let \(\gamma(1/2) \neq \tilde\gamma(1/2)\). Refer to~\cref{fig:samepath}.
+    Note that two particles may have the same path in space, but different trajectories. For example, consider two particles which travel along the same path in space but their velocities and positions at different times are different. Let \(\gamma, \tilde\gamma \colon \rr \rightarrow \rtwo\) be two trajectories of two particles travelling in a plane. We set \(M = \rtwo\) for now. Then \(\set{\gamma(t) | t \in \rr} = \set{\tilde\gamma(\tilde t) | \tilde t \in \rr}\), but let \(\gamma(1/2) \neq \tilde\gamma(1/2)\). Refer to~\cref{fig:samepath}.
 
     \begin{figure}[htb]
         \centering
@@ -726,18 +745,18 @@
 
     \begin{figure}[htb]
         \centering
-        \subcaptionbox{\(U \in \topology_{\symrm{s}}(\rr^2)\) is an open set of \(\rr^2\). The dashed line indicates that the points on the line are not contained in \(U\). For all \(a \in U\), we can always find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(U\). \label{fig:openset}}[0.45\textwidth]
+        \subcaptionbox{\(U \in \topology_{\symrm{s}}(\rtwo)\) is an open set of \(\rtwo\). The dashed line indicates that the points on the line are not contained in \(U\). For all \(a \in U\), we can always find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(U\). \label{fig:openset}}[0.45\textwidth]
         {
             \begin{tikzpicture}[scale=0.7, use Hobby shortcut]
                 % \draw[std line width, smooth, closed, dashed] (0,0) .. ++ (1,0) .. ++ (2,1) .. ++ (-3,3) .. ++ (-2, -1) -- cycle;
-                \draw[std line width, smooth, dashed] (0,0) .. ++ (1,0) .. ++ (2,1);
+                \draw[std line width, smooth, dashed] (0,0) to [in=45, out=45] (1,0);
                 \node at (3.15,3.1) {\(U\)};
                \draw[std line width, red, dashed] (1,1.5) circle[radius=0.7] node[above, yshift=15] {\(\ball_r (a)\)};
-               \fill (1,1.5) circle[radius=0.05] node[right, xshift=-3] {\(a\)};
+               \fill (1,1.5) circle[radius=0.05] node[right, xshift=-2] {\(a\)};
             \end{tikzpicture}
         }
         \hfill
-        \subcaptionbox{\(V \notin \topology_{\symrm{s}}(\rr^2)\) is a closed set of \(\rr^2\). The solid line used to depict \(V\) indicates that the points on the line belong to \(V\). For all \(a' \in \partial\kern-1pt V\), we can never find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(V\). Here, \(\partial\kern-1pt V\) denotes the boundary of \(V\).\label{fig:closed}}[0.45\textwidth]
+        \subcaptionbox{\(V \notin \topology_{\symrm{s}}(\rtwo)\) is a closed set of \(\rtwo\). The solid line used to depict \(V\) indicates that the points on the line belong to \(V\). For all \(a' \in \partial V\), we can never find an \(r > 0\) such that \(\ball_r(a)\) in fully contained in \(V\). Here, \(\partial V\) denotes the boundary of \(V\).\label{fig:closed}}[0.45\textwidth]
         {
             \begin{tikzpicture}[scale=0.7, use Hobby shortcut]
                 % \draw[std line width, smooth, closed] (0,0) .. ++ (1,0) .. ++ (2,1) .. ++ (-3,3) .. ++ (-2, -1) -- cycle;
@@ -764,7 +783,14 @@
 
     % We try to define the directional derivative of a vector field. \(\e^{\i \pii} + 1 = 0, 4\pii\epsilon, n\pii\)
 
-    \chapter{Lagangian and the action functional}
+    \chapter{Lagrangian and the action functional}
+
+    \[
+        \operatorname{spec}_{\text{pp}}(A) = \{z \in \symbb{C} \mid \operatorname{ran}(A - z) = \overline{\operatorname{ran}(A - z)} \neq \symcal{H}\}
+    \]
+    \[
+        \symcal{H}_\Gamma \symfrak{H}
+    \]  
     
      
 
