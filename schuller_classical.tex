@@ -128,6 +128,8 @@
     BoldFont = NewCMMath-Bold.otf
 ]{NewCMMath-Regular.otf}
 
+\AddToHook{bfseries}{\boldmath} % Correct macro by egreg 
+
 \everymath=\expandafter{%
 \the\everymath%
 \Umathsubshiftdown\textstyle=1.5pt\Umathsubshiftdrop\textstyle=0.5pt}
