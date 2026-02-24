@@ -27,7 +27,7 @@
     warnings-off={mathtools-colon, mathtools-overbracket}
 }{unicode-math}
 \usepackage{mathtools, xparse}
-\usepackage[verbose=false]{microtype}
+\usepackage[verbose=false, final, nopatch=footnote]{microtype}
 
 % \usepackage[newcmbb]{fontsetup}
 \usepackage{unicode-math}
@@ -53,7 +53,7 @@
             BoldItalicFont=NewCM10-BoldItalic.otf,
             SlantedFont=NewCM10-Book.otf,
             BoldSlantedFont=NewCM10-Bold.otf,
-            SmallCapsFeatures={Numbers=OldStyle}}
+            SmallCapsFeatures={Numbers=OldStyle}},
     },
     SmallCapsFeatures={Numbers=OldStyle},
     BoldSlantedFont=NewCM10-Bold.otf,
@@ -119,16 +119,71 @@
 % ]{NewCMMath-Regular.otf}
 % \setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf, version=serif]{NewCMMath-Book_modified.otf}
 
+\directlua{
+    local kerns = {
+        ["NewCMMath-Book"] = {
+          ["uni211D.bb"] = { topright = { { kern = -70 } } }
+        },
+        ["NewCMMath-Bold"] = {
+          ["uni211D.bb"] = { topright = { { kern = -30 } } }
+        }
+    }
+    local function addkerns(tfmdata)
+        if tfmdata.mathparameters then
+            local kerns = kerns[tfmdata.properties.fontname]
+            local unicodes = tfmdata.resources.unicodes
+            if kerns then
+                local characters = tfmdata.characters
+                for name, specification in pairs(kerns) do
+                    local character = characters[unicodes[name]]
+                    if character and not character.mathkerns then
+                        character.mathkerns = specification
+                    end
+                end
+            end
+        end
+    end
+    fonts.handlers.otf.features.register {
+        name         = "mathkerns",
+        description  = "additional math kerns",
+        initializers = {
+            position = 1,
+            base     = addkerns,
+            node     = addkerns,
+        }
+    }
+
+}
+
 \setmathfont[
     StylisticSet={3},
-    BoldFont = NewCMMath-Bold.otf
+    BoldFont = NewCMMath-Bold.otf,
+    RawFeature=+mathkerns
 ]{NewCMMath-Book.otf}
+\newcommand{\ipatext}{\addfontfeature{StylisticSet=5}}
+\newcommand{\textipa}[1]{{\ipatext#1}}
 \setmathfont[
     range={\symfrak,\symbffrak}, 
     BoldFont = NewCMMath-Bold.otf
 ]{NewCMMath-Regular.otf}
+% \setmathfont[range=\mathcal]{MathematicalPiLTStd.ttf}
 
 \AddToHook{bfseries}{\boldmath} % Correct macro by egreg 
+ 
+% again sectsty macro by egreg
+
+\usepackage[immediate]{silence}
+\WarningFilter[temp]{latex}{Command} % silence the warning
+\usepackage{sectsty}
+\allsectionsfont{\boldmath}
+\DeactivateWarningFilters[temp] % So nothing unrelated gets silenced
+
+\makeatletter % disable the runtime redefinitions
+\let\SS@makeulinesect\relax
+\let\SS@makeulinepartchap\relax
+\makeatother
+
+% code copied from here https://tex.stackexchange.com/a/82221/128462
 
 \everymath=\expandafter{%
 \the\everymath%
@@ -137,8 +192,24 @@
 \the\everydisplay%
 \Umathsubshiftdown\displaystyle=1.5pt\Umathsubshiftdrop\displaystyle=0.5pt}
 
-\DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
-\renewcommand{\symcal}{\cmmathcal}
+% code copied from here https://tex.stackexchange.com/a/754196/128462
+
+\RenewDocumentCommand{\DeclareMathOperator}{mm}{%
+  \NewDocumentCommand{#1}{}{%
+    \operatorname{\vphantom{#2}}\!%
+    \operatorname{\smash[b]{#2}}%
+  }%
+}
+
+% Ulrike Fischer code from here https://tex.stackexchange.com/a/373539/128462
+
+\DeclareFontFamily{U}{mathc}{}
+\DeclareFontShape{U}{mathc}{m}{it}%
+{<->s*[1.03] mathc10}{}
+
+\DeclareMathAlphabet{\lmathccal}{U}{mathc}{m}{it}
+% \DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
+\renewcommand{\symcal}{\lmathccal}
 
 % % \newfontfamily\uncial[%
 % %   SizeFeatures={%
@@ -343,8 +414,8 @@
 
 \usepackage{embedall}
 \embedfile[desc = bibliography source file]{schuller_classical.bib}
-\embedfile[desc = modified font file]{NewCMSansMath-Regular_modified.otf}
-\embedfile[desc = modified font file]{NewCMMath-Book_modified.otf}
+% \embedfile[desc = modified font file]{NewCMSansMath-Regular_modified.otf}
+% \embedfile[desc = modified font file]{NewCMMath-Book_modified.otf}
 
 \usepackage{imakeidx}
 \makeindex[intoc]
@@ -373,17 +444,16 @@
     }
 }
 
-
-
-\newcommand{\pii}{\symup{\pi}}
-\newcommand{\ltwo}{\symrm{L\kern-0.5pt^2}}
+\newcommand{\cpi}{\ensuremath{\text{п}}}
+\newcommand{\cepsilon}{\text{\textipa{ɛ}}}
+\newcommand{\ltwo}{\symrm{L\kern-0.3pt^2}}
 \newcommand{\position}{\symrm{Q}}
 \newcommand{\momentum}{\symrm{P}}
 \newcommand{\rr}{\symbb{R}}
 \newcommand{\cc}{\symbb{C}}
 \newcommand{\nn}{\symbb{N}_0}
-\newcommand{\rthree}{\rr\kern-0.5pt^3}
-\newcommand{\rtwo}{\rr\kern-0.5pt^2}
+\newcommand{\rthree}{\rr^3}
+\newcommand{\rtwo}{\rr^2}
 \newcommand{\dirac}{\symrm{\delta}}
 \renewcommand*{\hbar}{\symrm{^^^^0127}}
 \renewcommand{\i}{\symrm{i}}
@@ -397,6 +467,8 @@
 \newcommand{\atlas}{\symcal{A}}
 \newcommand{\powerset}{\symcal{P}}
 \newcommand{\ball}{B}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\shom}{\lmathccal{Hom}}
 
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
@@ -461,6 +533,14 @@
 %     \addtocontents{toc}{\protect\setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Book_modified.otf}\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}}
 % }
 
+\def\lsidebearing#1{\directlua{
+      f = font.getfont(font.current())
+      ft = fontloader.open(f.filename)
+      i = f.characters[string.byte("#1")].index
+      tex.print(ft.glyphs[i].boundingbox[1]/1000)
+   }em
+}
+
 \begin{document}
     \microtypesetup{deactivate}
     \pagenumbering{gobble}
@@ -498,8 +578,8 @@
             \noindent{\fontsize{25pt}{30pt}\selectfont
                 \textcolor{white}{
                     \begin{minipage}{\linewidth}
-                        {\akkurat Frederic Schuller\\
-                        Apoorv Potnis}
+                        {\akkurat \noindent \kern-\lsidebearing{F}Frederic Schuller\\
+                        \noindent \kern-0.05ptApoorv Potnis}
                     \end{minipage}
                 }
             }
@@ -771,29 +851,35 @@
         \label{fig:closedandopen}
     \end{figure}
 
-    \chapter{Differentiable Manifolds}
-
-    \chapter{Tangent Spaces}
-
-    \chapter{Tensors and Tensor Fields}
+    %\chapter{Tensors and Tensor Fields}
     
-    \chapter{Connection Fields}
+    %\section{Attempts at a definition}
 
-    Newton's second law states that mass times acceleration of a body is equal to the force acting on it. The force acting on a body is a vector, and we have already seen in the previous lecture that the acceleration cannot be defined as \(\ddot q^a\) as it does not transform as a vector.a
+    % We try to define the directional derivative of a vector field. \(\e^{\i \cpi} + 1 = 0, 4\cpi\epsilon, n\cpi\)
 
-    \section{Attempts at a definition}
+    \chapter{L \texorpdfstring{\(a\cpi\)}{aπ}}
+    % \chapter{L \texorpdfstring{specп}{\operatorname{spec}_{\symcal{H}}\cpi}}                           % \(a\)}%\(\operatorname{spec}_{\symcal{H}}\)}% = \e^{\i п} + 1 = 0, 4п, \symbb{R}^n\) }
 
-    % We try to define the directional derivative of a vector field. \(\e^{\i \pii} + 1 = 0, 4\pii\epsilon, n\pii\)
-
-    \chapter{Lagrangian and the action functional}
-
+    p\textit{p}
     \[
-        \operatorname{spec}_{\text{pp}}(A) = \{z \in \symbb{C} \mid \operatorname{ran}(A - z) = \overline{\operatorname{ran}(A - z)} \neq \symcal{H}\}
+        \operatorname{spec}_{\text{pp}}\spec_{\text{pp}}\operatorname{spec}_{\raisebox{0.6ex}{\textsubscript{pp}}}(A) c_p\spec_\Gamma \operatorname{spec}_\Gamma = \{z \in \symbb{C} \mid \operatorname{ran}(A - z) = \overline{\operatorname{ran}(A - z)} \neq \symcal{H}\}
     \]
     \[
-        \symcal{H}_\Gamma \symfrak{H}
+        \operatorname{spec}_{\raisebox{0.55ex}{\textsubscript{pp}}}
+    \]
+    \[
+        \symcal{H}_\Gamma \symfrak{H} c_p H_\Gamma
     \]  
+    \[\sin^2 + \cos^2 = 1\]
     
+    \[Hom(A, B) \neq \shom(\symcal{A}, \symcal{B})\]
+    \[\symcal{Hom}\]
+    \(\pi\)ɛпCoulomb's law reads
+    \[
+    % \muppi
+        \symbfit{F}_{\mathup{e}} = \frac{1}{4 \cpi \cepsilon_0} \frac{q_1 q_2}{r^2}.
+    \]
+    Euler's identity: \(\symup{e}^{\symup{i}\cpi} + 1 = 0\)
      
 
     \nocite{*}
