@@ -31,6 +31,8 @@
 
 % \usepackage[newcmbb]{fontsetup}
 \usepackage{unicode-math}
+% \usepackage{fontspec}
+% \usepackage{lua-unicode-math}
 \setmainfont[
     SizeFeatures={
         {Size=-8, Font=NewCM08-Book.otf,
@@ -327,10 +329,12 @@
         edition = 2,
         isbn = {978-1-4419-3087-3},
         publisher = {Springer Science+Business New York},
-        series = {Graduate Texts in Mathematics 60},
+        series = {Graduate Texts in Mathematics},
+        volume = 60,
         title = {Mathematical Methods of Classical Mechanics},
         year = {1989},
-        addendum = {Translated from Russian by K.\ Vogtmann and A.\ Weinstein.}
+        origlanguage = {Russian},
+        translator = {Karen Vogtmann and Alan Weinstein}
     }
 
     @book{Thirring,
@@ -338,19 +342,23 @@
         edition = 3,
         isbn = {978-0-387-40615-2},
         publisher = {Springer Science+Business New York},
-        title = {Classical Mathematical Physics: Dynamical Systems and Field Theories},
+        title = {Classical Mathematical Physics},
+        subtitle = {Dynamical Systems and Field Theories},
         year = {2003},
-        addendum = {Translated from German by Evans M.\ Harrell II.}
+        origlanguage = {German},
+        translator = {Evans M.\ Harrell II}
     }
 
     @book{Moretti,
         author = {Moretti, Valter},
         isbn = {978-3-031-27611-8},
         publisher = {Springer Nature Switzerland AG},
-        series = {\selectlanguage{italian}La Matematica per il 3+2\selectlanguage{english}},
+        series = {\selectlanguage{italian}UNITEXT - La Matematica per il 3+2\selectlanguage{english}},
         title = {Analytical Mechanics: Classical, Lagrangian and Hamiltonian Mechanics, Stability Theory, Special Relativity},
         year = {2023},
-        addendum = {Translated from Italian by Simon G.\ Choissi.}
+        volume = 50,
+        translator = {Simon G.\ Choissi},
+        origlanguage = {Italian}
     }
 
     @book{Tao,
@@ -358,7 +366,8 @@
         isbn = {978-93-80250-64-9},
         title = {Analysis I},
         publisher = {Hindustan Book Agency, New Delhi},
-        series = {Texts and Readings in Mathematics 37},
+        series = {Texts and Readings in Mathematics},
+        volume = 37,
         year = {2017},
         edition = 3,
     }
@@ -404,7 +413,8 @@
         publisher = {World Scientific, Singapore},
         isbn = {981-02-3555-0},
         year = {2001},
-        series = {World Scientific Lecture Notes in Physics}
+        series = {World Scientific Lecture Notes in Physics},
+        volume = 61
     }
 \end{filecontents}
 
