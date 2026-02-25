@@ -513,10 +513,10 @@
 \DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\setaux#1}
 \def\setaux#1|{#1\;\delimsize\vert\;}
 
-% from the amsmath package https://tex.stackexchange.com/a/37791/128462
+% from the amsmath package https://tex.stackexchange.com/a/37791/128462 and https://tex.stackexchange.com/a/685895/128462
 
 \renewcommand{\colon}{\nobreak\mskip2mu\mathpunct{}\nonscript
-  \mkern-\thinmuskip{:}\mskip6muplus1mu\relax}
+  \mkern-\thinmuskip{\Umathchar"6 "0 "3A}\mskip6muplus1mu\relax}
 
 % code from egreg's answer https://tex.stackexchange.com/a/757762/128462
 
