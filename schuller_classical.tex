@@ -333,7 +333,7 @@
         volume = 60,
         title = {Mathematical Methods of Classical Mechanics},
         year = {1989},
-        origlanguage = {Russian},
+        origlanguage = {russian},
         translator = {Karen Vogtmann and Alan Weinstein}
     }
 
@@ -345,7 +345,7 @@
         title = {Classical Mathematical Physics},
         subtitle = {Dynamical Systems and Field Theories},
         year = {2003},
-        origlanguage = {German},
+        origlanguage = {german},
         translator = {Evans M.\ Harrell II}
     }
 
@@ -358,7 +358,7 @@
         year = {2023},
         volume = 50,
         translator = {Simon G.\ Choissi},
-        origlanguage = {Italian}
+        origlanguage = {fromitalian}
     }
 
     @book{Tao,
@@ -427,6 +427,30 @@
 % \embedfile[desc = modified font file]{NewCMSansMath-Regular_modified.otf}
 % \embedfile[desc = modified font file]{NewCMMath-Book_modified.otf}
 
+\renewcommand*{\subtitlepunct}{\addcolon\space}
+
+% moewe's code from here https://tex.stackexchange.com/a/609093/128462
+
+\DefineBibliographyStrings{english}{
+  backrefpage  = {cited on page},
+  backrefpages = {cited on pages},
+}
+
+\renewcommand*{\bibpagerefpunct}{%
+  \finentrypunct\space}
+
+\DeclareFieldFormat{bracketswithperiod}{\mkbibbrackets{#1\addperiod}}
+
+\renewbibmacro*{pageref}{%
+  \iflistundef{pageref}
+    {}
+    {\printtext[bracketswithperiod]{%
+       \ifnumgreater{\value{pageref}}{1}
+         {\bibstring{backrefpages}\ppspace}
+         {\bibstring{backrefpage}\ppspace}%
+       \printlist[pageref][-\value{listtotal}]{pageref}}%
+\renewcommand*{\finentrypunct}{}}}
+
 \usepackage{imakeidx}
 \makeindex[intoc]
 
@@ -488,6 +512,13 @@
 
 \DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\setaux#1}
 \def\setaux#1|{#1\;\delimsize\vert\;}
+
+% code from egreg's answer https://tex.stackexchange.com/a/685895/128462
+
+\AtBeginDocument{%
+  % use the text colon for \colon as math punctuation
+  \RenewDocumentCommand{\colon}{}{\Umathchar"6 "0 "3A\relax}
+}
 
 \usepackage{makecell}
 
