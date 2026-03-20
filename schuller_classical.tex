@@ -121,26 +121,34 @@
 % ]{NewCMMath-Regular.otf}
 % \setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf, version=serif]{NewCMMath-Book_modified.otf}
 
-\directlua{
+\usepackage{luacode}
+\begin{luacode}
     local kerns = {
         ["NewCMMath-Book"] = {
-          ["uni211D.bb"] = { topright = { { kern = -70 } } }
+          ["uni211D.bb"] = { topright = { { kern = -70 } } } -- double-struck capital R
         },
         ["NewCMMath-Bold"] = {
-          ["uni211D.bb"] = { topright = { { kern = -30 } } }
+          ["uni211D.bb"] = { topright = { { kern = -30 } } } -- double-struck capital R
         }
     }
     local function addkerns(tfmdata)
-        if tfmdata.mathparameters then
-            local kerns = kerns[tfmdata.properties.fontname]
-            local unicodes = tfmdata.resources.unicodes
-            if kerns then
-                local characters = tfmdata.characters
-                for name, specification in pairs(kerns) do
-                    local character = characters[unicodes[name]]
-                    if character and not character.mathkerns then
-                        character.mathkerns = specification
-                    end
+        if not tfmdata.mathparameters then return end
+
+        local font_kerns = kerns[tfmdata.properties.fontname]
+        if not font_kerns then return end
+
+        local unicodes   = tfmdata.resources.unicodes
+        local characters = tfmdata.characters
+
+        for name, specification in pairs(font_kerns) do
+            local unicode = unicodes[name]
+            local character = unicode and characters[unicode]
+
+            if character then
+                character.mathkerns = character.mathkerns or {}
+
+                for side, data in pairs(specification) do
+                    character.mathkerns[side] = data
                 end
             end
         end
@@ -154,8 +162,7 @@
             node     = addkerns,
         }
     }
-
-}
+\end{luacode}
 
 \setmathfont[
     StylisticSet={3},
@@ -207,7 +214,7 @@
 
 \DeclareFontFamily{U}{mathc}{}
 \DeclareFontShape{U}{mathc}{m}{it}%
-{<->s*[1.03] mathc10}{}
+{<-> mathc10}{}
 
 \DeclareMathAlphabet{\lmathccal}{U}{mathc}{m}{it}
 % \DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
@@ -326,11 +333,11 @@
 \begin{filecontents}[overwrite]{schuller_classical.bib}
     @book{Arnold,
         author = {Arnold, Vladimir},
-        edition = 2,
+        edition = {2},
         isbn = {978-1-4419-3087-3},
         publisher = {Springer Science+Business New York},
         series = {Graduate Texts in Mathematics},
-        volume = 60,
+        volume = {60},
         title = {Mathematical Methods of Classical Mechanics},
         year = {1989},
         origlanguage = {russian},
@@ -339,7 +346,7 @@
 
     @book{Thirring,
         author = {Thirring, Walter},
-        edition = 3,
+        edition = {3},
         isbn = {978-0-387-40615-2},
         publisher = {Springer Science+Business New York},
         title = {Classical Mathematical Physics},
@@ -354,9 +361,10 @@
         isbn = {978-3-031-27611-8},
         publisher = {Springer Nature Switzerland AG},
         series = {\selectlanguage{italian}UNITEXT - La Matematica per il 3+2\selectlanguage{english}},
-        title = {Analytical Mechanics: Classical, Lagrangian and Hamiltonian Mechanics, Stability Theory, Special Relativity},
+        title = {Analytical Mechanics},
+        subtitle = {Classical, Lagrangian and Hamiltonian Mechanics, Stability Theory, Special Relativity},
         year = {2023},
-        volume = 50,
+        volume = {50},
         translator = {Simon G.\ Choissi},
         origlanguage = {fromitalian}
     }
@@ -367,9 +375,9 @@
         title = {Analysis I},
         publisher = {Hindustan Book Agency, New Delhi},
         series = {Texts and Readings in Mathematics},
-        volume = 37,
+        volume = {37},
         year = {2017},
-        edition = 3,
+        edition = {3},
     }
 
     @book{Misner,
@@ -386,7 +394,7 @@
         title = {Lectures on the Geometric Anatomy of Theoretical Physics},
         url = {https://drive.google.com/file/d/1nchF1fRGSY3R3rP1QmjUg7fe28tAS428/view},
         year = {2017},
-        note = {Lecture notes in \texttt{.pdf} format. Lecturer: Prof.\@ Frederic Paul Schuller}
+        note = {Lecture notes in \texttt{.pdf} format. Lecturer: Prof.\ Frederic Paul Schuller}
     }
 
     @misc{Schuller_geometric_videos,
@@ -409,12 +417,12 @@
     @book{Isham,
         author = {Isham, Chris J.},
         title = {Modern Differential Geometry for Physicists},
-        edition = 2,
+        edition = {2},
         publisher = {World Scientific, Singapore},
         isbn = {981-02-3555-0},
         year = {2001},
         series = {World Scientific Lecture Notes in Physics},
-        volume = 61
+        volume = {61}
     }
 \end{filecontents}
 
@@ -480,7 +488,7 @@
 
 \newcommand{\cpi}{\ensuremath{\text{п}}}
 \newcommand{\cepsilon}{\text{\textipa{ɛ}}}
-\newcommand{\ltwo}{\symrm{L\kern-0.3pt^2}}
+\newcommand{\ltwo}{\symrm{L\kern-0.4pt^2}}
 \newcommand{\position}{\symrm{Q}}
 \newcommand{\momentum}{\symrm{P}}
 \newcommand{\rr}{\symbb{R}}
@@ -497,12 +505,18 @@
 \newcommand{\identity}{\symrm{id}}
 \newcommand{\der}{\operatorname{d\!}{}}
 \newcommand{\manifold}{\symcal{M}}
-\newcommand{\topology}{\symcal{O}}
+\newcommand{\topology}{O}
 \newcommand{\atlas}{\symcal{A}}
 \newcommand{\powerset}{\symcal{P}}
 \newcommand{\ball}{B}
 \DeclareMathOperator{\spec}{spec}
 \DeclareMathOperator{\shom}{\lmathccal{Hom}}
+\newcommand{\hilbert}{\mathchoice
+  {\raisebox{0.4pt}{$\displaystyle\symcal{H}$}}
+  {\raisebox{0.4pt}{$\textstyle\symcal{H}$}}
+  {\raisebox{0pt}{$\scriptstyle\symcal{H}$}}
+  {\raisebox{0pt}{$\scriptscriptstyle\symcal{H}$}}
+}
 
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
