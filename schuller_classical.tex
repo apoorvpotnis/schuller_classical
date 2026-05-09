@@ -27,108 +27,121 @@
     warnings-off={mathtools-colon, mathtools-overbracket}
 }{unicode-math}
 \usepackage{mathtools, xparse}
-\usepackage[verbose=false, final, nopatch=footnote]{microtype}
+\usepackage[final]{microtype}
 
-% \usepackage[newcmbb]{fontsetup}
 \usepackage{unicode-math}
-% \usepackage{fontspec}
-% \usepackage{lua-unicode-math}
-\setmainfont[
-    SizeFeatures={
-        {Size=-8, Font=NewCM08-Book.otf,
-            ItalicFont=NewCM08-BookItalic.otf,
-            BoldFont=NewCM10-Bold.otf,
-            BoldItalicFont=NewCM10-BoldItalic.otf,
-            SlantedFont=NewCM08-Book.otf,
-            BoldSlantedFont=NewCM10-Bold.otf,
-            SmallCapsFeatures={Numbers=OldStyle}},
-        {Size=8, Font=NewCM08-Book.otf,
-            ItalicFont=NewCM08-BookItalic.otf,
-            BoldFont=NewCM10-Bold.otf,
-            BoldItalicFont=NewCM10-BoldItalic.otf,
-            SlantedFont=NewCM08-Book.otf,
-            BoldSlantedFont=NewCM10-Bold.otf,
-            SmallCapsFeatures={Numbers=OldStyle}},
-        {Size= 9-, Font = NewCM10-Book.otf,
-            ItalicFont=NewCM10-BookItalic.otf,
-            BoldFont=NewCM10-Bold.otf,
-            BoldItalicFont=NewCM10-BoldItalic.otf,
-            SlantedFont=NewCM10-Book.otf,
-            BoldSlantedFont=NewCM10-Bold.otf,
-            SmallCapsFeatures={Numbers=OldStyle}},
-    },
-    SmallCapsFeatures={Numbers=OldStyle},
-    BoldSlantedFont=NewCM10-Bold.otf,
-    SlantedFont=NewCM10-Book.otf,
-    BoldItalicFont=NewCM10-BoldItalic.otf,
-    BoldFont=NewCM10-Bold.otf,
-    ItalicFont=NewCM10-BookItalic.otf,
-    SlantedFeatures={FakeSlant=0.25},
-    BoldSlantedFeatures={FakeSlant=0.25}
+\setmainfont[%
+SizeFeatures={%
+    {Size=-8, Font=NewCM08-Book.otf,
+        ItalicFont=NewCM08-BookItalic.otf,%
+        BoldFont=NewCM10-Bold.otf,%
+        BoldItalicFont=NewCM10-BoldItalic.otf,%
+        SlantedFont=NewCM08-Book.otf,%
+        BoldSlantedFont=NewCM10-Bold.otf,%
+        SmallCapsFeatures={Numbers=OldStyle}},
+    {Size=8, Font=NewCM08-Book.otf,
+        ItalicFont=NewCM08-BookItalic.otf,%
+        BoldFont=NewCM10-Bold.otf,%
+        BoldItalicFont=NewCM10-BoldItalic.otf,%
+        SlantedFont=NewCM08-Book.otf,%
+        BoldSlantedFont=NewCM10-Bold.otf,%
+        SmallCapsFeatures={Numbers=OldStyle}},
+    {Size= 9-, Font = NewCM10-Book.otf,
+        ItalicFont=NewCM10-BookItalic.otf,%
+        BoldFont=NewCM10-Bold.otf,%
+        BoldItalicFont=NewCM10-BoldItalic.otf,%
+        SlantedFont=NewCM10-Book.otf,%
+        BoldSlantedFont=NewCM10-Bold.otf,%
+        SmallCapsFeatures={Numbers=OldStyle}}%
+},%
+SmallCapsFeatures={Numbers=OldStyle},%
+BoldSlantedFont=NewCM10-Bold.otf,%
+SlantedFont=NewCM10-Book.otf,%
+BoldItalicFont=NewCM10-BoldItalic.otf,%
+BoldFont=NewCM10-Bold.otf,%
+ItalicFont=NewCM10-BookItalic.otf,%
+SlantedFeatures={FakeSlant=0.25},%
+BoldSlantedFeatures={FakeSlant=0.25},%
 ]{NewCM10-Book.otf}
-
-\setmonofont[
-    ItalicFont=NewCMMono10-Italic.otf,
-    BoldFont=NewCMMono10-Bold.otf,
-    BoldItalicFont=NewCMMono10-BoldOblique.otf,
-    SlantedFont=NewCMMono10-Regular.otf,
-    SlantedFeatures={FakeSlant=0.25},
-    BoldSlantedFont=NewCMMono10-Bold.otf,
-    BoldSlantedFeatures={FakeSlant=0.25},
-    SmallCapsFeatures={Numbers=OldStyle}
-]{NewCMMono10-Regular.otf}
-
-\setsansfont[
-    SizeFeatures={
-        {Size= -8, Font=NewCMSans08-Regular.otf,
-            ItalicFont=NewCMSans08-Oblique.otf,
-            BoldFont=NewCMSans10-Bold.otf,
-            BoldItalicFont=NewCMSans10-BoldOblique.otf,
-            SmallCapsFeatures={Numbers=OldStyle},
-        },
-        {Size= 8, Font=NewCMSans08-Regular.otf,
-            ItalicFont=NewCMSans08-Oblique.otf,
-            BoldFont=NewCMSans10-Bold.otf,
-            BoldItalicFont=NewCMSans10-BoldOblique.otf,
-            SmallCapsFeatures={Numbers=OldStyle},
-        },
-        {Size= 9-, Font=NewCMSans10-Regular.otf,
-            ItalicFont=NewCMSans10-Oblique.otf,
-            BoldFont=NewCMSans10-Bold.otf,
-            BoldItalicFont=NewCMSans10-BoldOblique.otf,
-            SmallCapsFeatures={Numbers=OldStyle},
-        }},
-    ItalicFont=NewCMSans10-Oblique.otf,
-    BoldFont=NewCMSans10-Bold.otf,
-    BoldItalicFont=NewCMSans10-BoldOblique.otf,
-    SmallCapsFeatures={Numbers=OldStyle},
-    SlantedFont=NewCMSans10-Oblique.otf,
-    BoldSlantedFont=NewCMSans10-BoldOblique.otf,
+\setsansfont[%
+SizeFeatures={%
+    {Size= -8, Font=NewCMSans08-Regular.otf,%
+        ItalicFont=NewCMSans08-Oblique.otf,%
+        BoldFont=NewCMSans10-Bold.otf,%
+        BoldItalicFont=NewCMSans10-BoldOblique.otf,%
+        SmallCapsFeatures={Numbers=OldStyle},%
+    },
+    {Size= 8, Font=NewCMSans08-Regular.otf,%
+        ItalicFont=NewCMSans08-Oblique.otf,%
+        BoldFont=NewCMSans10-Bold.otf,%
+        BoldItalicFont=NewCMSans10-BoldOblique.otf,%
+        SmallCapsFeatures={Numbers=OldStyle},%
+    },
+    {Size= 9-, Font=NewCMSans10-Regular.otf,%
+        ItalicFont=NewCMSans10-Oblique.otf,%
+        BoldFont=NewCMSans10-Bold.otf,%
+        BoldItalicFont=NewCMSans10-BoldOblique.otf,%
+        SmallCapsFeatures={Numbers=OldStyle},%
+    }},
+ItalicFont=NewCMSans10-Oblique.otf,%
+BoldFont=NewCMSans10-Bold.otf,%
+BoldItalicFont=NewCMSans10-BoldOblique.otf,%
+SmallCapsFeatures={Numbers=OldStyle},%
+SlantedFont=NewCMSans10-Oblique.otf,%
+BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 ]{NewCMSans10-Regular.otf}
 
-% \setmathfont[
-%     StylisticSet={3},
-%     BoldFont = NewCMMath-Bold.otf
-% ]{NewCMMath-Book_modified.otf}
-% % \setmathfont[
-% %     StylisticSet={3}, 
-% %     BoldFont = NewCMMath-Bold.otf, 
-% %     version=serif
-% % ]{NewCMMath-Book_modified.otf}
-% \setmathfont[
-%     range={\symfrak,\symbffrak}, 
-%     BoldFont = NewCMMath-Bold.otf
-% ]{NewCMMath-Regular.otf}
-% \setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf, version=serif]{NewCMMath-Book_modified.otf}
+\setmonofont[%
+ItalicFont=NewCMMono10-Italic.otf,%
+BoldFont=NewCMMono10-Bold.otf,%
+BoldItalicFont=NewCMMono10-BoldOblique.otf,%
+SlantedFont=NewCMMono10-Regular.otf,%
+SlantedFeatures={FakeSlant=0.25},
+BoldSlantedFont=NewCMMono10-Bold.otf,%
+BoldSlantedFeatures={FakeSlant=0.25},
+SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
+\setsansfont[%
+SizeFeatures={%
+    {Size= -8, Font=NewCMSans08-Regular.otf,%
+        ItalicFont=NewCMSans08-Oblique.otf,%
+        BoldFont=NewCMSans10-Bold.otf,%
+        BoldItalicFont=NewCMSans10-BoldOblique.otf,%
+        SmallCapsFeatures={Numbers=OldStyle},%
+    },
+    {Size= 8, Font=NewCMSans08-Regular.otf,%
+        ItalicFont=NewCMSans08-Oblique.otf,%
+        BoldFont=NewCMSans10-Bold.otf,%
+        BoldItalicFont=NewCMSans10-BoldOblique.otf,%
+        SmallCapsFeatures={Numbers=OldStyle},%
+    },
+    {Size= 9-, Font=NewCMSans10-Regular.otf,%
+        ItalicFont=NewCMSans10-Oblique.otf,%
+        BoldFont=NewCMSans10-Bold.otf,%
+        BoldItalicFont=NewCMSans10-BoldOblique.otf,%
+        SmallCapsFeatures={Numbers=OldStyle},%
+    }},
+ItalicFont=NewCMSans10-Oblique.otf,%
+BoldFont=NewCMSans10-Bold.otf,%
+BoldItalicFont=NewCMSans10-BoldOblique.otf,%
+SmallCapsFeatures={Numbers=OldStyle},%
+SlantedFont=NewCMSans10-Oblique.otf,%
+BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
+]{NewCMSans10-Regular.otf}
+
 
 \usepackage{luacode}
 \begin{luacode}
     local kerns = {
         ["NewCMMath-Book"] = {
-          ["uni211D.bb"] = { topright = { { kern = -70 } } } -- double-struck capital R
+          ["uni211D.bb"] = { topright = { { kern = -70 } } }, -- double-struck upright uppercase R
+          ["u1D6FF"] = {bottomright = { { kern = -30 } } }, -- mathematical italic lowercase delta
+          ["u1D49F"] = {bottomright = { { kern = -100 } } }, -- mathematical calligraphic italic uppercase D
+          ["L"] = {topright = { { kern = -40 } } },
+          ["u1D464"] = {bottomright = { { kern = -150 } } } -- mathematical italic lowercase w
         },
         ["NewCMMath-Bold"] = {
-          ["uni211D.bb"] = { topright = { { kern = -30 } } } -- double-struck capital R
+          ["uni211D.bb"] = { topright = { { kern = -30 } } }, -- double-struck upright uppercase R
+          ["L"] = {topright = { { kern = -40 } } }
         }
     }
     local function addkerns(tfmdata)
@@ -167,15 +180,15 @@
 \setmathfont[
     StylisticSet={3},
     BoldFont = NewCMMath-Bold.otf,
-    RawFeature=+mathkerns
+    RawFeature=+mathkerns,
+    CharacterVariant=2
 ]{NewCMMath-Book.otf}
 \newcommand{\ipatext}{\addfontfeature{StylisticSet=5}}
 \newcommand{\textipa}[1]{{\ipatext#1}}
 \setmathfont[
-    range={\symfrak,\symbffrak}, 
+    range={\symfrak,\symbffrak,\symcal,\symbfcal,\symscr,\symbfscr}, 
     BoldFont = NewCMMath-Bold.otf
 ]{NewCMMath-Regular.otf}
-% \setmathfont[range=\mathcal]{MathematicalPiLTStd.ttf}
 
 \AddToHook{bfseries}{\boldmath} % Correct macro by egreg 
  
@@ -192,15 +205,6 @@
 \let\SS@makeulinepartchap\relax
 \makeatother
 
-% code copied from here https://tex.stackexchange.com/a/82221/128462
-
-\everymath=\expandafter{%
-\the\everymath%
-\Umathsubshiftdown\textstyle=1.8pt\Umathsubshiftdrop\textstyle=0.5pt}
-\everydisplay=\expandafter{%
-\the\everydisplay%
-\Umathsubshiftdown\displaystyle=1.8pt\Umathsubshiftdrop\displaystyle=0.5pt}
-
 % code copied from here https://tex.stackexchange.com/a/754196/128462
 
 \RenewDocumentCommand{\DeclareMathOperator}{mm}{%
@@ -209,115 +213,6 @@
     \operatorname{\smash[b]{#2}}%
   }%
 }
-
-% Ulrike Fischer code from here https://tex.stackexchange.com/a/373539/128462
-
-\DeclareFontFamily{U}{mathc}{}
-\DeclareFontShape{U}{mathc}{m}{it}%
-{<-> mathc10}{}
-
-\DeclareMathAlphabet{\lmathccal}{U}{mathc}{m}{it}
-% \DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
-\renewcommand{\symcal}{\lmathccal}
-
-% % \newfontfamily\uncial[%
-% %   SizeFeatures={%
-% % {Size=-8, Font=NewCMUncial08-Book.otf,
-% %       BoldFont=NewCMUncial10-Bold.otf,%
-% %       SlantedFont=NewCMUncial08-Book.otf,%
-% %       BoldSlantedFont=NewCMUncial10-Bold.otf,%
-% %       },
-% % {Size=8, Font=NewCMUncial08-Book.otf,
-% %       BoldFont=NewCMUncial08-Bold.otf,%
-% %       SlantedFont=NewCMUncial08-Book.otf,%
-% %       BoldSlantedFont=NewCMUncial10-Bold.otf,%
-% %       },
-% % {Size= 9-, Font = NewCMUncial10-Book.otf,
-% %       BoldFont=NewCMUncial10-Bold.otf,%
-% %       SlantedFont=NewCMUncial10-Book.otf,%
-% %       BoldSlantedFont=NewCMUncial10-Bold.otf,%
-% %       }%
-% %   },%
-% %   BoldSlantedFont=NewCMUncial10-Bold.otf,%
-% %   SlantedFont=NewCMUncial10-Book.otf,%
-% %   BoldFont=NewCMUncial10-Bold.otf,%
-% %   SlantedFeatures={FakeSlant=0.25},%
-% %   BoldSlantedFeatures={FakeSlant=0.25},%
-% %   ]{NewCMUncial10-Book.otf}
-% % \newcommand{\textuncial}[1]{{\uncial #1}}
-
-% \makeatletter
-% \g@addto@macro\bfseries{\boldmath}
-% \makeatother
-
-% \setmathfont[version=sans]{NewCMSansMath-Regular_modified.otf}
-% \newfontfamily\sanstext[
-%     SizeFeatures={
-%         {Size= -8, Font=NewCMSans08-Regular.otf,
-%             ItalicFont=NewCMSans08-Oblique.otf,
-%             BoldFont=NewCMSans10-Bold.otf,
-%             BoldItalicFont=NewCMSans10-BoldOblique.otf,
-%             SmallCapsFeatures={Numbers=OldStyle},
-%         },
-%         {Size= 8, Font=NewCMSans08-Regular.otf,
-%             ItalicFont=NewCMSans08-Oblique.otf,
-%             BoldFont=NewCMSans10-Bold.otf,
-%             BoldItalicFont=NewCMSans10-BoldOblique.otf,
-%             SmallCapsFeatures={Numbers=OldStyle},
-%         },
-%         {Size= 9-, Font=NewCMSans10-Regular.otf,
-%             ItalicFont=NewCMSans10-Oblique.otf,
-%             BoldFont=NewCMSans10-Bold.otf,
-%             BoldItalicFont=NewCMSans10-BoldOblique.otf,
-%             SmallCapsFeatures={Numbers=OldStyle},
-%         }},
-%     ItalicFont=NewCMSans10-Oblique.otf,
-%     BoldFont=NewCMSans10-Bold.otf,%
-%     BoldItalicFont=NewCMSans10-BoldOblique.otf,
-%     SmallCapsFeatures={Numbers=OldStyle},
-%     SlantedFont=NewCMSans10-Oblique.otf,
-%     BoldSlantedFont=NewCMSans10-BoldOblique.otf,
-% ]{NewCMSans10-Regular.otf}
-
-% % \DeclareSymbolFont{mathds}{U}{dsss}{m}{n}
-% % \DeclareMathAlphabet{\mathds}{U}{dsss}{m}{n}
-% % \let\originalsymbb\symbb
-% % \let\originalmathbb\mathbb
-
-% \AtBeginEnvironment{figure}{
-%     \sanstext\mathversion{sans}%
-%     % \renewcommand{\symbb}{\mathds}%
-%     % \renewcommand{\mathbb}{\mathds}%
-
-%     % \renewcommand\alpha{\sansalpha}
-% 	% \renewcommand\beta{\sansbeta}
-% 	% \renewcommand\gamma{\sansgamma}
-% }
-% \AtBeginEnvironment{table}{%
-%     \sanstext\mathversion{sans}%
-%     % \renewcommand{\symbb}{\mathds}%
-%     % \renewcommand{\mathbb}{\mathds}%
-% } 
-% \AfterEndEnvironment{figure}{
-%     \normalfont\mathversion{serif}%
-%     \setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}%
-%     % \let\symbb\originalsymbb\let\mathbb\originalmathbb%
-% }
-% \AfterEndEnvironment{table}{
-%     \normalfont\mathversion{serif}\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}%
-%     % \let\symbb\originalsymbb\let\mathbb\originalmathbb%
-% }
-
-
-
-% \DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
-% \renewcommand{\mathcal}{\cmmathcal}
-% \DeclareFontFamily{U}{mathc}{}
-% \DeclareFontShape{U}{mathc}{m}{it}%
-% {<->s*[1.03] mathc10}{}
-% \DeclareMathAlphabet{\cmmathcal}{U}{mathc}{m}{it}
-% \renewcommand{\mathcal}{\cmmathcal}
-% \let\symcal\mathcal
 
 \usepackage[style=british]{csquotes}
 
@@ -360,13 +255,13 @@
         author = {Moretti, Valter},
         isbn = {978-3-031-27611-8},
         publisher = {Springer Nature Switzerland AG},
-        series = {\selectlanguage{italian}UNITEXT - La Matematica per il 3+2\selectlanguage{english}},
+        series = {\selectlanguage{italian}\textsc{unitext} - La Matematica per il 3+2\selectlanguage{english}},
         title = {Analytical Mechanics},
         subtitle = {Classical, Lagrangian and Hamiltonian Mechanics, Stability Theory, Special Relativity},
         year = {2023},
         volume = {50},
         translator = {Simon G.\ Choissi},
-        origlanguage = {fromitalian}
+        origlanguage = {italian}
     }
 
     @book{Tao,
@@ -432,8 +327,10 @@
 
 \usepackage{embedall}
 \embedfile[desc = bibliography source file]{schuller_classical.bib}
-% \embedfile[desc = modified font file]{NewCMSansMath-Regular_modified.otf}
-% \embedfile[desc = modified font file]{NewCMMath-Book_modified.otf}
+\embedfile[desc = font file]{Akkurat-Regular.ttf}
+\embedfile[desc = font file]{Akkurat-Italic.ttf}
+\embedfile[desc = font file]{DINOT-CondMediIta.otf}
+\embedfile[desc = font file]{DINOT-CondMedium.otf}    
 
 \renewcommand*{\subtitlepunct}{\addcolon\space}
 
@@ -488,7 +385,7 @@
 
 \newcommand{\cpi}{\ensuremath{\text{п}}}
 \newcommand{\cepsilon}{\text{\textipa{ɛ}}}
-\newcommand{\ltwo}{\symrm{L\kern-0.4pt^2}}
+\newcommand{\ltwo}{\symrm{L^2}}
 \newcommand{\position}{\symrm{Q}}
 \newcommand{\momentum}{\symrm{P}}
 \newcommand{\rr}{\symbb{R}}
@@ -510,13 +407,8 @@
 \newcommand{\powerset}{\symcal{P}}
 \newcommand{\ball}{B}
 \DeclareMathOperator{\spec}{spec}
-\DeclareMathOperator{\shom}{\lmathccal{Hom}}
-\newcommand{\hilbert}{\mathchoice
-  {\raisebox{0.4pt}{$\displaystyle\symcal{H}$}}
-  {\raisebox{0.4pt}{$\textstyle\symcal{H}$}}
-  {\raisebox{0pt}{$\scriptstyle\symcal{H}$}}
-  {\raisebox{0pt}{$\scriptscriptstyle\symcal{H}$}}
-}
+\DeclareMathOperator{\shom}{\symcal{Hom}}
+\newcommand{\hilbert}{\symcal{H}}
 
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
@@ -571,31 +463,11 @@
 \usepackage{eso-pic}
 \usepackage{ifluatex}
 
-% \ifluatex
-%   \everymath=\expandafter{%
-%     \the\everymath%
-%     \Umathsubshiftdown\textstyle=2pt}
-%   \everydisplay=\expandafter{%
-%     \the\everydisplay%
-%     \Umathsubshiftdown\displaystyle=2pt}
-%   \everymath=\expandafter{%
-%     \the\everymath%
-%     \Umathsupshiftup\textstyle=4.13pt}
-%   \everydisplay=\expandafter{%
-%     \the\everydisplay%
-%     \Umathsupshiftup\displaystyle=4.13pt}
-% \fi
-
 \usepackage{hyperref}
 \hypersetup{citecolor=red, pdfencoding=auto, psdextra, pageanchor=true, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller's Lectures on Classical Mechanics}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Schuller's Lectures on Classical Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Classical Mechanics, Differential Geometry, Calculus of Variations, Hamiltonian Mechanics, Lagrangian Mechanics, Symplectic Geometry, General Relativity, Spacetime, Topological Manifolds, Principle of Stationary Action, Mathematical Physics, Classical Physics, Newtonian Mechanics, Lecture Notes}}
 \usepackage{cleveref}
 
 \usepackage{pdfrender}
-% \pdfrender{TextRenderingMode=FillStroke,LineWidth=0.04}
-
-% \AtBeginDocument{%
-%     \addtocontents{toc}{\protect\setmathfont[StylisticSet={3}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Book_modified.otf}\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}}
-% }
 
 \def\lsidebearing#1{\directlua{
       f = font.getfont(font.current())
