@@ -2,10 +2,8 @@
 % !BIB program = biber
 
 % arara: lualatex: {shell: yes} 
-% arara: biber 
-% arara: makeindex 
-% arara: lualatex: {shell: yes} 
-% arara: lualatex: {shell: yes} 
+% arara: biber if found('log','Please (re)run Biber')
+% arara: lualatex: { shell: yes } while found('log','Label(s) may have changed') || found('log','Please (re)run LaTeX')
 
 \documentclass[a4paper, 11pt]{book} 
 \usepackage[bindingoffset=30mm, left=2cm, right=2cm]{geometry} 
@@ -62,6 +60,7 @@ BoldFont=NewCM10-Bold.otf,%
 ItalicFont=NewCM10-BookItalic.otf,%
 SlantedFeatures={FakeSlant=0.25},%
 BoldSlantedFeatures={FakeSlant=0.25},%
+FakeBold=0.3
 ]{NewCM10-Book.otf}
 \setsansfont[%
 SizeFeatures={%
@@ -99,7 +98,7 @@ SlantedFont=NewCMMono10-Regular.otf,%
 SlantedFeatures={FakeSlant=0.25},
 BoldSlantedFont=NewCMMono10-Bold.otf,%
 BoldSlantedFeatures={FakeSlant=0.25},
-SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
+SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Book.otf}
 \setsansfont[%
 SizeFeatures={%
     {Size= -8, Font=NewCMSans08-Regular.otf,%
@@ -181,13 +180,15 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     StylisticSet={3},
     BoldFont = NewCMMath-Bold.otf,
     RawFeature=+mathkerns,
-    CharacterVariant=2
+    CharacterVariant=2,
+    FakeBold=0.3
 ]{NewCMMath-Book.otf}
 \newcommand{\ipatext}{\addfontfeature{StylisticSet=5}}
 \newcommand{\textipa}[1]{{\ipatext#1}}
 \setmathfont[
-    range={\symfrak,\symbffrak,\symcal,\symbfcal,\symscr,\symbfscr}, 
-    BoldFont = NewCMMath-Bold.otf
+    range={\symfrak,\symbffrak,\symcal,\symbfcal,\symscr,\symbfscr},
+    BoldFont = NewCMMath-Bold.otf,
+    FakeBold = 0.5
 ]{NewCMMath-Regular.otf}
 
 \AddToHook{bfseries}{\boldmath} % Correct macro by egreg 
@@ -321,15 +322,13 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     }
 \end{filecontents}
 
-\usepackage[sorting=none, hyperref, backref]{biblatex}
+\usepackage[sorting=none, hyperref, backref, backend=biber]{biblatex}
 \addbibresource{schuller_classical.bib}
 \usepackage{bibentry}
 
 \usepackage{embedall}
 \embedfile[desc = bibliography source file]{schuller_classical.bib}
 \embedfile[desc = font file]{Akkurat-Regular.ttf}
-\embedfile[desc = font file]{Akkurat-Italic.ttf}
-\embedfile[desc = font file]{DINOT-CondMediIta.otf}
 \embedfile[desc = font file]{DINOT-CondMedium.otf}    
 
 \renewcommand*{\subtitlepunct}{\addcolon\space}
@@ -402,7 +401,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 \newcommand{\identity}{\symrm{id}}
 \newcommand{\der}{\operatorname{d\!}{}}
 \newcommand{\manifold}{\symcal{M}}
-\newcommand{\topology}{O}
+\newcommand{\topology}{\symcal{O}}
 \newcommand{\atlas}{\symcal{A}}
 \newcommand{\powerset}{\symcal{P}}
 \newcommand{\ball}{B}
@@ -449,16 +448,14 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 
 \newfontfamily\dinotcondmed{DIN OT}[
    UprightFont = DINOT-CondMedium.otf ,
-   ItalicFont = DINOT-CondMediIta.otf
    ]
 \newfontfamily\akkurat{Akkurat}[
     UprightFont = Akkurat-Regular.ttf,
-    ItalicFont = Akkurat-Italic.ttf
 ]
-\newfontfamily\cmubrightsemibold{CMU Bright SemiBold}[
-    UprightFont = cmunbsr.otf,
-    ItalicFont = cmunbso.otf
-]
+% \newfontfamily\cmubrightsemibold{CMU Bright SemiBold}[
+%     UprightFont = cmunbsr.otf,
+%     ItalicFont = cmunbso.otf
+% ]
 
 \usepackage{eso-pic}
 \usepackage{ifluatex}
